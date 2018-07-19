@@ -1,0 +1,10 @@
+
+<div class="sidenav" id="mySidenav">
+    <div *ngFor="let menuItem of menuItems">
+        
+        <a routerLink={{menuItem.path}}><span class={{menuItem.icon}}></span>{{menuItem.title}}</a>
+    </div>
+
+</div>
+
+

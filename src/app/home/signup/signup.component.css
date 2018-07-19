@@ -1,0 +1,116 @@
+.container-fluid{
+    background-image: url("../../../assets/img/Imposing-Purple-Wallpaper.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+   
+fieldset{
+    transition: 0.8s;
+    margin-bottom: 50px;
+    border-color:#FF00FF;
+    border-style: groove;
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+.formulario{
+   
+   
+    width: 60%;
+    transition: 2s;
+    margin-top: 100px;
+    box-shadow: 0px 0px 20px #FF00FF,0px 0px 20px white;
+    margin-bottom: 130px;
+
+}
+
+.logo{
+    height: 75px;
+    margin-top: 40px;
+}
+
+.escapido{
+    margin-top: 40px;
+}
+
+h3{
+    color: white;
+    text-align: center; 
+}
+h4{
+    color: white;
+    padding-left: 50px;    
+}
+
+legend{
+    border:none;
+}
+
+.Input{
+    transition: 0.8s;
+    background-color: rgba(0, 0,0,.5);
+    color: white;
+    border-color: #006;
+    border-bottom-color: white;
+    border-bottom-style: groove;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    border-width: 2px;
+}
+
+.Input:hover{
+    transition: 0.8s;
+    background-color: rgba(55, 71,79,.5);
+    box-shadow: inset;
+    border-bottom-color: #FF00FF;
+}
+
+.Input:focus{
+    transition: .8s;
+    border-bottom-color: #FF00FF;
+}
+
+@media screen and (max-width:700px){
+    .formulario{
+        width: 95%;
+        margin-top: 10px; 
+    }
+
+    .logo{
+        height: 50px;
+    }
+}
+
+#user{
+    margin-left: 32%;
+   
+}
+#counceller{
+    margin-left: 10%;
+}
+
+#male{
+    margin-left: 32%;
+   
+}
+#female{
+    margin-left: 10%;
+}
+
+#ccounceller{
+    display: none;
+}
+
+span{
+    color:red;
+    padding-left:50px;
+}
+#siginupErrorstyle{
+    color:red;
+    text-align: center;
+}

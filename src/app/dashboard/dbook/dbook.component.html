@@ -1,0 +1,98 @@
+
+<div class="row">
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
+    <div class="card">
+        <h1 class="card-title">Book Councellers Near You</h1>
+
+
+        <div class="row">
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="card-header">
+
+              
+            </div>
+            <div id="locator">
+                <img src="../../../assets/img/myicon1.png" width="40px" height="50px">
+            </div>
+          </div>
+
+          <div class="col-sm-8 col-md-8 col-lg-8">
+            <p class="card-text">From our system you can book councellers who are closest to your loation. The councellers are shown in 
+                anther pointer in the map.All you need to do is press on selected counceller and press the book button. It's soo much easy..
+            </p>
+
+            
+          </div>
+      </div>
+
+    <!--map is here-->
+      <div class="card-body">
+
+        
+         <div id="googleMap">
+              <agm-map [latitude]="lat" [longitude]="lng"  [zoom]="10" [scrollwheel]="false" >
+                  <agm-marker  [latitude]="lat" [longitude]="lng" [iconUrl]= "'../../../assets/img/myicon1.png'" [title]="you" >
+                      <agm-info-window>
+                          <h3><strong>Hey {{name}}</strong></h3>
+                          <p>You are here...</p>
+                      </agm-info-window>
+                  </agm-marker>
+          
+                  <div *ngFor="let counceller of councellers">
+                      <agm-marker  [latitude]="counceller.lat" [longitude]="counceller.lon" [iconUrl]= "'../../../assets/img/cicon1.png'">
+                          <agm-info-window>
+                              <p>{{counceller.name}}</p>
+                    
+                              <p>{{counceller.address}}</p>
+                              <button (click)="onPressSelect(counceller.id)">Select</button>
+                          </agm-info-window>
+                      </agm-marker>
+                  </div>
+                
+                  
+              </agm-map>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="row">
+
+
+        <div class="col-md-4 col-lg-4 col-sm-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h2 class="card-title">Enabled Councellrs</h2>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                   <div class="listc" *ngFor="let mycounceller of mycouncellers">
+                       {{mycounceller.name}}
+                   </div>
+                    
+                  </div>
+                </div>
+        </div>
+
+
+        <div class="col-md-8 col-lg-8 col-sm-8">
+                <div class="card">
+                  <div class="card-body">
+                    <h2 class="card-title">Select From Our Collection</h2>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+
+                    <div class="listc"  *ngFor="let counceller of councellers">
+                        {{counceller.name}}
+
+                        <button type="button" class="bookbtn" (click)="onPressBook(counceller.id)">Book</button>
+                        <button type="button" class="bookbtn" (click)="onPressSelect(counceller.id)">Map</button>
+
+                        <hr>
+                    </div>
+                    
+                  </div>
+                </div>
+        </div>
+
+  </div>

@@ -1,0 +1,205 @@
+
+<div class="container-fluid">
+  <div class="container formulario">
+    <div class="row">
+     
+
+      <div class="escapido">
+
+        </div>
+
+      <fieldset class="col-xs-10 col-xs-offset-1">
+          <legend class="hidden-xs"><h3>Sign Up</h3></legend>
+
+          <form class="form-horizontal" #signupForm="ngForm" (ngSubmit)="onSignUp(signupForm.value)">
+
+              <div class="form-group" [class.has-error]="name.touched && name.invalid">
+                  <label class="col-xs-12" for="name"><h4>Name</h4></label>
+    
+                  <div class="col-xs-10 col-xs-offset-1">
+                    <input type="text" class="form-control Input" id="name" #name= "ngModel" name="name" [(ngModel)]="user.name" placeholder="Enter Name" required>
+                  </div>
+    
+                </div>
+                <span class="help-block" *ngIf="name.touched && name.errors?.required">Name is required</span>
+
+
+                <div class="form-group">
+                    <label class="col-xs-12" for="email"><h4>Email</h4></label>
+      
+                    <div class="col-xs-10 col-xs-offset-1">
+                      <input type="email" id="email" class="form-control Input" id="email" #email="ngModel" name="email" [(ngModel)]="user.email" placeholder="Enter email" required pattern="[^ @]*@[^ @]*">
+                    </div>
+      
+                  </div>
+                  <span class="help-block" *ngIf="email.touched && email.errors?.required">Email is required</span>
+            
+            <div class="form-group" >
+              <label class="col-xs-12" for="username"><h4>Username</h4></label>
+
+              <div class="col-xs-10 col-xs-offset-1">
+                <input type="text" id="username" class="form-control Input" id="username" #username="ngModel" name="username" [(ngModel)]="user.username" placeholder="Enter Username" required>
+              </div>
+
+            </div>
+            <span class="help-block" *ngIf="username.touched && username.errors?.required">Username is required</span>
+
+            
+            <div class="form-group">
+                <label class="col-xs-12" for="password"><h4>Password</h4></label>
+  
+                <div class="col-xs-10 col-xs-offset-1">
+                  <input type="password" class="form-control Input" id="password" #password="ngModel" name="password" [(ngModel)]="user.password" placeholder="Enter password" required>
+                </div>
+  
+              </div>
+             <span class="help-block" *ngIf="password.touched && password.errors?.required">Password is required</span>
+
+              <div class="form-group">
+                  <label class="col-xs-12" for="confpassword"><h4>Confirm Password</h4></label>
+    
+                  <div class="col-xs-10 col-xs-offset-1">
+                    <input type="password" id="confpassword" class="form-control Input" appConfirmvalidator="password" #conpassword="ngModel" [(ngModel)]="user.conpassword" name="conpassword" placeholder="Confirm password" required>
+                  </div>
+    
+                  
+                </div>
+
+                <span class="help-block" *ngIf="conpassword.touched && conpassword.errors?.required">Password is required</span>
+                <span class="help-block" *ngIf="conpassword.touched && conpassword.errors?.notEqual && !conpassword.errors?.required">Passwords Doesnot match</span>
+         
+               
+          
+                <div class="form-group">
+                    <label class="col-xs-12" for="gender"><h4>Gender</h4></label>
+      
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <p class=" Input">
+                            <input id = "male" type = "radio" name = "gender" #gender="ngModel"
+                               value = "male" [(ngModel)]="user.gender" checked/>
+                            <label for = "male"><h6 class="black" style="font-size: 15px;">Male</h6></label>
+
+                            <input id = "female" type = "radio" name = "gender"
+                               value = "female" [(ngModel)]= 'user.gender' #gender="ngModel"/>
+                            <label for = "female"><h6 class="black" style="font-size: 15px;">Female</h6></label>
+                         </p>
+                    </div>
+      
+                  </div>
+                  
+                  <div class="form-group">
+                      <label class="col-xs-12" for="address"><h4>Address</h4></label>
+        
+                      <div class="col-xs-10 col-xs-offset-1">
+                        <input type="text" class="form-control Input" id="address" #address= "ngModel" name="address" [(ngModel)]="user.address" placeholder="Enter Address" required>
+                      </div>
+        
+                    </div>
+
+                    <span class="help-block" *ngIf="address.touched && address.errors?.required">Address is required</span>
+
+                    <div class="form-group">
+                        <label class="col-xs-12" for="phoneno"><h4>Phone no</h4></label>
+          
+                        <div class="col-xs-10 col-xs-offset-1">
+                          <input type="text"  class="form-control Input" id="phone_number" #phone_number="ngModel" name="phone_number" [(ngModel)]="user.phone_number" placeholder="Enter Phone No"required>
+                        </div>
+          
+                      </div>
+                      <span class="help-block" *ngIf="phone_number.touched && phone_number.errors?.required">Phone number is required</span>
+
+                      <div class="form-group">
+                          <label class="col-xs-12" for="birthday"><h4>Birthday</h4></label>
+            
+                          <div class="col-xs-10 col-xs-offset-1">
+                            <input type="date"  class="form-control Input" id="birth_date" #birth_date="ngModel" name="birth_date" [(ngModel)]="user.birth_date" placeholder="Enter Birthday" required>
+                          </div>
+            
+                        </div>
+                        <span class="help-block" *ngIf="birth_date.touched && birth_date.errors?.required">Birthday is required</span>
+
+
+                        <div class="form-group">
+                            <label class="col-xs-12" for="gender"><h4>Type</h4></label>
+              
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <p class=" Input">
+                                    <input id = "user" type = "radio" name = "user"
+                                       value = "user" [(ngModel)]="user.type"  (click)="showhiddensignup2()" checked/>
+                                    <label for = "user"><h6 class="black" style="font-size: 15px;">User</h6></label>
+      
+                                    <input id = "counceller" type = "radio" name = "user"
+                                       value = "counceller" [(ngModel)]="user.type"  (click)="showhiddensignup1()" />
+                                    <label for = "counceller"><h6 class="black" style="font-size: 15px;">Counceller</h6></label>
+                                 </p>
+                                
+                            </div>
+              
+                          </div>
+
+
+                          <div id="cuser">
+                              <div class="form-group">
+                                  <label class="col-xs-12" for="user"><h4>Gardian Phone No:</h4></label>
+                    
+                                  <div class="col-xs-10 col-xs-offset-1">
+                                    <input type="text"  class="form-control Input" id="gardian_phone_number" #gardian_phone_number="ngModel" name="gardian_phone_number" [(ngModel)]="user.guadiant_phone_number" placeholder="Enter Gardian phone No"required>
+                                  </div>
+                    
+                                </div>
+                                <span class="help-block" *ngIf="gardian_phone_number.touched && gardian_phone_number.errors?.required">Gardian Phone number is required</span>
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="job"><h4>Job</h4></label>
+                      
+                                    <div class="col-xs-10 col-xs-offset-1">
+                                      <input type="text"  class="form-control Input" id="job" #job="ngModel" name="job" [(ngModel)]="user.job" placeholder="Enter Job"required >
+                                    </div>
+                      
+                                  </div>
+                                  <span class="help-block" *ngIf="job.touched && job.errors?.required">Job is required</span>
+                          </div>
+
+
+                          <div id="ccounceller">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="qualification"><h4>Qualification:</h4></label>
+                  
+                                <div class="col-xs-10 col-xs-offset-1">
+                                  <input type="text"  class="form-control Input"  id="qualification" #qualification="ngModel" name="qualification" [(ngModel)]="user.qualification" placeholder="Enter qualification" required>
+                                </div>
+                  
+                              </div>
+                              <span class="help-block" *ngIf="qualification.touched && qualification.errors?.required">Qualification is required</span>
+
+                              <div class="form-group">
+                                  <label class="col-xs-12" for="certificate"><h4>Certificate</h4></label>
+                    
+                                  <div class="col-xs-10 col-xs-offset-1">
+                             <input type="text"  class="form-control Input"  id="certificate" #certificate="ngModel" name="certificate" [(ngModel)]="user.certificate" placeholder="Enter Certificate detail" required>>
+                                  </div>
+                    
+                                </div>
+                                <span class="help-block" *ngIf="certificate.touched && certificate.errors?.required">certificate is required</span>
+    
+                        </div>
+
+
+              <div class="form-group">
+                 <button type="submit" class="btn btn-primary center-block" id="showweb" >Sign Up</button>
+                  <!-- [disabled]="!signupForm.valid" -->
+                </div>
+                <p id="siginupErrorstyle"><b>{{siginupError}}</b></p>
+               
+          </form>
+          <div class="form-group">
+             <a routerLink="/signin">Go to Sign In</a>
+ 
+             </div>
+      </fieldset>
+    </div>
+
+  </div>
+
+
+</div>

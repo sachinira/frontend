@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>StressController</title>
+  <base href="/">
+
+<!-- BEGIN TRACKJS 
+<script type="text/javascript">window._trackJs = { token: 'a833870f08d341698acda7867eeb0eba' };</script>
+<script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+END TRACKJS -->
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script>
+
+      $(document).ready(function(){
+   // Add smooth scrolling to all links in navbar + footer link
+   $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+   if (this.hash !== "") {
+
+     // Prevent default anchor click behavior
+     event.preventDefault();
+
+     // Store hash
+     var hash = this.hash;
+
+     // Using jQuery's animate() method to add smooth page scroll
+     // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+     $('html, body').animate({
+       scrollTop: $(hash).offset().top
+     }, 900, function(){
+
+       // Add hash (#) to URL when done scrolling (default click behavior)
+       window.location.hash = hash;
+       });
+     } // End if
+   });
+ })
+
+       $(window).scroll(function() {
+   $(".slideanim").each(function(){
+     var pos = $(this).offset().top;
+
+     var winTop = $(window).scrollTop();
+     if (pos < winTop + 600) {
+       $(this).addClass("slide");
+     }
+   });
+ })
+
+
+ function openNav() {
+  
+  if(document.getElementById("mySidenav").style.width == "250px"){
+      
+      document.getElementById("mySidenav").style.width = "0px";
+    
+       
+  }else{
+      document.getElementById("mySidenav").style.width = "250px";    
+    
+      
+  }
+}
+</script>
+
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

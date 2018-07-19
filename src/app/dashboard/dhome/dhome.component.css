@@ -1,0 +1,129 @@
+/*card*/
+
+.row{
+    padding: 1vh;
+   
+   
+}
+
+.card{
+    /*background:linear-gradient(rgb(165, 22, 139), rgb(12, 5, 109));*/
+    background: transparent;
+    padding: 1vmax;
+    margin: 1vmax;
+    margin-left: 1vmax;
+    margin-right: 1vmax;
+    color: rgb(252, 252, 252);
+    box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);
+    opacity: 0.9;
+
+}
+
+.sm{
+    height: 65vh;
+    overflow: hidden;
+    box-shadow: wheat;
+}
+.card-title{
+    text-align: center;
+    padding: 1vh;
+}
+
+/*tabs*/
+.tablink {
+    background-color: rgb(19, 10, 104);
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.tablink:hover{
+    background-color: aqua;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 10%;
+    text-align: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    
+}
+
+/* Style each tab content individually */
+#London {
+    background-image: url('../../../assets/img/cardb.jpeg');
+    
+}
+
+#Paris {
+    background-image: url('../../../assets/img/card.jpg');
+
+}
+
+#Oslo {
+    background-image: url('../../../assets/img/ceaser.jpeg');
+
+}
+
+
+/*tab questions*/
+
+.radiob{
+    float: right;
+}
+
+.list{
+    padding: 50px;
+}
+
+.answers{
+    float: right;
+    
+}
+
+h5{
+    color: rgb(153, 241, 241);
+}
+
+input{
+    margin: 10px;
+    padding: 10px;
+    
+}
+
+.qitem{
+    padding: 5px;
+    font-size: 3vh;
+
+}
+
+.cal{
+    width: 100%;
+    padding: 3vh;
+    color: rgb(252, 248, 248);
+    background-color: rgb(18, 116, 201);
+    font-size: 3vh;
+    border: none;
+}
+
+.result{
+    color: aliceblue;
+}
+
+/*carousal*/
+
+.carousel-inner{
+    background-image: url('../../../assets/img/abstract-blue-title-page-background-4k_e1rwupfqx__F0000.png');
+    height: 300px;
+    background-size: cover;
+
+}
+
+.item{
+    
+}
