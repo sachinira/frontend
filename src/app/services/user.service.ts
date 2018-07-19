@@ -39,9 +39,10 @@ export class UserService {
   map_counceller(user_id:string,counceller_id:string){
     return this.http.post(this.baseUrl+'/user/mapCounceller',{user_id,counceller_id},this.httpOptions);
   }
-  get_all_councellers(){
+  
+  /*get_all_councellers(){
     return this.http.post(this.baseUrl+'/getAllCouncellers',{},this.httpOptions);
-  }
+  }*/
 
   get_mapped_councellers(id:string){
     return this.http.post(this.baseUrl+'/getMappedCounellers',{id},this.httpOptions);
