@@ -22,6 +22,8 @@ export class HadsQuiz{
     }
   
     scoreQuiz(){
+      this.score=0;
+
        for(var i=0;i<this.ques.length;i++){
         this.score = this.score+ +this.ques[i].mark;
       }

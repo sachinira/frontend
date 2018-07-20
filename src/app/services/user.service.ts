@@ -45,7 +45,7 @@ export class UserService {
   }*/
 
   get_mapped_councellers(id:string){
-    return this.http.post(this.baseUrl+'/getMappedCounellers',{id},this.httpOptions);
+    return this.http.post(this.baseUrl+'/getMappedCouncellers',{id},this.httpOptions);
   }
 
   getData(id:string){

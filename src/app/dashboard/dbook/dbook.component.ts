@@ -12,12 +12,16 @@ export class DbookComponent implements OnInit {
   qid:string;
   //cid:string="2";
   councellers:AllUser[] = [];
-  mycouncellrs:AllUser[]=[];
+  mycouncellers:AllUser[]=[];
   clats:number[] = [];
   clons:number[] = [];
   name:string;
   index=0;
   reqid:string;
+
+
+  /*for hiding and showing button*/
+  booked=false;
 
   /*This value must be the users location*/
   lat=6.0242533;
@@ -49,7 +53,22 @@ export class DbookComponent implements OnInit {
 
     );
 
-    this.onBookedCounceller();
+    this.service.get_mapped_councellers(this.qid).subscribe(
+      (data)=>{
+
+        console.log(data);
+        
+        data['list'].forEach(element => {
+
+          this.mycouncellers.push(element);
+          
+        });
+      },
+      (err)=>{
+        console.log(err);
+        
+      }
+    );
   }
 
 
@@ -57,7 +76,7 @@ export class DbookComponent implements OnInit {
     this.service.map_counceller(this.qid,id).subscribe(
       (res)=>{
         console.log(res);
-        this.onBookedCounceller();
+        //this.onBookedCounceller();
       },
       (err)=>{
         console.log(err);
@@ -72,6 +91,7 @@ export class DbookComponent implements OnInit {
     this.service.booking_request(this.qid,id).subscribe(
       (res)=>{
         console.log(res);
+        this.booked=true;
       },
       (err)=>{
         console.log(err);
@@ -97,17 +117,6 @@ export class DbookComponent implements OnInit {
 
   }
 
- onBookedCounceller(){
-    this.service.get_mapped_councellers(this.qid).subscribe(
-      (data)=>{
-        data['list'].forEach(element => {
-          this.mycouncellrs.push(element);
-          console.log(element);
-          
-        });
-      }
-    )
-  }
 
 
   onPressChat(id:string){
