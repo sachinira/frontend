@@ -13,7 +13,7 @@
     margin: 1vmax;
     margin-left: 1vmax;
     margin-right: 1vmax;
-    color: rgb(252, 252, 252);
+    color: rgb(238, 219, 245);
     box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);
     opacity: 0.9;
 
@@ -30,7 +30,37 @@
 }
 
 /*tabs*/
-.tablink {
+.nav {
+    overflow: hidden;
+   /* border: 1px solid #ccc;*/
+    border: none;
+    background-color: rgba(0,0,0,0.1);}
+
+/* Style the buttons that are used to open the tab content */
+.nav button {
+    /*background-color: inherit;*/
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    background-color: rgba(0,0,0,0.1);
+
+}
+
+/* Change background color of buttons on hover */
+.nav button:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* Create an active/current tablink class */
+.nav button.active {
+    background-color: rgba(0,0,0,0.1);
+}
+
+
+/*.tablink {
     background-color: rgb(19, 10, 104);
     color: white;
     float: left;
@@ -41,7 +71,7 @@
 
 .tablink:hover{
     background-color: aqua;
-}
+}*/
 
 /* Set default styles for tab content */
 .tabcontent {
