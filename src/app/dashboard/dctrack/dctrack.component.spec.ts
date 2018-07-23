@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DtrackComponent } from './dtrack.component';
+import { DctrackComponent } from './dctrack.component';
 
-describe('DtrackComponent', () => {
-  let component: DtrackComponent;
-  let fixture: ComponentFixture<DtrackComponent>;
+describe('DctrackComponent', () => {
+  let component: DctrackComponent;
+  let fixture: ComponentFixture<DctrackComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DtrackComponent ]
+      declarations: [ DctrackComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DtrackComponent);
+    fixture = TestBed.createComponent(DctrackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

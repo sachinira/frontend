@@ -24,6 +24,9 @@ export class DprofileComponent implements OnInit {
         this.user.name = data['name'];
         this.user.type = data['type'];
         this.user.address=data['address'];
+        this.user.birth_date=data['birth_date'];
+        this.user.phone_number=data['phone_number'];
+        
       }
     )
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { UserService } from '../../../services/user.service';
 
 
 @Component({
@@ -10,12 +11,30 @@ import { Chart } from 'chart.js';
 export class ChartComponent implements OnInit {
 
   chart:any;
+  history:string[] = [];
+  date:number[] = [];
+  qid:string;
 
-  constructor() { }
+  constructor(private service:UserService) { }
 
   ngOnInit() {
+    this.qid = localStorage.getItem("id");
 
+    this.service.get_history(this.qid).subscribe(
+      (data)=>{
+        data['historyList'].forEach(element => {
+          this.history.push(element['stressLevel']);
+          this.date.push(element['dateTime']);
+        });
 
+        console.log(this.history);
+        console.log(this.date);
+      },
+      (err)=>{
+        console.log(err);
+        
+      }
+    );
    /* var ctx = document.getElementById('mychart');
     var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
 
@@ -26,7 +45,7 @@ export class ChartComponent implements OnInit {
     this.chart = new Chart('mychart',{
       type:'line',
       data: {
-        labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
+        labels: this.date,
         datasets: [{
           label: "Data",
           borderColor: "#80b6f4",

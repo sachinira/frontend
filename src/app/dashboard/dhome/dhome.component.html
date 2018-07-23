@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6 col-lg-6 col-sm-6">
+    <div class="col-md-12 col-lg-12 col-sm-12">
       <div class="card sm">
         <div class="card-body">
           <h2 class="card-title">Some Tips To Make Your Day</h2>
@@ -47,7 +47,8 @@
          </div>
          </div>
 
-
+</div>
+<div class="row">
     <div class="col-md-6 col-lg-6 col-sm-6">
       <div class="card sm">
         <div class="card-body">
@@ -95,11 +96,11 @@
               <div class="tab-content">
                 <div id="home" class="tab-pane fade-in active">
                   <ol class="list">
-                    <form>
+                    <form #myForm="ngForm" (submit)="calHR(); myForm.reset()">
                     <div *ngFor="let question of hrquestions">
                     <li class="qitem">{{question.question}} 
                         <div class="answers">
-                            <input id = "yes" type = "radio" [(ngModel)]=question.mark name="hr{{question.index}}" value="{{question.marks}}" checked/>
+                            <input id = "yes" type = "radio" [(ngModel)]=question.mark name="hr{{question.index}}" value="{{question.marks}}"/>
                             <label for = "yes"><h5 class="black" style="font-size: 15px;">Yes</h5></label>
                           
                               <input id = "no" type = "radio" [(ngModel)]=question.mark  name="hr{{question.index}}" value="0" />
@@ -108,9 +109,9 @@
                     </li>
                     <hr>
                     </div>
-                    <button type="submit" class="cal" (click)="calHR()">calculate</button>
+                    <button type="submit" class="cal"  data-toggle="modal" data-target="#myModal">calculate</button>
 
-                    <p *ngIf ="show" class="result" >Your Score is {{hrquiz.score}} </p>                                                                                                   
+                                                                                                                     
 
 
                     </form>
@@ -118,10 +119,10 @@
                 </div>
                 <div id="menu1" class="tab-pane fade">
                   <ol class="list">
-                    <form>
+                    <form #myFormP="ngForm" (submit)="calPSS(); myFormP.reset()">
                      <div *ngFor="let question of pssquestions">
                           <li class="qitem">{{question.question}} <br/>
-                                <input id = "never" type = "radio" [(ngModel)]="question.mark"  name="pss{{question.index}}" value="{{question.ans1m}}"  checked/>
+                                <input id = "never" type = "radio" [(ngModel)]="question.mark"  name="pss{{question.index}}" value="{{question.ans1m}}"/>
                                 <label for = "never"><h5 class="black" style="font-size: 15px;">Never</h5></label>
                             
                                 <input id = "alnever" type = "radio" [(ngModel)]="question.mark" name="pss{{question.index}}" value="{{question.ans2m}}"  />
@@ -140,10 +141,10 @@
                       </div>
                       
 
-                      <button type="submit" class="cal"(click)="calPSS()" >calculate</button>
+                      <button type="submit" class="cal" data-toggle="modal" data-target="#myModal">calculate</button>
 
                     
-                      <p *ngIf ="show" class="result" >Your Score is {{pssquiz.score}} </p>                                                                                                   
+                                                                                                                     
                     
                     </form>
                   
@@ -155,11 +156,11 @@
                 </div>
                 <div id="menu2" class="tab-pane fade">
                   <ol class="list">
-                    <form>
+                    <form #myFormH="ngForm" (submit)="calHads(); myFormH.reset()">
                       <div *ngFor="let question of hdssquestions">
                           <li class="qitem">{{question.question}}<br>
 
-                             <input id = "ans1" type = "radio" name ="hads{{question.index}}" value ="{{question.ans1m}}"  checked/>
+                             <input id = "ans1" type = "radio" name ="hads{{question.index}}" value ="{{question.ans1m}}"/>
                               <label for = "ans1"><h5 class="black" style="font-size: 15px;">{{question.ans1}}</h5></label>
                           
                               <input id = "ans2" type = "radio" name ="hads{{question.index}}" value ="{{question.ans2m}}"/>
@@ -175,9 +176,9 @@
                           <hr>
                       </div>
 
-                      <button type="submit" class="cal"(click)="calHads()" >calculate</button>
+                      <button type="submit" class="cal"  data-toggle="modal" data-target="#myModal">calculate</button>
 
-                      <p *ngIf ="show" class="result" >Your Score is {{hdssquiz.score}} </p>                                                                                                   
+                                                                                                                        
 
                       </form>
                   </ol> 
@@ -190,3 +191,33 @@
   </div>
 
   </div>
+
+  <div class="row">
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+        <div class="gauge">
+          <canvas width="70" height="70" id="canvas-preview"></canvas>
+          <div id="preview-textfield" style="font-size: 15px;">0%</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <p *ngIf ="show && hr" class="result" >Your Score is {{hrquiz.score}} </p>  
+        <p *ngIf ="show && pss" class="result" >Your Score is {{pssquiz.score}} </p> 
+        <p *ngIf ="show && hads" class="result" >Your Score is {{hdssquiz.score}} </p> 
+     
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

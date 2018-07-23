@@ -5,6 +5,7 @@ import { HadsQuestion } from './hadsquestion';
 import { PssQuestion } from './pssquestion';
 import { HadsQuiz } from './hadsquiz';
 import { PssQuiz } from './pssquiz';
+import { Donut} from '../../../assets/js/gauge.min.js';
 
 @Component({
   selector: 'app-dhome',
@@ -15,6 +16,9 @@ export class DhomeComponent implements OnInit {
 
   score:number=0;
   public show = false;
+  public hr=false;
+  public pss=false;
+  public hads=false;
 
   private hrquestions = [
     new Question("Death of close family member","100","1"),
@@ -91,6 +95,7 @@ export class DhomeComponent implements OnInit {
 // Get the element with id="defaultOpen" and click on it
   document.getElementById("defaultOpen").click(); 
 
+  
   }
 
   openCity(cityName, elmnt, color) {
@@ -120,6 +125,31 @@ calHR(){
   this.hrquiz.scoreQuiz();
   console.log(this.hrquiz.score);
   this.show = true;
+  this.hr=true;
+
+
+  var opts = {
+    lines: 12, // The number of lines to draw
+    angle: 0.22, // The length of each line
+    lineWidth: 0.1, // The line thickness
+    pointer: {
+      length: 0.9, // The radius of the inner circle
+      strokeWidth: 0.035, // The rotation offset
+      color: '#000000' // Fill color
+    },
+    limitMax: 'false', // If true, the pointer will not go past the end of the gauge
+    colorStart: '#2DA3DC', // Colors
+    colorStop: '#C0C0DB', // just experiment with them
+    strokeColor: '#EEEEEE', // to see which ones work best for you
+    generateGradient: true
+  };
+  var target = document.getElementById('canvas-preview'); // your canvas element
+  var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
+  gauge.maxValue = 100; // set max gauge value
+  gauge.animationSpeed = 32; // set animation speed (32 is default value)
+  gauge.set(this.hrquiz.score); // set actual value
+  gauge.setTextField(document.getElementById("preview-textfield"));
+
   
 }
 
@@ -127,13 +157,60 @@ calPSS(){
   this.pssquiz.scoreQuiz();
   console.log(this.pssquiz.score);
   this.show = true;
+  this.pss=true;
+
+  var opts = {
+    lines: 12, // The number of lines to draw
+    angle: 0.22, // The length of each line
+    lineWidth: 0.1, // The line thickness
+    pointer: {
+      length: 0.9, // The radius of the inner circle
+      strokeWidth: 0.035, // The rotation offset
+      color: '#000000' // Fill color
+    },
+    limitMax: 'false', // If true, the pointer will not go past the end of the gauge
+    colorStart: '#2DA3DC', // Colors
+    colorStop: '#C0C0DB', // just experiment with them
+    strokeColor: '#EEEEEE', // to see which ones work best for you
+    generateGradient: true
+  };
+  var target = document.getElementById('canvas-preview'); // your canvas element
+  var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
+  gauge.maxValue = 100; // set max gauge value
+  gauge.animationSpeed = 32; // set animation speed (32 is default value)
+  gauge.set(this.pssquiz.score); // set actual value
+  gauge.setTextField(document.getElementById("preview-textfield"));
 }
 
 calHADS(){
   this.hdssquiz.scoreQuiz();
   console.log(this.hdssquiz.score);
   this.show=true;
+  this.hads=true;
+
+  var opts = {
+    lines: 12, // The number of lines to draw
+    angle: 0.22, // The length of each line
+    lineWidth: 0.1, // The line thickness
+    pointer: {
+      length: 0.9, // The radius of the inner circle
+      strokeWidth: 0.035, // The rotation offset
+      color: '#000000' // Fill color
+    },
+    limitMax: 'false', // If true, the pointer will not go past the end of the gauge
+    colorStart: '#2DA3DC', // Colors
+    colorStop: '#C0C0DB', // just experiment with them
+    strokeColor: '#EEEEEE', // to see which ones work best for you
+    generateGradient: true
+  };
+  var target = document.getElementById('canvas-preview'); // your canvas element
+  var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
+  gauge.maxValue = 100; // set max gauge value
+  gauge.animationSpeed = 32; // set animation speed (32 is default value)
+  gauge.set(this.hdssquiz.score); // set actual value
+  gauge.setTextField(document.getElementById("preview-textfield"));
 }
+
 
 
 

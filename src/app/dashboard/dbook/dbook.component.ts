@@ -58,8 +58,10 @@ export class DbookComponent implements OnInit {
 
         console.log(data);
         
-        data['list'].forEach(element => {
+        data['councellers'].forEach(element => {
 
+          console.log(data);
+          
           this.mycouncellers.push(element);
           
         });

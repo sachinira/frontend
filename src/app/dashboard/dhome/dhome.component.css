@@ -154,6 +154,17 @@ input{
 
 }
 
-.item{
-    
+
+.modal-content{
+    background-color: blueviolet;
 }
+
+.modal-header{
+
+}
+
+.modal-footer{
+    text-align: center;
+
+}
+

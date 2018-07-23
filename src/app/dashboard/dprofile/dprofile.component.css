@@ -34,7 +34,7 @@
 }
 
 .title {
-    color: grey;
+    color: rgb(252, 249, 249);
     font-size: 18px;
 }
 
@@ -65,7 +65,7 @@ button:hover, a:hover {
 .input{
     transition: 0.8s;
     background-color: rgba(241, 238, 238, 0.5);
-    color: white; 
+    color: rgb(255, 255, 255); 
     border: none;
 }
 
