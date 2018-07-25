@@ -2,7 +2,7 @@
 <div class="row">
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <div class="card">
-        <h1 class="card-title">Book Councellers Near You</h1>
+       
 
 
         <div class="row">
@@ -33,18 +33,18 @@
               <agm-map [latitude]="lat" [longitude]="lng"  [zoom]="10" [scrollwheel]="false" >
                   <agm-marker  [latitude]="lat" [longitude]="lng" [iconUrl]= "'../../../assets/img/myicon1.png'" [title]="you" >
                       <agm-info-window>
-                          <h3><strong>Hey {{name}}</strong></h3>
-                          <p>You are here...</p>
+                          <h3 style="color: black;"><strong>Hey {{name}}</strong></h3>
+                          <p style="color: black;">You are here...</p>
                       </agm-info-window>
                   </agm-marker>
           
                   <div *ngFor="let counceller of councellers">
                       <agm-marker  [latitude]="counceller.lat" [longitude]="counceller.lon" [iconUrl]= "'../../../assets/img/cicon1.png'">
                           <agm-info-window>
-                              <p>{{counceller.name}}</p>
+                              <p style="color: black;">{{counceller.name}}</p>
                     
-                              <p>{{counceller.address}}</p>
-                              <button (click)="onPressSelect(counceller.id)">Select</button>
+                              <p style="color: black;">{{counceller.address}}</p>
+                              <button style="color: black;" (click)="onPressSelect(counceller.id)">Select</button>
                           </agm-info-window>
                       </agm-marker>
                   </div>
@@ -63,10 +63,11 @@
         <div class="col-md-4 col-lg-4 col-sm-4">
                 <div class="card">
                   <div class="card-body">
-                    <h2 class="card-title">Enabled Councellrs</h2>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                   
+                    <p class="card-text"><strong style="color: rgb(12, 143, 12)"> Your Councellers</strong> Hope they give you their best.</p>
 
-                    <div class="listc"  *ngFor="let mycounceller of mycouncellers">
+                    <div  style="font-family: 'Amaranth';font-size: 2.5vh" class="listc"  *ngFor="let mycounceller of mycouncellers">
+                            <img src="../../../assets/img/4.jpg" style="width: 35px;height: 35px;border-radius: 50%;margin: 1vw;">
                         {{mycounceller.name}}
                         <br>
 
@@ -85,11 +86,12 @@
         <div class="col-md-8 col-lg-8 col-sm-8">
                 <div class="card">
                   <div class="card-body">
-                    <h2 class="card-title">Select From Our Collection</h2>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    <p class="card-text"> Else, here is Our Counceller Collection. You can select any two councellers from them.</p>
 
 
-                    <div class="listc"  *ngFor="let counceller of councellers">
+                    <div style="font-family: 'Amaranth';font-size: 2.5vh" class="listc"  *ngFor="let counceller of councellers">
+                        <img src="../../../assets/img/4.jpg" style="width: 35px;height: 35px;border-radius: 50%;margin: 1vw;">
                         {{counceller.name}}
 
                         <button type="button" class="bookbtn" (click)="onPressBook(counceller.id)">Book</button>

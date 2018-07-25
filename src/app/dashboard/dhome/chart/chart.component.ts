@@ -11,8 +11,8 @@ import { UserService } from '../../../services/user.service';
 export class ChartComponent implements OnInit {
 
   chart:any;
-  history:string[] = [];
-  date:number[] = [];
+  history:number[] = [];
+  date:string[] = [];
   qid:string;
 
   constructor(private service:UserService) { }
@@ -35,39 +35,32 @@ export class ChartComponent implements OnInit {
         
       }
     );
-   /* var ctx = document.getElementById('mychart');
-    var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-
-    gradientStroke.addColorStop(0, "#80b6f4");
-
-    gradientStroke.addColorStop(1, "#f49080");*/
+   
+    
 
     this.chart = new Chart('mychart',{
       type:'line',
       data: {
-        labels: this.date,
+        labels: ["2018-06-05","2018-06-30","2018-07-01","2018-07-02","2018-07-05","2018-07-20","2018-07-21","2018-07-23","2018-07-25"],
         datasets: [{
-          label: "Data",
-          borderColor: "#80b6f4",
-          pointBorderColor: "#80b6f4",
-          pointBackgroundColor: "#80b6f4",
-          pointHoverBackgroundColor: "#80b6f4",
+          label: "Stress Level %",
+          borderColor: "#FEFDFD",
+          borderWidth:2,
+          pointBorderColor: "#FEFDFD",
+          pointBackgroundColor: "#FEFDFD",
+          pointHoverBackgroundColor: "#FEFDFD",
           pointHoverBorderColor: "#80b6f4",
-          pointBorderWidth: 10,
-          pointHoverRadius: 10,
+          pointBorderWidth: 4,
+          pointHoverRadius: 4,
           pointHoverBorderWidth: 1,
           pointRadius: 3,
           fill: false,
-          borderWidth: 4,
-          data: [100, 120, 150, 170, 180, 170, 160]
+          data: [10,5,20,40,50,56,53,42,49]
       }]
 
       },
       options:{
-        responsive:true,
-        legend: {
-          position: "bottom"
-        },
+      
         
         scales:{
           yAxes: [{

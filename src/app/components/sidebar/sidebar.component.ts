@@ -17,10 +17,9 @@ export const ROUTES: RouteInfo[] = [
 
 export const CROUTES: RouteInfo[] = [
   { path: '/dashboard/dchome', title: 'Home',  icon: 'glyphicon glyphicon-home', class: '' },
-  { path: '/dashboard/dctrack', title: 'AddTrack',  icon:'glyphicon glyphicon-dashboard', class: '' },
   { path: '/dashboard/dchat', title: 'Chat',  icon:'glyphicon glyphicon-home', class: '' },
-  { path: '/dashboard/dprofile', title: 'Profile',  icon:'glyphicon glyphicon-user', class: '' },
-  { path: '/dashboard/dctip', title: 'Add tips',  icon:'glyphicon glyphicon-home', class: '' }
+  { path: '/dashboard/dprofile', title: 'Profile',  icon:'glyphicon glyphicon-user', class: '' }
+  
  
 ];
 
@@ -39,7 +38,7 @@ export class SidebarComponent implements OnInit {
 
     this.type=localStorage.getItem("type");
 
-    document.getElementById("mySidenav").style.width = "0px";
+    document.getElementById("mySidenav").style.width = "37px";
 
     if(this.type=="user"){
       this.menuItems = ROUTES.filter(menuItem => menuItem);

@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
-      <div class="card sm">
+      <div class="card">
         <div class="card-body">
-          <h2 class="card-title">Some Tips To Make Your Day</h2>
+          
 
           <!--card content-->
          
@@ -48,41 +48,58 @@
          </div>
 
 </div>
+
 <div class="row">
+
     <div class="col-md-6 col-lg-6 col-sm-6">
-      <div class="card sm">
+        <div class="card">
+          <div class="card-body">
+            <img src="../../../assets/img/onboarding-sleep_741af7f30939cae0bd3067b68af661a3.gif" style="width: 35vw;height: 60vh;">
+            <p></p>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-md-6 col-lg-6 col-sm-6">
+      <div class="card">
         <div class="card-body">
-          <h2 class="card-title">Your Stress History</h2>
+         <p>Your Stress History</p>
           <app-chart></app-chart>
         </div>
       </div>
     </div>
+  
+
 
 </div>
 <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
       <div class="card">
           <div class="card-block">
-              <h2 class="card-title">Check Your Stress Here</h2>
+              
 
 
               <!--tabs-->
 
               <!--tabheader-->
               <div id="London" class="tabcontent">
-                <h3>London</h3>
-                <p>London is the capital city of England.</p>
+                <h3 class="head">Holms and Rahe Life Stress Inventory</h3>
+                <p class="content">Known as Social Readjustment Rating Scale (SRRS) and commonly known as Holms and Rahe stress scale. This tool helps you to measure the stress
+                  load you carry, and think about what you should do about it. The answers should be from the life events from the previous two years</p>
               </div>
               
               <div id="Paris" class="tabcontent">
-                <h1>Paris</h1>
-                <p>Paris is the capital of France.</p>
+                <h3 class="head">Perceived Stress Scale</h3>
+                <p class="content">The Perceived Stress Scale (PSS) is the most widely used psychological instrument for measuring the perception of
+                  stress.It concerns of the feelings and thoughts during the last month.Give us how often you felt in one of the ways. Your immidiate response will give you the best result.</p>
               </div>
               
               
               <div id="Oslo" class="tabcontent">
-                <h3>Oslo</h3>
-                <p>Oslo is the capital of Norway.</p>
+                <h3 class="head">Hospital Anxiety and Depression Scale (HADS)</h3>
+                <p class="content">This questionnaire is designed to measure imotions, know how you feel.
+                  each item and select the reply which comes closest to how you have been feeling in the past week. Don’t take too long over
+                  your replies. your immediate reaction to each item will probably be more accurate than a long thought out response.</p>
               </div>
 
 
@@ -203,10 +220,16 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Your Stress Level and suggestions</h4>
+        <hr>
         <div class="gauge">
-          <canvas width="70" height="70" id="canvas-preview"></canvas>
+          <canvas width="150" height="150" id="canvas-preview"></canvas>
           <div id="preview-textfield" style="font-size: 15px;">0%</div>
+        </div>
+
+        <div class="modal-body">
+            <p style="font-size: 30px">Some text in the Modal Body</p>
+            
         </div>
       </div>
       <div class="modal-footer">

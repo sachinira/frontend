@@ -40,10 +40,12 @@ fieldset{
 h3{
     color: white;
     text-align: center; 
+    font-family: 'Amaranth';
 }
 h4{
     color: white;
-    padding-left: 50px;    
+    padding-left: 50px;  
+    font-family: 'Amaranth';
 }
 
 legend{

@@ -6,11 +6,8 @@
     /*background:linear-gradient(rgb(165, 22, 139), rgb(12, 5, 109));*/
     background: transparent;
     padding: 1vmax;
-    margin: 1vmax;
-    margin-left: 1vmax;
-    margin-right: 1vmax;
     color: rgb(248, 248, 248);
-    box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);
+    /*box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);*/
     max-height: 50%;
     overflow: scroll;
     opacity: 0.9;
@@ -32,9 +29,12 @@
 
 .card-text{
     font-size: 2vmax;
-    color: rgb(236, 152, 236);
+    color: rgb(224, 203, 241);
     text-align: center;
     line-height: 7vh;
+    font-family: 'Amaranth';
+    font-size: 5vh;
+
 }
 
 
@@ -89,6 +89,7 @@ agm-map{
     font-size: 16px;
     margin-left: 1vw;
     border-radius: 10%;
+
 }
 
 .listc{

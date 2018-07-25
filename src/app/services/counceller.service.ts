@@ -49,6 +49,10 @@ export class CouncellerService {
     
   }
 
+  get_patients(id:string){
+    return this.http.post(this.baseUrl+'/counceller/getPationts',{id},this.httpOptions);
+  }
+
   realtime(id:string){
       return this.http.post(this.baseUrl+'/realtime',{id},this.httpOptions);
   }
