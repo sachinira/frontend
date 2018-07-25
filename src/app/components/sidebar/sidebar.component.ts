@@ -15,6 +15,15 @@ export const ROUTES: RouteInfo[] = [
  
 ];
 
+export const CROUTES: RouteInfo[] = [
+  { path: '/dashboard/dchome', title: 'Home',  icon: 'glyphicon glyphicon-home', class: '' },
+  { path: '/dashboard/dctrack', title: 'AddTrack',  icon:'glyphicon glyphicon-dashboard', class: '' },
+  { path: '/dashboard/dchat', title: 'Chat',  icon:'glyphicon glyphicon-home', class: '' },
+  { path: '/dashboard/dprofile', title: 'Profile',  icon:'glyphicon glyphicon-user', class: '' },
+  { path: '/dashboard/dctip', title: 'Add tips',  icon:'glyphicon glyphicon-home', class: '' }
+ 
+];
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -22,14 +31,23 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  type:any;
 
   constructor() { }
 
   ngOnInit() {
 
+    this.type=localStorage.getItem("type");
+
     document.getElementById("mySidenav").style.width = "0px";
-    
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+
+    if(this.type=="user"){
+      this.menuItems = ROUTES.filter(menuItem => menuItem);
+    }
+    else if(this.type=="counceller"){
+      this.menuItems = CROUTES.filter(menuItem=> menuItem);
+    }
+   
   }
   isMobileMenu() {
       if ( window.innerWidth > 991) {

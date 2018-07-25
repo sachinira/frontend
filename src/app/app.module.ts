@@ -12,8 +12,6 @@ import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './home/signin/signin.component';
 import { SignupComponent } from './home/signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DtrackComponent } from './dashboard/dtrack/dtrack.component';
-import { DctipComponent } from './dashboard/dctip/dctip.component';
 import { HomeService } from './services/home.service';
 import { UserService } from './services/user.service';
 import { CouncellerService } from './services/counceller.service';
@@ -53,8 +51,6 @@ const appRoutes:Routes = [
     SigninComponent,
     SignupComponent,
     DashboardComponent,
-    DtrackComponent,
-    DctipComponent,
     ErrorComponent
    
   ],
