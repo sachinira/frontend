@@ -1,20 +1,17 @@
 /*card*/
 
 .row{
-    padding: 1vh;
-   
+   padding: 2vh;
    
 }
 
 .card{
     /*background:linear-gradient(rgb(165, 22, 139), rgb(12, 5, 109));*/
-    background: transparent;
-    padding: 1vmax;
-    margin: 1vmax;
-    margin-left: 1vmax;
-    margin-right: 1vmax;
+    background:transparent;
+    margin-bottom: 1vh;
+    margin-top: 2vh;
     color: rgb(238, 219, 245);
-    box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);
+   /* box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);*/
     opacity: 0.9;
 
 }
@@ -77,13 +74,27 @@
 .tabcontent {
     color: white;
     display: none;
-    padding: 10%;
+    padding: 5%;
     text-align: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     
 }
+.head{
+    font-family: 'Amaranth';
+    font-size: 5vh;
+}
 
+.content{
+    font-family: 'Amaranth';
+    font-size: 4vh;
+}
+
+.list{
+
+    font-family: 'Amaranth';
+
+}
 /* Style each tab content individually */
 #London {
     background-image: url('../../../assets/img/cardb.jpeg');
@@ -120,6 +131,11 @@ h5{
     color: rgb(153, 241, 241);
 }
 
+p{
+    font-family: 'Amaranth';
+    font-size: 35px;
+}
+
 input{
     margin: 10px;
     padding: 10px;
@@ -148,19 +164,28 @@ input{
 /*carousal*/
 
 .carousel-inner{
-    background-image: url('../../../assets/img/abstract-blue-title-page-background-4k_e1rwupfqx__F0000.png');
-    height: 300px;
+    background-image: url('../../../assets/img/human.png');
+    height: 200px;
     background-size: cover;
+    font-family: 'Amaranth';
+    color: rgb(45, 214, 129);
 
 }
 
 
 .modal-content{
-    background-color: blueviolet;
+    background-color: rgba(5, 52, 97, 0.9);
 }
 
-.modal-header{
+.modal-title{
+    font-family: 'Amaranth';
+    font-size: 30px;
+    text-align: center;
+    color: aliceblue;
+}
 
+.modal-body{
+position: static;
 }
 
 .modal-footer{

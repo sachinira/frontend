@@ -145,7 +145,7 @@ calHR(){
   };
   var target = document.getElementById('canvas-preview'); // your canvas element
   var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
-  gauge.maxValue = 100; // set max gauge value
+  gauge.maxValue = 300; // set max gauge value
   gauge.animationSpeed = 32; // set animation speed (32 is default value)
   gauge.set(this.hrquiz.score); // set actual value
   gauge.setTextField(document.getElementById("preview-textfield"));

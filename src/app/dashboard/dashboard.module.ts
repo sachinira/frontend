@@ -10,9 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AgmCoreModule } from '@agm/core';
 import { ChartComponent } from './dhome/chart/chart.component';
 import { FormsModule } from '@angular/forms';
-import { DctrackComponent } from './dctrack/dctrack.component';
 import { DchomeComponent } from './dchome/dchome.component';
-import { DctipComponent} from './dctip/dctip.component';
+
 
 
 const childRoutes:Routes = [
@@ -23,10 +22,8 @@ const childRoutes:Routes = [
   {path:'dprofile',component:DprofileComponent},
   {path:'dmusic',component:DmusicComponent},
   {path:'dchome',component:DchomeComponent},
-  {path:'dctrack',component:DctrackComponent},
   {path:'dchat',component:DchatComponent},
-  {path:'dprofile',component:DprofileComponent},
-  {path:'dctip',component:DctipComponent},
+  {path:'dprofile',component:DprofileComponent}
 ];
 
 
@@ -50,9 +47,7 @@ const childRoutes:Routes = [
   DprofileComponent,
   DmusicComponent,
   ChartComponent,
-  DctrackComponent,
-  DchomeComponent,
-  DctipComponent
+  DchomeComponent
   ]
 })
 export class DashboardModule { }

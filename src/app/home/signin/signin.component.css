@@ -37,16 +37,19 @@ fieldset{
 
 .escapido{
     margin-top: 40px;
+    
 }
 
 
 h3{
     color: white;
     text-align: center;
+    font-family: 'Amaranth';
 }
 h4{
     color: white;
     padding-left: 30px;
+    font-family: 'Amaranth';
 }
 
 legend{

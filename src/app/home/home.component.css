@@ -4,10 +4,19 @@
     background-repeat: no-repeat;
      color: #ffffff;
      padding: 100px 20px;
-     font-family: Montserrat, sans-serif;
+     font-family: 'Amaranth';
  }
  #doc{
     width:600px;
+ }
+
+ p strong,h2{
+     font-family: 'Amaranth';
+ }
+
+ p{
+    font-family: 'Amaranth';
+    font-size: 3vh;
  }
  
  .bg-grey {
@@ -69,6 +78,7 @@
      line-height: 1.375em;
      font-weight: 400;
      font-style: italic;
+     font-family: 'Amaranth';
      margin: 70px 0;
      
  }
