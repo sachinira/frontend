@@ -72,20 +72,25 @@ export class SigninComponent implements OnInit {
 
     
           if(req['type']== "user"){
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/dashboard/dhome']);
           }
           if(req['type'] == "counceller"){
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/dashboard/dchome']);
           }
           if(req['type'] == "admin"){
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/admin']);
           }
+
+          document.getElementById("load").style.display = "none";
+          document.getElementById("showweb").style.display = "block";
         },
         (err)=>{
     
     
           console.log(err.error['response']);
           this.signinerrorMsg = err.error['response'];
+          document.getElementById("load").style.display = "none";
+          document.getElementById("showweb").style.display = "block";
     
         }
       );

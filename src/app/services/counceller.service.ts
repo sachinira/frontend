@@ -32,10 +32,7 @@ export class CouncellerService {
     return this.http.post(this.baseUrl+'/addTrack',{counceller_id,description,max_stress_level,min_stress_level});
   }
 
-  account_setting(user:AllUser){
-    return this.http.put(this.baseUrl+'/accountSetting',JSON.stringify(user));
-  }
-
+  
   booking_response(counceller_id,request_id,date_time,location,details,payment,counceller_status){
       return this.http.post(this.baseUrl+'/counceller/Response',{counceller_id,request_id,date_time,location,details,payment,counceller_status},this.httpOptions);
   }

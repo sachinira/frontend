@@ -104,7 +104,12 @@ export class UserService {
   }
 
  
-  getTips(){
-    return this.http.post(this.baseUrl+'/getTips',{},this.httpOptions);
+  getTips(id:string,numberOfInstance:string){
+    return this.http.post(this.baseUrl+'/getTips',{id,numberOfInstance},this.httpOptions);
+  }
+
+ 
+  delete_counceller(userId:string,councellerId:string){
+    return this.http.post(this.baseUrl+'/user/removeCounceller',{userId,councellerId},this.httpOptions);
   }
 }

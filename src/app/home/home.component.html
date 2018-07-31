@@ -184,17 +184,14 @@ To help improve relationships and empower individuals to have healthier and happ
               <!-- Wrapper for slides -->
               <div class="carousel-inner slideanim" role="listbox">
                 <div class="item active">
-                <h4><span style="font-style:normal;">Charith Madusanka, Certified Councelor,Rank1</span></h4>
-                <img src="../../assets/img/4.jpg" style="border-radius: 50%;" id="xy">
+                <h4><span style="font-style:normal;">Our Popular Councellors</span></h4>
+                <!--<img src="../../assets/img/4.jpg" style="border-radius: 50%;" id="xy">-->
                 </div>
-                <div class="item">
-                  <h4><span style="font-style:normal;">Sachini hansamali, Certified Councelor,Rank2</span></h4>
+                <div class="item" *ngFor="let counceller of councellers">
+                  <h4><span style="font-style:normal;">{{counceller.name}}, {{counceller.certificate}},  {{counceller.qualification}}</span></h4>
                   <img src="../../assets/img/6.jpg" style="border-radius: 50%;" id="xy">
                 </div>
-                <div class="item">
-                  <h4><span style="font-style:normal;">Kasun Dilshan,  Certified Councelor,Rank3</span></h4>
-                  <img src="../../assets/img/2.jpg" style="border-radius: 50%;" id="xy">
-                </div>
+               
               </div>
 
               <!-- Left and right controls -->

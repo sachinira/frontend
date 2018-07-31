@@ -62,4 +62,8 @@ export class HomeService {
 
       return this.http.post(this.baseUrl+'/getImage',{id},this.newhttpOptions);
   }
+
+  popular_councellers(){
+    return this.http.post(this.baseUrl+'/LatestCouncellersIds',{});
+  }
 }

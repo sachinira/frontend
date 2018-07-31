@@ -8,16 +8,20 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
   { path: '/dashboard/dhome', title: 'Home',  icon: 'glyphicon glyphicon-home', class: '' },
+  { path: '/dashboard/dques', title: 'Questions',  icon:'glyphicon glyphicon-question-sign', class: '' },
   { path: '/dashboard/dbook', title: 'Booking',  icon:'glyphicon glyphicon-dashboard', class: '' },
-  { path: '/dashboard/dchat', title: 'Chat',  icon:'glyphicon glyphicon-home', class: '' },
+  { path: '/dashboard/dchat', title: 'Chat',  icon:'glyphicon glyphicon-envelope', class: '' },
   { path: '/dashboard/dprofile', title: 'Profile',  icon:'glyphicon glyphicon-user', class: '' },
-  { path: '/dashboard/dmusic', title: 'Music theropy',  icon:'glyphicon glyphicon-home', class: '' }
- 
+  { path: '/dashboard/dmusic', title: 'Music theropy',  icon:'glyphicon glyphicon-music', class: '' }
+  
 ];
 
 export const CROUTES: RouteInfo[] = [
   { path: '/dashboard/dchome', title: 'Home',  icon: 'glyphicon glyphicon-home', class: '' },
-  { path: '/dashboard/dchat', title: 'Chat',  icon:'glyphicon glyphicon-home', class: '' },
+  { path: '/dashboard/dctip', title: 'Add Tips',  icon: 'glyphicon glyphicon-leaf', class: '' },
+  { path: '/dashboard/dctrack', title: 'Add Tracks',  icon: 'glyphicon glyphicon-music', class: '' },
+  { path: '/dashboard/dcbook', title: 'Bookings',  icon: 'glyphicon glyphicon-book', class: '' },
+  { path: '/dashboard/dchat', title: 'Chat',  icon:'glyphicon glyphicon-envelope', class: '' },
   { path: '/dashboard/dprofile', title: 'Profile',  icon:'glyphicon glyphicon-user', class: '' }
   
  
@@ -38,7 +42,7 @@ export class SidebarComponent implements OnInit {
 
     this.type=localStorage.getItem("type");
 
-    document.getElementById("mySidenav").style.width = "37px";
+    document.getElementById("mySidenav").style.width = "33px";
 
     if(this.type=="user"){
       this.menuItems = ROUTES.filter(menuItem => menuItem);

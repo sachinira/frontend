@@ -190,8 +190,12 @@
                   <!-- [disabled]="!signupForm.valid" -->
                 </div>
                 <p id="siginupErrorstyle"><b>{{siginupError}}</b></p>
+                <div class="alert alert-success" *ngIf="councellerok">
+                  <strong>Success!</strong> Wait until admin confirm your membership
+                </div>
                
           </form>
+            
           <div class="form-group">
              <a routerLink="/signin">Go to Sign In</a>
  

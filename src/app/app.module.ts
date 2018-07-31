@@ -21,6 +21,16 @@ import { AdminService } from './services/admin.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorComponent } from './error/error.component';
 
+import { AdminComponent } from './admin/admin.component';
+import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminCouncellComponent } from './admin/admin-councell/admin-councell.component';
+import { AdminCouncellProfComponent } from './admin/admin-councell-prof/admin-councell-prof.component';
+import { AdminUserProfComponent } from './admin/admin-user-prof/admin-user-prof.component';
+import { AdminUserComponent } from './admin/admin-user/admin-user.component';
+import { AdminGuard } from './authguard/admin.guard';
+
+
 const appRoutes:Routes = [
 
   {path: '',component:HomeComponent},
@@ -36,10 +46,22 @@ const appRoutes:Routes = [
     ]
   },
 
-  {path:'error',component:ErrorComponent},
-  {path:'signin',component:SigninComponent},
-  {path:'signup',component:SignupComponent}
+  {path:'admin',component:AdminComponent,canActivate:[AdminGuard],
 
+      children:[
+        {path:'',component:AdminHomeComponent},
+        {path:'ahome',component: AdminHomeComponent},
+        {path:'acouncellerprof',component: AdminCouncellProfComponent},
+        {path:'acounceller',component: AdminCouncellComponent},
+        {path:'auser',component: AdminUserComponent}
+      ]
+
+
+  },
+
+  {path:'signin',component:SigninComponent},
+  {path:'signup',component:SignupComponent},
+  {path:'**',component:ErrorComponent}
 
 
 ];
@@ -51,7 +73,14 @@ const appRoutes:Routes = [
     SigninComponent,
     SignupComponent,
     DashboardComponent,
-    ErrorComponent
+    ErrorComponent,
+    AdminComponent,
+    AdminCouncellComponent,
+    AdminCouncellProfComponent,
+    AdminHomeComponent,
+    AdminProfileComponent,
+    AdminUserComponent,
+    AdminUserProfComponent
    
   ],
   imports: [

@@ -20,6 +20,7 @@ export class SignupComponent implements OnInit {
   forgotemail:string;
   
   siginupError:string;
+  councellerok:boolean;
 
   user:AllUser = new AllUser();
 
@@ -34,10 +35,12 @@ export class SignupComponent implements OnInit {
           position => {
               //this.geolocationPosition = position,
               console.log(position.coords.latitude);
-              this.user.latitude = JSON.stringify(position.coords.latitude);
+              //this.user.latitude = JSON.stringify(position.coords.latitude);
+              this.user.latitude = "5.34242552";
               //this.user.gps = "34.434220";
               console.log(position.coords.longitude);
-              this.user.longitude = JSON.stringify(position.coords.longitude);
+             // this.user.longitude = JSON.stringify(position.coords.longitude);
+             this.user.longitude="80.5353522";
           },
           error => {
               switch (error.code) {
@@ -86,13 +89,13 @@ export class SignupComponent implements OnInit {
              
              
                    if(req['type']== "user"){
-                     this.router.navigate(['/dashboard']);
+                     this.router.navigate(['/signin']);
                    }
                    if(req['type'] == "counceller"){
-                     this.router.navigate(['']);
+                     this.councellerok=true;
                    }
                    if(req['type'] == "admin"){
-                     this.router.navigate(['/dashboard']);
+                     this.router.navigate(['/admin']);
                    }
                  },
                  (err)=>{

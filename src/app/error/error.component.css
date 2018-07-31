@@ -18,8 +18,8 @@
  }
 
  .msg{
-     font-family: cursive;
-     font-size: 25px;
+     font-family: 'Amaranth';
+     font-size: 28px;
      color: #fff;
      text-align: center;
      text-shadow: 0 0 10px rgba(255,255,255,0.8);
@@ -34,8 +34,8 @@
  }
 
  .f1,.f2{
-     font-family: cursive;
-     font-size: 100px;
+     font-family: 'Amaranth';
+     font-size: 120px;
      color: white;
      text-shadow: 0 0 10px rgba(255,255,255,0.7);
      display: table-cell;
@@ -75,8 +75,8 @@
  }
 
  .info{
-     font-family: cursive;
-     font-size:13px;
+     font-family: 'Amaranth';
+     font-size:16px;
      color: #fff;
      text-align: center;
      position: relative;
@@ -90,8 +90,8 @@
      width: 120px;
      color: white;
      background-color: rgb(204, 61, 168);
-     font-family: monospace;
-     font-size: 13px;
+     font-family: 'Amaranth';
+     font-size: 15px;
      text-align: center;
      line-height: 15px;
      position: relative;

@@ -4,7 +4,7 @@
     width:250px;
     position: fixed;
     z-index: 999;
-    top: 60px;
+    top: 0;
     left: 0;
    background-color:rgba(5, 2, 49,0.8);
     overflow-x: hidden;

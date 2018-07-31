@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4 col-lg-4 col-sm-4"></div>
     <div class="col-md-4 col-lg-4 col-sm-4">
-      <img src="../../../assets/img/onboarding-brain_9b609b84a83a982727e9cebd183ad478.gif" style="height: 300px;width: 300px;">
+      <img src="../../../assets/img/onboarding-brain_9b609b84a83a982727e9cebd183ad478.gif" style="height: 200px;width: 200px;">
     </div>
     <div class="col-md-4 col-lg-4 col-sm-4"></div>
 
@@ -12,7 +12,7 @@
 
 <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12">
-          <div class="card">
+          <div  [style.background]="colourModel()" *ngIf="high">
             <div class="card-body">
               <h2 class="card-title">Music for highly stressed peple</h2>
     
@@ -29,7 +29,7 @@
 
     <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12">
-              <div class="card">
+              <div [style.background]="colourModel()" *ngIf="mid">
                 <div class="card-body">
                   <h2 class="card-title">Music for people with mild stress</h2>
         
@@ -47,7 +47,7 @@
 
         <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12">
-                  <div class="card">
+                  <div [style.background]="colourModel()" *ngIf="low" >
                     <div class="card-body">
                       <h2 class="card-title">Music for people with a bit of stress</h2>
             

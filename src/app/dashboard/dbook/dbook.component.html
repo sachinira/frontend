@@ -24,84 +24,193 @@
             
           </div>
       </div>
-
-    <!--map is here-->
-      <div class="card-body">
-
-        
-         <div id="googleMap">
-              <agm-map [latitude]="lat" [longitude]="lng"  [zoom]="10" [scrollwheel]="false" >
-                  <agm-marker  [latitude]="lat" [longitude]="lng" [iconUrl]= "'../../../assets/img/myicon1.png'" [title]="you" >
-                      <agm-info-window>
-                          <h3 style="color: black;"><strong>Hey {{name}}</strong></h3>
-                          <p style="color: black;">You are here...</p>
-                      </agm-info-window>
-                  </agm-marker>
-          
-                  <div *ngFor="let counceller of councellers">
-                      <agm-marker  [latitude]="counceller.lat" [longitude]="counceller.lon" [iconUrl]= "'../../../assets/img/cicon1.png'">
-                          <agm-info-window>
-                              <p style="color: black;">{{counceller.name}}</p>
-                    
-                              <p style="color: black;">{{counceller.address}}</p>
-                              <button style="color: black;" (click)="onPressSelect(counceller.id)">Select</button>
-                          </agm-info-window>
-                      </agm-marker>
-                  </div>
-                
-                  
-              </agm-map>
-          </div>
-      </div>
     </div>
-  </div>
-  </div>
+</div>
+</div>
+    
+
 
   <div class="row">
 
 
-        <div class="col-md-4 col-lg-4 col-sm-4">
-                <div class="card">
-                  <div class="card-body">
-                   
-                    <p class="card-text"><strong style="color: rgb(12, 143, 12)"> Your Councellers</strong> Hope they give you their best.</p>
+    <div class="col-md-12 col-lg-12 col-sm-12">
 
-                    <div  style="font-family: 'Amaranth';font-size: 2.5vh" class="listc"  *ngFor="let mycounceller of mycouncellers">
-                            <img src="../../../assets/img/4.jpg" style="width: 35px;height: 35px;border-radius: 50%;margin: 1vw;">
-                        {{mycounceller.name}}
-                        <br>
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active"><a data-toggle="tab" href="#map">Nearest Councellers</a></li>
+            <li><a data-toggle="tab" href="#list">Available Counceller List</a></li>
+            <li><a data-toggle="tab" href="#myc">My Councellers</a></li>
+            <!--<li><a data-toggle="tab" href="#booking">Booked Councellers</a></li>-->
+            <li><a data-toggle="tab" href="#bookingh">Booking History</a></li>
+          </ul>
+          
+          <div class="tab-content">
+            <div id="map" class="tab-pane fade in active">
+              <div id="googleMap">
+                <agm-map [latitude]="lat" [longitude]="lng"  [zoom]="9" [scrollwheel]="false" [mapTypeId]="'roadmap'">
+                    <agm-marker  [latitude]="lat" [longitude]="lng" [iconUrl]= "'../../../assets/img/myicon1.png'" [title]="you" >
+                        <agm-info-window>
+                            <h3 style="color: black;"><strong>Hey {{name}}</strong></h3>
+                            <p style="color: black;">You are here...</p>
+                        </agm-info-window>
+                    </agm-marker>
+            
+                    <div *ngFor="let counceller of councellers">
+                        <agm-marker  [latitude]="counceller.lat" [longitude]="counceller.lon" [iconUrl]= "'../../../assets/img/cicon1.png'">
+                            <agm-info-window>
+                                <p style="color: black;">{{counceller.name}}</p>
+                      
+                                <p style="color: black;">{{counceller.address}}</p>
+                                <button style="color: black;" (click)="onPressSelect(counceller.id)">Select</button>
+                                <button style="color: black;" (click)="onPressBook(counceller.id)">Book</button>
 
-                        <button type="button" class="bookbtn" (click)="onPressBook(mycounceller.id)">Delete</button>
-                        <button type="button" class="bookbtn" (click)="onPressSelect(mycounceller.id)">Chat</button>
-                        <button type="button" class="bookbtn" (click)="onPressSelect(mycounceller.id)">Book</button>
-                        <br>
-                        <hr>
+                                <div *ngIf="msuccess==true">{{success}}</div>
+                                <div *ngIf="merror==true">{{error}}</div>
+
+                                <div *ngIf="bsuccess==true">{{success}}</div>
+                                <div *ngIf="berror==true">{{error}}</div>
+                            </agm-info-window>
+                        </agm-marker>
                     </div>
+                  
                     
-                  </div>
-                </div>
-        </div>
-
-
-        <div class="col-md-8 col-lg-8 col-sm-8">
+                </agm-map>
+            </div>
+            </div>
+            <div id="list" class="tab-pane fade">
                 <div class="card">
-                  <div class="card-body">
+                    <div class="card-body">
+    
+                      <p class="card-text"> Else, here is Our Counceller Collection. You can select any two councellers from them.</p>
+    
+    
+                      <div style="font-family: 'Amaranth';font-size: 2.5vh" class="listc"  *ngFor="let counceller of councellers">
+                          <img src="../../../assets/img/4.jpg" style="width: 35px;height: 35px;border-radius: 50%;margin: 1vw;">
+                          {{counceller.name}}
+    
+                          <button type="button" id="{{counceller.id}}btb" class="bookbtn" (click)="onPressBook(counceller.id)">Book</button>
+                          <button type="button" id="{{counceller.id}}btm" class="bookbtn" (click)="onPressSelect(counceller.id)">Map</button>
 
-                    <p class="card-text"> Else, here is Our Counceller Collection. You can select any two councellers from them.</p>
+                        
+                                
+                            <div id="{{counceller.id}}m" class="alert alert-success" style="display: none;">
+                                <strong>Success!</strong> {{success}}
+                            </div>
+    
+                            <div id="{{counceller.id}}me" class="alert alert-danger" style="display: none;">
+                                <strong>Danger!</strong>{{error}}
+                            </div>
+        
+                            <div id="{{counceller.id}}b" class="alert alert-info" style="display: none;">
+                                <strong>Success!</strong> {{success}}
+                            </div>
+  
+                            <div id="{{counceller.id}}be" class="alert alert-warning" style="display: none;">
+                                <strong>Danger!</strong>{{error}}
+                            </div>
 
-
-                    <div style="font-family: 'Amaranth';font-size: 2.5vh" class="listc"  *ngFor="let counceller of councellers">
-                        <img src="../../../assets/img/4.jpg" style="width: 35px;height: 35px;border-radius: 50%;margin: 1vw;">
-                        {{counceller.name}}
-
-                        <button type="button" class="bookbtn" (click)="onPressBook(counceller.id)">Book</button>
-                        <button type="button" class="bookbtn" (click)="onPressSelect(counceller.id)">Map</button>
-
-                        <hr>
+                         
+                          <hr>
+                      </div>
+                      
                     </div>
-                    
                   </div>
-                </div>
-        </div>
+            </div>
+            <div id="myc" class="tab-pane fade">
+                <div class="card">
+                    <div class="card-body">
+                     
+                      <p class="card-text"><strong style="color: rgb(12, 143, 12)"> Your Councellers,</strong> Hope they give you their best.</p>
+    
+                      
+                      <div *ngFor="let mycounceller of mycouncellers" style="font-family: 'Amaranth';font-size: 2.5vh" class="listc">
+                            <div id="{{mycounceller.id}}del">
+                                <img src="../../../assets/img/4.jpg" style="width: 35px;height: 35px;border-radius: 50%;margin: 1vw;">
+                                {{mycounceller.name}}
+                            </div> 
+                          <br>
+    
+                          <button type="button" class="bookbtn" (click)="deleteCounceller(mycounceller.id)">Delete</button>
+                          <button type="button" class="bookbtn" (click)="onPressChat(mycounceller.id)">Chat</button>
+                          <button type="button" class="bookbtn" (click)="onPressBookMapped(mycounceller.id)">Book</button>
+                          <br>
+                          <br>
+                          
+    
+                          <div id="{{mycounceller.id}}bm" class="alert alert-success" style="display: none;">
+                              <strong>Success!</strong>{{success}}
+                          </div>
+    
+                          <div id="{{mycounceller.id}}bme"class="alert alert-danger" style="display: none;">
+                              <strong>Danger!</strong>{{error}}
+                          </div>
 
-  </div>
+                          <div id="{{mycounceller.id}}ds" class="alert alert-info" style="display: none;" >
+                                <strong>Success!</strong>{{success}}
+                            </div>
+      
+                            <div id="{{mycounceller.id}}dse"class="alert alert-warning" style="display: none;" >
+                                <strong>Danger!</strong>{{error}}
+                            </div>
+                          <hr>
+    
+                          
+                      </div>
+
+                      <div class="alert alert-info" *ngIf="nocounceller== true">
+                        <strong>Message!</strong> {{message}}
+                      </div>
+                      
+                      
+                    </div>
+                  </div>
+    
+            </div>
+           
+            <!--<div id="booking" class="tab-pane fade">bbbb</div>-->
+            <div id="bookingh" class="tab-pane fade">
+
+                <div class="card">
+                    <div class="card-body">
+                     
+
+                <div style="font-family: 'Amaranth';font-size: 2.5vh" class="listc">
+                    <p> Booking request to doctor Kavitha, <br>27th of July,2018 at 10.24 p.m.</p>
+                    <div class="alert alert-success">
+                        <strong>Request Confirmed!</strong>
+                    </div>
+                    <hr>
+                </div>
+
+                <div style="font-family: 'Amaranth';font-size: 2.5vh" class="listc">
+                    <p> Booking request to doctor Counceller1, <br>26th of May,2018 at 9 p.m.</p>
+                    <div class="alert alert-danger">
+                        <strong>Request  Not Confirmed!</strong>
+                    </div>
+                    <hr>
+                </div>
+
+                <div style="font-family: 'Amaranth';font-size: 2.5vh" class="listc">
+                    <p> Booking request to doctor Augastine, <br>26th of April,2018 at 1 a.m.</p>
+                <div class="alert alert-success">
+                    <strong>Request Confirmed!</strong>
+                </div>
+                <hr>
+                </div>
+
+                <div style="font-family: 'Amaranth';font-size: 2.5vh" class="listc">
+                    <p> Booking request to doctor Kavitha,<br>6th of February,2018 at 9.21 a.m.</p>
+                    <div class="alert alert-success">
+                        <strong>Request Confirmed!</strong>
+                    </div>
+                    <hr>
+                </div>
+
+                </div>
+                </div>
+
+
+            </div>
+          </div>
+    </div>
+</div>
+      

@@ -3,16 +3,95 @@
 <div class="topnav" id="myTopnav">
 
   
-  <a (click)="logOut()" class="active right"><span class="glyphicon glyphicon-log-out topnavicon" ></span></a>
-  <a (click)="myPopup()" class="right"><i class="fa fa-bell fa-lg avatar"></i><span class="msgno">2</span></a>
-  <a class="right" ><i class="fa fa-envelope-open fa-lg avatar" ></i><span class="msgno">2</span></a>
-  <a  class="right" ><i class="fa fa-user-circle fa-lg avatar"></i></a>
-  <!--<div id="wave1"></div>
-  <div id="wave2"></div>
-  <a href="javascript:void(0);" class="icon" (click)="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>-->
-  <a  class="left" onclick="openNav()">
+
+
+  <li id="notification_li" class="notification_li">
+
+  <a id="notificationLink" (click)="notific()" class="right"><i class="fa fa-bell fa-lg avatar"></i><span class="msgno">{{countNotification}}</span></a>
+  <a id="notificationLinkm" (click)="message()" class="right" ><i class="fa fa-envelope-open fa-lg avatar" ></i><span class="msgno">{{countMessage}}</span></a>
+  <a id="notificationLinku" (click)="dropdown()"class="right" ><i class="fa fa-user-circle fa-lg avatar"></i></a>
+
+  <div id="notificationContainer">
+      <div id="notificationTitle">Notifications</div>
+      <div id="notificationsBody" class="notifications">
+
+      <div class="row">
+        <div class="col-sm-12">
+          NOTIFICATION
+          <hr>
+        </div>
+      </div>
+
+      <div class="row" style="padding: 1vh;">
+        <div class="col-sm-12">
+          NOTIFICATION2
+          <hr>
+        </div>
+      </div>
+      
+      </div>
+      <!--<div id="notificationFooter"><a href="#">See All</a></div>-->
+  </div>
+
+
+  <div id="notificationContainerm">
+    <div id="notificationTitlem">Notifications</div>
+    <div id="notificationsBodym" class="notifications">
+
+    <div class="row">
+      <div class="col-sm-12">
+        Message 1
+        <hr>
+      </div>
+    </div>
+
+    <div class="row" style="padding: 1vh;">
+      <div class="col-sm-12">
+        message 2
+        <hr>
+      </div>
+    </div>
+    
+    </div>
+    <!--<div id="notificationFooter"><a href="#">See All</a></div>-->
+</div>
+
+
+<div id="notificationContaineru">
+  <div id="notificationTitleu">Notifications</div>
+  <div id="notificationsBodyu" class="notifications">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <a (click)="logOut()">LogOut</a>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row" style="padding: 1vh;">
+    <div class="col-sm-12">
+      <a (click)="profile()">Profile</a>
+      <hr>
+    </div>
+  </div>
+  
+  </div>
+  <!--<div id="notificationFooter"><a href="#">See All</a></div>-->
+</div>
+
+
+<!--
+  <div class="col-sm-6">body</div>
+        <div class="col-sm-4"><button>cc</button></div>
+-->
+  </li>
+
+
+
+
+
+
+ <a  class="left" onclick="openNav()">
       <svg width="30" height="30" >
         <path d="M0, 5 30,5" stroke="#fff" stroke-with="5"/>
         <path d="M0, 14 30,14" stroke="#fff" stroke-with="5"/>
@@ -42,7 +121,6 @@
 
 
     <!--dropdown-->
-
     
 
 

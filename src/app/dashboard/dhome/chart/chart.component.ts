@@ -41,7 +41,7 @@ export class ChartComponent implements OnInit {
     this.chart = new Chart('mychart',{
       type:'line',
       data: {
-        labels: ["2018-06-05","2018-06-30","2018-07-01","2018-07-02","2018-07-05","2018-07-20","2018-07-21","2018-07-23","2018-07-25"],
+        labels: this.date,
         datasets: [{
           label: "Stress Level %",
           borderColor: "#FEFDFD",
@@ -55,7 +55,7 @@ export class ChartComponent implements OnInit {
           pointHoverBorderWidth: 1,
           pointRadius: 3,
           fill: false,
-          data: [10,5,20,40,50,56,53,42,49]
+          data: this.history
       }]
 
       },

@@ -13,13 +13,30 @@
     color: rgb(238, 219, 245);
    /* box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);*/
     opacity: 0.9;
+    font-family: 'Amaranth';
 
 }
 
+a{
+    cursor: pointer;
+}
+
+.card-body{
+    font-family: 'Amaranth';
+    font-size: 4vh;
+    text-align: center;
+    color: white;
+    margin-top: 1vh;
+}
+
+.level{
+    height: 70vh;
+    padding-top: 18vh;
+}
+
 .sm{
-    height: 65vh;
-    overflow: hidden;
-    box-shadow: wheat;
+    background: url('../../../assets/img/31517_black-and-purple-wallpaper.jpg');
+    padding: 15vh;
 }
 .card-title{
     text-align: center;
