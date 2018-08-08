@@ -68,7 +68,7 @@ export class AdminComponent implements OnInit,OnDestroy {
               console.log(data);
               if(data['status']){
                 this.results = data['list'];
-              
+             
                 this.getNotifications();
               }
 
@@ -161,10 +161,6 @@ newcounceller(){
 
 
 
-  if(this.countNotification==2){
-        alert("Not any Notifications");
-
-  }else{
     this.countNotification=0
 
     localStorage.setItem("cid",this.councellerid);
@@ -185,7 +181,7 @@ newcounceller(){
      this.controlid = localStorage.getItem("cid");
     console.log(this.controlid);
 
-    this.adminService.getData('116').subscribe(
+    this.adminService.getData(this.controlid).subscribe(
       (res)=>{
         console.log(res);
         
@@ -202,9 +198,18 @@ newcounceller(){
   }
  
  
+
+
+View(ncid:any){
+  localStorage.setItem("councellerid",ncid);
+
+  this.router.navigate(['/admin/acouncellerprof']);
+  document.getElementById("id01").style.display = "none";
 }
 
-
-
+logOut(){
+  localStorage.clear();
+  this.router.navigate(['']);
+}
 
 }

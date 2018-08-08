@@ -3,7 +3,11 @@
       <div class="col-sm-4">
           <img src="../../../assets/img/2.png" class="avatar"><br><br>
           <button class="button button1">Send Message</button><br><br>
-          <button class="button button2">Delete</button>
+          <button class="button button2" (click)="delete(id)" id="{{id}}dltbtn">Delete</button>
+          <div id="{{id}}dlt" style="display:none">
+            <p><strong  style="margin-left: 70px;color:red;">Success!</strong></p>
+        </div>
+         
 
          
       </div>

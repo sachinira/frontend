@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders,HttpClient } from '@angular/common/http';
-import { AllUser } from '../home/all_user';
+import { AccountUser } from '../home/account_user';
+import { EnterMsg } from '../dashboard/dchat/enterChat';
+import { ChatMessage } from '../dashboard/dchat/chat';
 
 
 @Injectable({
@@ -18,8 +20,10 @@ export class UserService {
   
 
   second:any;
- /* allMessage:EnterMsg[] = [];
-  newMsg:EnterMsg = new EnterMsg();*/
+  allMessage:EnterMsg[] = [];
+
+
+  newMsg:EnterMsg = new EnterMsg();
 
   constructor(private http:HttpClient) { }
 
@@ -53,15 +57,22 @@ export class UserService {
     
   }
 
-  /*getMsg(id1:string,id2:string,numberOfInstance:string){
+  getMsg(id1:string,id2:string,numberOfInstance:string){
+    this.allMessage = [];
+
     return this.http.post(this.baseUrl+'/getOneChat',{id1,id2,numberOfInstance},this.httpOptions).subscribe(
       (data)=>{
         data['list'].forEach(element => {
           this.allMessage.push(element);
          }
-
         )
-      });
+      },
+      (err)=>{
+        console.log(err);
+        
+      }
+    
+    );
   }
 
   chat(chat:ChatMessage){
@@ -75,14 +86,16 @@ export class UserService {
     
 
     return this.http.post(this.baseUrl+'/chat',JSON.stringify(chat),this.httpOptions);
-  }*/
+
+    
+  }
 
 
   get_history(id:string){
     return this.http.post(this.baseUrl+'/user/LevelHistory',{id},this.httpOptions);
   }
 
-  account_setting(user:AllUser){
+  account_setting(user:AccountUser){
     console.log(JSON.stringify(user));
     return this.http.post(this.baseUrl+'/accountSetting',JSON.stringify(user),this.httpOptions);
   }

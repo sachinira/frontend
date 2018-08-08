@@ -12,6 +12,7 @@ export class DchomeComponent implements OnInit {
 
   qid:string;
   patients:AllUser[]=[];
+  nopatients:boolean;
 
   onepatient:AllUser=new AllUser();
   level:string;
@@ -28,6 +29,14 @@ export class DchomeComponent implements OnInit {
          this.patients.push(element);
        });
        
+       console.log(this.patients.length);
+       
+       if(this.patients.length == 0){
+        this.nopatients = true;
+       }
+       else{
+         this.nopatients = false;
+       }
         
       }
     )
@@ -60,7 +69,7 @@ export class DchomeComponent implements OnInit {
 
   onPressChat(id:string){
 
-    localStorage.setItem("chatC","id");
+    localStorage.setItem("chatC",id);
     this.router.navigate(['/dashboard/dchat']);
   }
 

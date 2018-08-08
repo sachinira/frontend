@@ -1,3 +1,67 @@
-<p>
-  admin-user-prof works!
-</p>
+<div id="counceller">
+  <div class="row">
+      <div class="col-sm-4">
+          <img src="../../../assets/img/2.png" class="avatar"><br><br>
+          <button class="button button1">Send Message</button><br><br>
+          <button class="button button2" (click)="delete(id)" id="{{id}}dltbtn">Delete</button>
+          <div id="{{id}}dlt" style="display: none">
+            <p><strong  style="margin-left: 70px;color:red;">Success!</strong></p>
+        </div>
+         
+         
+      </div>
+      <div class="col-sm-8" >
+
+            <table style="width:100%">
+                    <tr>
+                      <th>Name :</th>
+                      <td>{{name}}</td>
+                      
+                    </tr>
+                    <tr>
+                        <th>Email :</th>
+                        <td>{{email}}</td>
+                    </tr>
+                    <tr>
+                        <th>Gender :</th>
+                        <td>{{gender}}</td>
+                    </tr>
+                    <tr>
+                        <th>Address:</th>
+                        <td>{{address}}</td>
+                    </tr>
+                    <tr>
+                            <th>Phone no :</th>
+                            <td>{{phone_number}}</td>
+                    </tr>
+                     <tr>
+                            <th>Birthday :</th>
+                            <td>{{birth_date}}</td>
+                     </tr>
+                     <tr>
+                              <th>Qualification:</th>
+                              <td>{{qualification}}</td>
+                    </tr>
+                     <tr>
+                              <th>certificate :</th>
+                              <td>{{certificate}}</td>
+                     </tr>
+                   
+                  </table>
+                  
+
+                 
+                  <button class="button button3" id="enable" (click)=accessCtrl() style="display: none">Enable</button>
+                  <button class="button button4" id="disable" (click)=accessCtrl() style="display: none">Disable</button>
+                  <div id="enablewrn" style="display:none">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <strong>Success!</strong> Enabled the counceller.
+                  </div>
+
+                  <div id="disablewrn" style="display:none">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <strong>Success!</strong> Disabled the counceller.
+                  </div>
+      </div>
+  </div>
+</div>

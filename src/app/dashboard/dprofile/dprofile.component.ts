@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { AllUser } from '../../home/all_user';
+import { AccountUser } from '../../home/account_user';
 
 @Component({
   selector: 'app-dprofile',
@@ -11,7 +12,7 @@ import { AllUser } from '../../home/all_user';
 export class DprofileComponent implements OnInit {
 
   user:AllUser=new AllUser();
-  nuser:AllUser = new AllUser();
+  nuser:AccountUser = new AccountUser();
   qid:string;
   isuser:boolean;
 
@@ -25,6 +26,7 @@ export class DprofileComponent implements OnInit {
 
   ngOnInit() {
 
+  
     
     this.qid = localStorage.getItem("id");
     this.service.getData(this.qid).subscribe(
@@ -34,14 +36,12 @@ export class DprofileComponent implements OnInit {
         this.user.address=data['address'];
         this.user.birth_date=data['birth_date'];
         this.user.phone_number=data['phone_number'];
-        this.user.guadiant_phone_number=data['guadiant_phone_number'];
+        this.user.guadiant_phone_number=data['guadiant_phone_no'];
         this.user.job=data['job'];
         this.user.certificate=data['certificate'];
         this.user.qualification=data['qualification'];
        
         console.log(data);
-        
-        
 
         if(data['type']== "user"){
           this.isuser = true;
@@ -56,6 +56,7 @@ export class DprofileComponent implements OnInit {
 
   changeSettings(){
     console.log(this.nuser);
+    this.nuser.id = localStorage.getItem("id");
     
     this.service.account_setting(this.nuser).subscribe(
       (data)=>{
@@ -68,6 +69,7 @@ export class DprofileComponent implements OnInit {
           this.ok=false;
           this.error = data['response']
         }
+        this.ngOnInit();
         
       },
       (err)=>{

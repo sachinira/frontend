@@ -53,7 +53,8 @@ const appRoutes:Routes = [
         {path:'ahome',component: AdminHomeComponent},
         {path:'acouncellerprof',component: AdminCouncellProfComponent},
         {path:'acounceller',component: AdminCouncellComponent},
-        {path:'auser',component: AdminUserComponent}
+        {path:'auser',component: AdminUserComponent},
+        {path:'auserprof',component: AdminUserProfComponent}
       ]
 
 
@@ -80,7 +81,8 @@ const appRoutes:Routes = [
     AdminHomeComponent,
     AdminProfileComponent,
     AdminUserComponent,
-    AdminUserProfComponent
+    AdminUserProfComponent,
+  
    
   ],
   imports: [

@@ -274,18 +274,18 @@ calHADS(){
 
 colourModel(){
 
-  if((this.hrquiz.score  || this.hrquiz.score || this.hrquiz.score )< 30 ){
+  if((this.hrquiz.score  || this.pssquiz.score || this.hdssquiz.score )<=30 ){
     this.text ="You are detected with low stress level.But medical treatment will be needed if these conditions exits too long. If you like to listen to music or think talking with a councelor is good you can always.";
     return 'rgba(108, 191, 70,0.9)';
     
 
   }
-  else if((this.hrquiz.score  || this.hrquiz.score || this.hrquiz.score )<50){
+  else if((this.hrquiz.score  || this.pssquiz.score || this.hdssquiz.score)<=50){
     this.text="You are detected with mild stress level.But medical treatment will be needed if these conditions exits too long. Listening to music will be better for you. If you think talking with a councelor is good you can always.";
     return 'rgba(218, 125, 24,0.9)';
     
   }
-  else if((this.hrquiz.score  || this.hrquiz.score || this.hrquiz.score )<100){
+  else if((this.hrquiz.score  || this.pssquiz.score || this.hdssquiz.score)<=100){
     this.text="You are detected with very high stress level.Medical treatment is Compulsory. Have music theropy for now or book a councelor.";
     return 'rgba(221, 22, 18,0.9)';
     

@@ -21,6 +21,10 @@ import { ChatlistComponent } from './dchat/chatlist/chatlist.component';
 import { ChatmsgComponent } from './dchat/chatmsg/chatmsg.component';
 import { UserGuard } from '../authguard/user.guard';
 import { CouncellerGuard } from '../authguard/counceller.guard';
+import { GuageComponent } from './dhome/guage/guage.component';
+import { InfoComponent } from './dhome/info/info.component';
+import { TipsComponent } from './dhome/tips/tips.component';
+import { UseritemComponent } from './dchat/useritem/useritem.component';
 
 
 
@@ -66,7 +70,11 @@ const childRoutes:Routes = [
   ChatfeedComponent,
   ChatformComponent,
   ChatlistComponent,
-  ChatmsgComponent
+  ChatmsgComponent,
+  GuageComponent,
+  InfoComponent,
+  TipsComponent,
+  UseritemComponent
   ]
 })
 export class DashboardModule { }

@@ -1,4 +1,4 @@
-
+<div class="container">
 <div class="row">
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <div class="card">
@@ -63,11 +63,11 @@
                                 <button style="color: black;" (click)="onPressSelect(counceller.id)">Select</button>
                                 <button style="color: black;" (click)="onPressBook(counceller.id)">Book</button>
 
-                                <div *ngIf="msuccess==true">{{success}}</div>
-                                <div *ngIf="merror==true">{{error}}</div>
+                                <div id="{{counceller.id}}mm" *ngIf="msuccess==true">{{success}}</div>
+                                <div id="{{counceller.id}}mme" *ngIf="merror==true">{{error}}</div>
 
-                                <div *ngIf="bsuccess==true">{{success}}</div>
-                                <div *ngIf="berror==true">{{error}}</div>
+                                <div id="{{counceller.id}}bm" *ngIf="msuccess==true">{{success}}</div>
+                                <div id="{{counceller.id}}bme" *ngIf="merror==true">{{error}}</div>
                             </agm-info-window>
                         </agm-marker>
                     </div>
@@ -212,5 +212,7 @@
             </div>
           </div>
     </div>
+</div>
+
 </div>
       

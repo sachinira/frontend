@@ -1,4 +1,4 @@
-
+<div class="container">
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
       <div class="card">
@@ -17,6 +17,10 @@
               <hr>
           </div>
          
+          <div class="alert alert-info" *ngIf="nopatients==true">
+            <strong>You have no users mapped yet!</strong>
+          </div>
+
          </div>
         </div>
       </div>
@@ -92,7 +96,7 @@
     </div>
   </div>
 
-
+</div>
 
 
 

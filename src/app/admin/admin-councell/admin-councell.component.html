@@ -12,7 +12,7 @@
   </div>
   <div class="col-sm-8" id="middetail">
         <h4>{{cname.name}}</h4>
-        <h5>dbhfhdfhfhfhfhy</h5>
+        <h5>{{cname.address}}</h5>
 
       
    <span> <button class="w3-btn w3-white w3-border w3-border-red w3-round-large btn" (click)=accessControldisable(cname.id) id="{{cname.id}}bt">Disable</button></span>  
@@ -26,7 +26,10 @@
       <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" (click)="View(cname.id)">view</button>
     <br>
     <br>
-    <button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Delete</button>
+    <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" (click)="delete(cname.id)" id="{{cname.id}}dltbtn">Delete</button>
+    <div id="{{cname.id}}dlt" style="display:none">
+      <p ><strong style="margin-left: 5%;color:red;">Success!</strong></p>
+  </div>
   </div>
 </div>
 
@@ -36,7 +39,7 @@
     </div>
     <div class="col-sm-8" id="middetail">
           <h4>{{cname.name}}</h4>
-          <h5>dbhfhdfhfhfhfhy</h5>
+          <h5>{{cname.address}}</h5>
   
         <button class="w3-btn w3-white w3-border w3-border-green w3-round-large" (click)="accessControlenable(cname.id)" id="{{cname.id}}bt" >Enable</button>&nbsp;
         <div id="{{cname.id}}" style="display:none">
@@ -47,6 +50,9 @@
         <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" (click)="View(cname.id)">view</button>
       <br>
       <br>
-      <button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Delete</button>
+      <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" (click)="delete(cname.id)" id="{{cname.id}}dltbtn">Delete</button>
+      <div id="{{cname.id}}dlt" style="display:none">
+        <p><strong>Success!</strong></p>
+    </div>
     </div>
   </div>

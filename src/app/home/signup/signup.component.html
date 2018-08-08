@@ -188,11 +188,17 @@
               <div class="form-group">
                  <button type="submit" class="btn btn-primary center-block" id="showweb" >Sign Up</button>
                   <!-- [disabled]="!signupForm.valid" -->
+                  <div class="loader" id="load"></div>
                 </div>
                 <p id="siginupErrorstyle"><b>{{siginupError}}</b></p>
-                <div class="alert alert-success" *ngIf="councellerok">
-                  <strong>Success!</strong> Wait until admin confirm your membership
-                </div>
+
+                <div id="alert">
+                  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                  <strong>Success!</strong> You can Sign in after admin confirmation.
+                  <br>
+                  <button (click)="goHome()" id="alertbtn">ok</button>
+               </div>
+               
                
           </form>
             

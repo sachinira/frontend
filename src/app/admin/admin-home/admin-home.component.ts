@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chart from 'chart.js'
 import { AdminService } from '../../services/admin.service';
-import { Quiz } from '../../dashboard/dques/quiz';
 
 @Component({
   selector: 'app-admin-home',
@@ -22,11 +21,7 @@ export class AdminHomeComponent implements OnInit {
     this.admin_id=localStorage.getItem("id");
 
     
-    this.adminService.getUsage(this.admin_id).subscribe(
-      data=>{
-        
-      }
-    )
+
     
   
    

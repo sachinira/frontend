@@ -52,18 +52,20 @@ export class DhomeComponent implements OnInit {
           this.newuser = false;
         }
 
-        if(parseFloat(this.history[this.history.length-1]) < 30){
+        if(parseFloat(this.history[this.history.length-1]) <=30){
           this.text ="You are detected with low stress level.But medical treatment will be needed if these conditions exits too long.";
         }
-        else if(parseFloat(this.history[this.history.length-1]) < 50){
+        else if(parseFloat(this.history[this.history.length-1]) <=50){
           this.text ="You are detected with mild stress level.You may need medical advice.Try Our stress relief tunes to get some relief";
         }
-        else if(parseFloat(this.history[this.history.length-1]) < 100){
+        else if(parseFloat(this.history[this.history.length-1]) <=100){
           this.text="You are exposed to very high stress level.Medical treatment is a must";
         }
 
       }
     )
+
+    this.updateColor();
   
     this.service.getTips(this.qid,"10").subscribe(
       data =>{
@@ -89,23 +91,40 @@ export class DhomeComponent implements OnInit {
 
   }
 
+  updateImage(){
+    this.level = parseFloat(this.history[this.history.length-1]);
+    //console.log(this.level);
+    
+    if(this.level <=30){
+      
+        return "'url('+../../../assets/img/level1.png+')'";
+    }
+    else if(this.level<=50){
+      
+        return "'url('+../../../assets/img/level1.png+')'";
+    }
+    else if(this.level<=100){
+      
+        return "'url('+../../../assets/img/level1.png+')'";
+    }
+  }
 
   updateColor(){
 
     this.level = parseFloat(this.history[this.history.length-1]);
     //console.log(this.level);
     
-    if(this.level < 30){
+    if(this.level <=30){
       this.myimage="../../../assets/img/thumb-up.png";
-        return 'rgba(108, 191, 70,0.5)';
+        return 'rgba(108, 191, 70,0.8)';
     }
-    else if(this.level<50){
+    else if(this.level<=50){
       this.myimage="../../../assets/img/doubt.png";
-        return 'rgba(218, 125, 24,0.5)'
+        return 'rgba(218, 125, 24,0.8)'
     }
-    else if(this.level<100){
+    else if(this.level<=100){
       this.myimage="../../../assets/img/crying.png";
-        return 'rgba(221, 22, 18,0.5)';
+        return 'rgba(221, 22, 18,0.8)';
     }
   }
 

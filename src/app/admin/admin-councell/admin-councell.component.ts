@@ -93,6 +93,30 @@ export class AdminCouncellComponent implements OnInit {
   }
   
 
+  delete(cid:any,sta:string){
+    var t = confirm("Do you really want to Delete?");     
+    if(t == true)  
+    {  
+      this.admin_id=localStorage.getItem("id")
+      this.adminServices.accessControl(this.admin_id,cid,"delete").subscribe(
+          data=>{
+  
+              if(data['status']="success"){
+                document.getElementById(cid+"dltbtn").style.display = "none";
+                document.getElementById(cid+"dlt").style.display = "block";
+              }
+  
+              console.log(data);
+          }
+      );
+    }  
+    else  
+    {  
+       
+    }  
+   
+  }
+
 
   View(cid:any){
     localStorage.setItem("councellerid",cid);

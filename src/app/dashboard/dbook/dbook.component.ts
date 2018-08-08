@@ -43,6 +43,7 @@ export class DbookComponent implements OnInit {
   ngOnInit() {
 
     
+
     this.qid = localStorage.getItem("id");
     this.name = localStorage.getItem("name");
 
@@ -88,6 +89,8 @@ export class DbookComponent implements OnInit {
           this.nocounceller=true;
           this.message='You Have no councellers mapped yet';
         }
+
+        
       },
       (err)=>{
         console.log(err);
@@ -110,12 +113,15 @@ export class DbookComponent implements OnInit {
             this.success = res['response'];
             this.msuccess=true;
             document.getElementById(id+"m").style.display="block";
+           // document.getElementById(id+"mm").style.display="block";
             document.getElementById(id+"btm").style.display="none";
+            
           }
           else{
             this.error = res['response'];
             this.merror=true;
             document.getElementById(id+"me").style.display="block";
+            //document.getElementById(id+"mme").style.display="block";
           }
 
           
@@ -126,16 +132,21 @@ export class DbookComponent implements OnInit {
           this.error = err['error'].response;
           this.merror=true;
           document.getElementById(id+"me").style.display="block";
+          //document.getElementById(id+"mme").style.display="block";
           console.log(err);
         }
       );
+
+
     }
+
+    
     //every time when this is selected the method get the current counceller must be called.
     //or show an error msg
   }
 
   onPressBook(id:string){
-    var r = confirm("Book this counceller?")
+    var r = confirm("Book this counceller?");
 
     if(r){
       this.service.booking_request(this.qid,id).subscribe(
@@ -145,29 +156,36 @@ export class DbookComponent implements OnInit {
             this.success = res['response'];
             this.bsuccess=true;
             document.getElementById(id+"b").style.display="block";
+           // document.getElementById(id+"bm").style.display="block";
             document.getElementById(id+"btb").style.display="none";
           
+            
           }
           else{
             this.error = res['response'];
             this.berror=true;
             document.getElementById(id+"be").style.display="block";
+           // document.getElementById(id+"bme").style.display="block";
           }
+          
         },
         (err)=>{
          
           this.error = err['error'].response;
           this.berror=true;
           document.getElementById(id+"be").style.display="block";
+          document.getElementById(id+"bm").style.display="block";
           console.log(err);
         }
       );
     }
+
+    
   }
 
 
   onPressBookMapped(id:string){
-    var r = confirm("Book this counceller?")
+    var r = confirm("Book this counceller?");
 
     if(r){
       this.service.booking_request(this.qid,id).subscribe(
@@ -247,12 +265,16 @@ export class DbookComponent implements OnInit {
     );
 
   }
-  }
+
+    
+    }
 
 
 
   onPressChat(id:string){
-    localStorage.setItem("chatC","id");
+    localStorage.setItem("chatC",id);
+    console.log(localStorage.getItem("chatC"));
+    
     this.router.navigate(['/dashboard/dchat']);
   }
 

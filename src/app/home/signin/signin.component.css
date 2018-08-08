@@ -111,7 +111,7 @@ span{
     animation: spin 2s linear infinite;
     margin-left: 45%;
     margin-top:2%;
-  display: none;
+    display: none;
   }
   
   /* Safari */

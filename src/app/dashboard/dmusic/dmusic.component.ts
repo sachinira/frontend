@@ -10,8 +10,10 @@ import { Quiz } from '../dques/quiz';
 export class DmusicComponent implements OnInit {
 
   levelg:string[]=[];
+  nohistory:boolean;
 
   level:number;
+
 
   high:boolean;
   low:boolean;
@@ -31,6 +33,9 @@ export class DmusicComponent implements OnInit {
           
         });
       
+        if(this.levelg.length == 0){
+          this.nohistory=true;
+        }
 
         this.level = parseFloat(this.levelg[this.levelg.length-1]);
 
@@ -60,6 +65,11 @@ export class DmusicComponent implements OnInit {
           
         }
     
+      },
+      err=>{
+        console.log(err);
+        
+        this.nohistory=true;
       }
     )
 

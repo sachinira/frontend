@@ -12,7 +12,7 @@
     <a href="javascript:void(0);" class="icon" (click)="myFunction()">
       <i class="fa fa-bars"></i>
     </a>
-    <img src="../../assets/img/Untitled-2.png" width="15%" height="50px" id="logo">
+    <img src="../../assets/img/Untitled-2.png" width="15%" height="50px" id="logo" style="margin-left: 10px;"  >
   
     <a href="javascript:void(0);" class="icon1" style="float: left" (click)="myFunction1()">
       <i class="glyphicon glyphicon-chevron-left "></i>
@@ -35,19 +35,18 @@
         <h4 id="heading">New Counceller requests</h4>
 
 
-        <div class="row">
+        <div class="row"  *ngFor="let detail of results">
             <div class="col-sm-3">
                 <img src="../../../assets/img/img_avatar.png" alt="Avatar" class="avatar">
             </div>
             <div class="col-sm-6">
-                <span> </span><span>{{notification}}</span>
+                <span> </span><span>{{detail.updatedStatus}}</span>
                 <br>
                 <br>
-                <button class="w3-btn w3-white w3-border w3-border-green w3-round-large">Enable</button>
-              <span> <button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Disable</button></span>  
+               
             </div>
             <div class="col-sm-3">
-                <button class="w3-btn w3-red w3-border w3-round-large" routerLink="acouncellerprof" onclick="document.getElementById('id01').style.display='none';" >View</button>
+                <button class="w3-btn w3-red w3-border w3-round-large" routerLink="acouncellerprof" (click)="View(detail.id);">View</button>
                 <br>
                 <button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Delete</button>
             </div>
@@ -79,8 +78,7 @@
     <a routerLink='acounceller'><span class="glyphicon glyphicon-dashboard"></span>Councelling</a>
     <a routerLink='auser'><span class="glyphicon glyphicon-dashboard"></span>Users</a>
     <a routerLink="/user" ><span class="glyphicon glyphicon-user"></span>Profile</a>
-    <a href="#contact"><span class="glyphicon glyphicon-home"></span>Contact</a>
-    <a href="#contact"><span class="glyphicon glyphicon-home"></span>Search</a>
+   
   
     
   </div>

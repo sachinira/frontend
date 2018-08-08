@@ -22,6 +22,11 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {
 
+    
+    this.user.latitude = "5.34242552";
+    this.user.longitude="80.5353522";
+
+
     if (window.navigator && window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(
           position => {
@@ -51,6 +56,8 @@ export class SigninComponent implements OnInit {
 
 
   onSignIn(){
+    document.getElementById("load").style.display = "block";
+    document.getElementById("showweb").style.display = "none";
    
       this.homeService.get_signin(this.uname,this.pwd).subscribe(
         (req)=>{

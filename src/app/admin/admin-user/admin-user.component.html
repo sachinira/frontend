@@ -12,7 +12,7 @@
 </div>
 <div class="col-sm-8" id="middetail">
       <h4>{{uname.name}}</h4>
-      <h5>dbhfhdfhfhfhfhy</h5>
+      <h5>{{uname.address}}</h5>
 
     
  <span> <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" (click)=accessControldisable(uname.id) id="{{uname.id}}bt">Disable</button></span>  
@@ -23,12 +23,19 @@
 
 </div>
 <div class="col-sm-2" id="last">
-    <button class="w3-btn w3-white w3-border w3-border-red w3-round-large">view</button>
+    <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" (click)="View(uname.id)">view</button>
   <br>
   <br>
-  <button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Delete</button>
+  <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" (click)="delete(uname.id)" id="{{uname.id}}dltbtn">Delete</button>
+    <div id="{{uname.id}}dlt" style="display:none">
+      <p><strong>Success!</strong></p>
+  </div>
 </div>
 </div>
+
+
+
+
 
 <div class="row" id="list1" *ngFor="let uname of disableUser">
   <div class="col-sm-2">
@@ -36,17 +43,20 @@
   </div>
   <div class="col-sm-8" id="middetail">
         <h4>{{uname.name}}</h4>
-        <h5>dbhfhdfhfhfhfhy</h5>
+        <h5>{{uname.address}}</h5>
 
-      <button class="w3-btn w3-white w3-border w3-border-green w3-round-large" (click)="accessControlenable(cname.id)" id="{{uname.id}}bt"  >Enable</button>&nbsp;
+      <button class="w3-btn w3-white w3-border w3-border-green w3-round-large" (click)="accessControlenable(uname.id)" id="{{uname.id}}bt"  >Enable</button>&nbsp;
       <div id="{{uname.id}}" style="display:none">
           <p><strong>Success!</strong></p>
       </div>
   </div>
   <div class="col-sm-2" id="last">
-      <button class="w3-btn w3-white w3-border w3-border-red w3-round-large">view</button>
+      <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" (click)="View(uname.id)">view</button>
     <br>
     <br>
-    <button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Delete</button>
+    <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" (click)="delete(uname.id)" id="{{uname.id}}dltbtn">Delete</button>
+    <div id="{{uname.id}}dlt" style="display:none">
+      <p><strong>Success!</strong></p>
+  </div>
   </div>
 </div>

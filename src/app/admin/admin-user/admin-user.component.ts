@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-user',
@@ -18,14 +19,14 @@ export class AdminUserComponent implements OnInit {
 
   disable:boolean=true;
 
-  constructor(private adminServices:AdminService) { }
+  constructor(private adminServices:AdminService,private router:Router) { }
 
   ngOnInit() {
 
     this.adminServices.getUserDetail('user').subscribe(
       data=>{
        
-        this.disableUser=data['disableCouncellrs'];
+        this.disableUser=data['disablePationts'];
         this.enableUser=data['enablePationts'];
         console.log(data);
         
@@ -72,6 +73,36 @@ export class AdminUserComponent implements OnInit {
                 document.getElementById(uid+"bt").style.display = "none";
                 document.getElementById(uid).style.display = "block";
             
+              }
+  
+              console.log(data);
+          }
+      );
+    }  
+    else  
+    {  
+       
+    }  
+   
+  }
+
+  View(uid:any){
+    localStorage.setItem("userid",uid);
+
+    this.router.navigate(['/admin/auserprof']);
+  }
+
+  delete(uid:any,sta:string){
+    var t = confirm("Do you really want to Delete?");     
+    if(t == true)  
+    {  
+      this.admin_id=localStorage.getItem("id")
+      this.adminServices.accessControl(this.admin_id,uid,"delete").subscribe(
+          data=>{
+  
+              if(data['status']="success"){
+                document.getElementById(uid+"dltbtn").style.display = "none";
+                document.getElementById(uid+"dlt").style.display = "block";
               }
   
               console.log(data);
