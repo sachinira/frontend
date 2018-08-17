@@ -22,8 +22,7 @@ export const CROUTES: RouteInfo[] = [
   { path: '/dashboard/dctrack', title: 'Add Tracks',  icon: 'glyphicon glyphicon-music', class: '' },
   { path: '/dashboard/dcbook', title: 'Bookings',  icon: 'glyphicon glyphicon-book', class: '' },
   { path: '/dashboard/dchat', title: 'Chat',  icon:'glyphicon glyphicon-envelope', class: '' },
-  { path: '/dashboard/dprofile', title: 'Profile',  icon:'glyphicon glyphicon-user', class: '' }
-  
+  { path: '/dashboard/dprofile', title: 'Profile',  icon:'glyphicon glyphicon-user', class: '' } 
  
 ];
 

@@ -16,6 +16,7 @@ export class DchomeComponent implements OnInit {
 
   onepatient:AllUser=new AllUser();
   level:string;
+  nlevel:string;
 
   constructor(private service:CouncellerService,private router:Router) { }
 
@@ -73,6 +74,12 @@ export class DchomeComponent implements OnInit {
     this.router.navigate(['/dashboard/dchat']);
   }
 
+  onUpdateLevel(){
+    
+  }
+
+
+  //update the level from the counceller is not implemented
   //patient list the array don't have the name . this will be like booking list
   //from this patient details can be viewed and chat with them
 

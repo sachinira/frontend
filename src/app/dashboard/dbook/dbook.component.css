@@ -107,3 +107,8 @@ agm-map{
     color: rgb(25, 92, 180);
 }
 
+
+/*alert*/
+.alert{
+    width: 30%;
+}

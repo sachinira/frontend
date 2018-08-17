@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CouncellerService } from '../../services/counceller.service';
+import * as $ from 'jquery';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-dctrack',
@@ -10,9 +13,10 @@ export class DctrackComponent implements OnInit {
 
   qid:string;
   description:string;
-  name:string;//this must be the link
-  max:string;
-  min:string;
+  name:string;
+  levela:string;
+  leveli:string;
+  track:string;
 
   ok:boolean;
   success:string;
@@ -24,26 +28,40 @@ export class DctrackComponent implements OnInit {
     this.qid=localStorage.getItem("id");
   }
 
-  addTrack(){
-    this.service.addTrack(this.qid,this.description,this.name,this.max,this.min).subscribe(
+  onAddTrack(form:NgForm){
+  
+    this.service.addTrack(this.qid,this.name,this.description,this.levela,this.leveli,this.track).subscribe(
       data=>{
         console.log(data);
         if(data['res_status']=="success"){
-          this.ok=true;
           this.success=data['response'];
+          //this.ok=true;
+          $('#suc').fadeIn('slow').delay(1000).fadeOut('slow');
         }
         else{
-          this.ok=false;
           this.error=data['response'];
+          this.ok=false;
+          $('#dan').fadeIn('slow').delay(1000).fadeOut('slow');
         }
         
       },
       err=>{
         console.log(err);
-        this.ok=false;
         this.error=err['error'].response;
+        //this.ok=false;
+        $('#dan').fadeIn('slow').delay(1000).fadeOut('slow');
       }
     )
+    
+    form.reset();
   }
 
+ /* fadeinOut(){
+    
+    $('#dan').fadeIn('slow').delay(1000).fadeOut('slow');
+  }*/
+
+
+  //validation of the form 
+ 
 }

@@ -9,7 +9,7 @@
   
               <!--<h2 class="card-title">Tips</h2>-->
               <div class="card-content">
-                  <form #tipform="ngForm" (ngSubmit)="submitTip(tipform.value)" >
+                  <form #tipform="ngForm" (ngSubmit)="submitTip(tipform)" >
                     
                     <div class="form-group">
                       <label for="track">Tip*</label>
@@ -17,14 +17,14 @@
                     </div>
                    <!-- <span class="help-block" *ngIf="message.touched && message.errors?.required">Tip is required</span>-->
 
-                    <button type="submit" class="btn" >Submit</button>
+                    <button type="submit" class="btn" (click)="fadeinOut()" >Submit</button>
                     
                    
-                    <div class="alert alert-success" *ngIf="ok" >
+                    <div id="suc" class="alert alert-success" style="display: none;">
                       <strong>Success!</strong> {{success}}
                     </div>
   
-                    <div class="alert alert-danger" *ngIf="ok == false" >
+                    <div id="dan" class="alert alert-danger" style="display: none;">
                       <strong>Danger!</strong> {{error}}
                     </div>
                   </form> 

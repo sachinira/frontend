@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { AllUser } from '../../home/all_user';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-dbook',
@@ -112,7 +113,9 @@ export class DbookComponent implements OnInit {
           if(res['res_status'] == "success"){
             this.success = res['response'];
             this.msuccess=true;
-            document.getElementById(id+"m").style.display="block";
+            //document.getElementById(id+"m").style.display="block";
+            $('#'+id+"m").fadeIn('slow').delay(1000).fadeOut('slow');
+            $('#'+id+"mm").fadeIn('slow').delay(1000).fadeOut('slow');
            // document.getElementById(id+"mm").style.display="block";
             document.getElementById(id+"btm").style.display="none";
             
@@ -120,7 +123,9 @@ export class DbookComponent implements OnInit {
           else{
             this.error = res['response'];
             this.merror=true;
-            document.getElementById(id+"me").style.display="block";
+            //document.getElementById(id+"me").style.display="block";
+            $('#'+id+"me").fadeIn('slow').delay(1000).fadeOut('slow');
+            $('#'+id+"mme").fadeIn('slow').delay(1000).fadeOut('slow');
             //document.getElementById(id+"mme").style.display="block";
           }
 
@@ -131,7 +136,9 @@ export class DbookComponent implements OnInit {
            
           this.error = err['error'].response;
           this.merror=true;
-          document.getElementById(id+"me").style.display="block";
+          //document.getElementById(id+"me").style.display="block";
+          $('#'+id+"me").fadeIn('slow').delay(1000).fadeOut('slow');
+          $('#'+id+"mme").fadeIn('slow').delay(1000).fadeOut('slow');
           //document.getElementById(id+"mme").style.display="block";
           console.log(err);
         }
@@ -155,7 +162,8 @@ export class DbookComponent implements OnInit {
           if(res['res_status']== "success"){
             this.success = res['response'];
             this.bsuccess=true;
-            document.getElementById(id+"b").style.display="block";
+            //document.getElementById(id+"b").style.display="block";
+            $('#'+id+"b").fadeIn('slow').delay(1000).fadeOut('slow');
            // document.getElementById(id+"bm").style.display="block";
             document.getElementById(id+"btb").style.display="none";
           
@@ -164,7 +172,8 @@ export class DbookComponent implements OnInit {
           else{
             this.error = res['response'];
             this.berror=true;
-            document.getElementById(id+"be").style.display="block";
+            //document.getElementById(id+"be").style.display="block";
+            $('#'+id+"be").fadeIn('slow').delay(1000).fadeOut('slow');
            // document.getElementById(id+"bme").style.display="block";
           }
           
@@ -173,8 +182,10 @@ export class DbookComponent implements OnInit {
          
           this.error = err['error'].response;
           this.berror=true;
-          document.getElementById(id+"be").style.display="block";
-          document.getElementById(id+"bm").style.display="block";
+          //document.getElementById(id+"be").style.display="block";
+          //document.getElementById(id+"bm").style.display="block";
+          $('#'+id+"be").fadeIn('slow').delay(1000).fadeOut('slow');
+          $('#'+id+"bm").fadeIn('slow').delay(1000).fadeOut('slow');
           console.log(err);
         }
       );
@@ -193,21 +204,23 @@ export class DbookComponent implements OnInit {
          
           if(res['res_status']== "success"){
             this.success = res['response'];
-           
-            document.getElementById(id+"bm").style.display="block";
+           //document.getElementById(id+"bm").style.display="block";
+            $('#'+id+"bm").fadeIn('slow').delay(1000).fadeOut('slow');
        
           
           }
           else{
             this.error = res['response'];
-            document.getElementById(id+"bme").style.display="block";
+            //document.getElementById(id+"bme").style.display="block";
+            $('#'+id+"bme").fadeIn('slow').delay(1000).fadeOut('slow');
            
           }
         },
         (err)=>{
          
           this.error = err['error'].response;
-          document.getElementById(id+"bme").style.display="block";
+          //document.getElementById(id+"bme").style.display="block";
+          $('#'+id+"bme").fadeIn('slow').delay(1000).fadeOut('slow');
           console.log(err);
         }
       );
@@ -246,20 +259,23 @@ export class DbookComponent implements OnInit {
       res=>{
         if(res['res_status']== "success"){
           this.success = res['response'];
-          document.getElementById(id+"ds").style.display="block";
+          //document.getElementById(id+"ds").style.display="block";
+          $('#'+id+"ds").fadeIn('slow').delay(1000).fadeOut('slow');
           //document.getElementById(id+"del").style.display="none";
         
         }
         else{
           this.error = res['response'];
-          document.getElementById(id+"dse").style.display="block";
+          //document.getElementById(id+"dse").style.display="block";
+          $('#'+id+"dse").fadeIn('slow').delay(1000).fadeOut('slow');
          
         }
       },
       err=>{
 
         this.error = err['error'].response;
-        document.getElementById(id+"dse").style.display="block";
+        //document.getElementById(id+"dse").style.display="block";
+        $('#'+id+"dse").fadeIn('slow').delay(1000).fadeOut('slow');
         console.log(err);
       }
     );
@@ -277,7 +293,6 @@ export class DbookComponent implements OnInit {
     
     this.router.navigate(['/dashboard/dchat']);
   }
-
 
 
 

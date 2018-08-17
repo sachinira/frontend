@@ -15,8 +15,8 @@ export class ChatfeedComponent implements OnInit,OnChanges,OnDestroy {
   cid:string;
   allMessage:EnterMsg [] = [];
 
+
   interval:any;
-  results:any;
   countNotification:number=0;
   countMessage:number=0;
   otherMsg:number=0;
@@ -31,7 +31,7 @@ export class ChatfeedComponent implements OnInit,OnChanges,OnDestroy {
     this.service.getMsg(this.qid,this.cid,"25");
     this.allMessage = this.service.allMessage;
 
-    this.interval = setInterval(() => {
+    /*this.interval = setInterval(() => {
       this.service.realtime(this.qid).subscribe(
         data => {
             console.log(data);
@@ -41,8 +41,10 @@ export class ChatfeedComponent implements OnInit,OnChanges,OnDestroy {
             }
            
         });
-     }, 5000);
+        this.service.pushMsg(this.qid);
 
+     }, 5000);*/
+     
     
   }
 
@@ -56,16 +58,16 @@ export class ChatfeedComponent implements OnInit,OnChanges,OnDestroy {
     console.log(this.allMessage);
   }
 
-  getNotifications(){
+  /*getNotifications(){
     if(this.results.length >= 0){
       this.results.forEach((x:any)=>{
         if(x.type === "messages"){
-          this.ngOnChanges();
-        
+          
+          this.allMessage.push(this.messaget);
         }
       })
     }
-  }
+  }*/
 
   ngOnDestroy(){
     localStorage.removeItem("chatC");

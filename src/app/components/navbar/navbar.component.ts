@@ -1,7 +1,5 @@
 import { Component, OnInit,ElementRef,HostListener,OnDestroy } from '@angular/core';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { ROUTES } from '../sidebar/sidebar.component';
 import * as $ from 'jquery';
 import { UserService } from '../../services/user.service';
 
@@ -14,28 +12,56 @@ import { UserService } from '../../services/user.service';
 })
 export class NavbarComponent implements OnInit,OnDestroy {
  
-  interval:any;
   qid:string;
   results:any;
 
-  countNotification:number=0;
-  countMessage:number=0;
-  otherMsg:number=0;
 
-  notification:string;
-  notificationDate:string;
-  releventUser:string;
+  //these fields must get from the service and instantiate
+  interval:any;
+
+  countNotification:number;
+  countMessage:number;
+  otherMsg:number;
+
+  notifications:string[]=[];
+  notificationDates:string[]=[];
+  releventUsers:string[]=[];
+  i:number;
+  j:number;
+
+  messages:string[]=[];
+  messageDates:string[]=[];
+  senders:string[]=[];
 
   constructor(private service:UserService,private router: Router) {
    
   }
 
   ngOnInit(){
+
+
+    this.countNotification= this.service.countNotification
+    this.countMessage = this.service.countMessage;
+    this.otherMsg = this.service.otherMsg;
+
+    this.notifications=this.service.notifications;
+    this.notificationDates = this.service.notificationDates;
+    this.releventUsers =this.service.releventUsers;
+
+    this.i = this.service.i;
+    this.j = this.service.j;
+
+    this.messages = this.service.messages;
+    this.messageDates = this.service.messageDates;
+    this.senders = this.service.senders;
+
+    this.interval = this.service.interval;
+
     if(localStorage.getItem('id')===null){
      
     }else{
       this.qid = localStorage.getItem("id");
-      //realtime update
+      /*realtime update
       this.interval = setInterval(() => {
         this.service.realtime(this.qid).subscribe(
           data => {
@@ -46,29 +72,43 @@ export class NavbarComponent implements OnInit,OnDestroy {
               }
              
           });
-       }, 5000);
+       }, 5000);*/
+
+       this.service.realtime(this.qid);
     }
   }
 
 
-  getNotifications(){
-  
+/*  getNotifications(){
+   
     this.results.forEach((x:any)=>{
-      if(x.type === "notification"){
-        this.countNotification++;
-        this.notification = x.updatedStatus;
-        this.notificationDate = x.notificationSendDate;
-        this.releventUser = x.affectedUserId;
-      }
-      else if(x.type === "messages"){
+      if(x.type === "messages"){
         this.countMessage++;
-        this.notification = x.updatedStatus;
-        this.notificationDate = x.notificationSendDate;
-        this.releventUser = x.affectedUserId;
+        this.messages[this.i] = x.updatedStatus;
+        this.messageDates[this.i] = x.notificationSendDate;
+        this.senders[this.i] = x.affectedUserId;
+        this.i++;
       }
-
-
+      else{
+        this.countNotification++;
+        this.notifications[this.j] = x.updatedStatus;
+        this.notificationDates[this.j] = x.notificationSendDate;
+        this.releventUsers[this.j] = x.affectedUserId;
+        this.j++;
+      }
+      
     })
+  }*/
+
+  clearNot(){
+    this.service.j = 0;
+    this.service.countNotification=0;
+
+  }
+
+  clearMsg(){
+    this.service.j=0;
+    this.service.countMessage =0 ;
   }
 
   logOut(){
@@ -77,6 +117,9 @@ export class NavbarComponent implements OnInit,OnDestroy {
     this.router.navigate(['']);
   }
 
+  goProfile(){
+    this.router.navigate(['/dashboard/dprofile']);
+  }
 
 
 
@@ -89,7 +132,15 @@ export class NavbarComponent implements OnInit,OnDestroy {
   }
 }
 
-notific(){
+gotoChat(){
+  //need counceller's id / person who is sending
+  //need msg
+
+}
+
+
+
+/*notific(){
   $(document).ready(function()
   {
   $("#notificationLink").click(function()
@@ -163,12 +214,12 @@ notific(){
   });
   
   });
- }
+ }*/
 
  
 
 
- ngOnDestroy(){
+ngOnDestroy(){
   clearInterval(this.interval);
 }
 

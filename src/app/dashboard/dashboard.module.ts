@@ -25,6 +25,7 @@ import { GuageComponent } from './dhome/guage/guage.component';
 import { InfoComponent } from './dhome/info/info.component';
 import { TipsComponent } from './dhome/tips/tips.component';
 import { UseritemComponent } from './dchat/useritem/useritem.component';
+import { DcbookingresComponent } from './dcbookingres/dcbookingres.component';
 
 
 
@@ -38,7 +39,8 @@ const childRoutes:Routes = [
   {path:'dctip',component:DctipComponent,canActivate:[CouncellerGuard]},
   {path:'dctrack',component:DctrackComponent,canActivate:[CouncellerGuard]},
   {path:'dcbook',component:DcbookComponent,canActivate:[CouncellerGuard]},
-  {path:'dques',component:DquesComponent,canActivate:[UserGuard]}
+  {path:'dques',component:DquesComponent,canActivate:[UserGuard]},
+  {path:'dcbookingres',component:DcbookingresComponent,canActivate:[CouncellerGuard]}
 ];
 
 
@@ -74,7 +76,8 @@ const childRoutes:Routes = [
   GuageComponent,
   InfoComponent,
   TipsComponent,
-  UseritemComponent
+  UseritemComponent,
+  DcbookingresComponent
   ]
 })
 export class DashboardModule { }

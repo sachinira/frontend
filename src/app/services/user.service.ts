@@ -22,6 +22,24 @@ export class UserService {
   second:any;
   allMessage:EnterMsg[] = [];
 
+  results:any;
+  messaget:EnterMsg=new EnterMsg("2019-08-07",30,3,30,"Helloooo world")
+
+  interval:any;
+
+  countNotification:number=0;
+  countMessage:number=0;
+  otherMsg:number=0;
+
+  notifications:string[]=[];
+  notificationDates:string[]=[];
+  releventUsers:string[]=[];
+  i:number=0;
+  j:number=0;
+
+  messages:string[]=[];
+  messageDates:string[]=[];
+  senders:string[]=[];
 
   newMsg:EnterMsg = new EnterMsg();
 
@@ -113,9 +131,66 @@ export class UserService {
   }
 
   realtime(id:string){
-    return this.http.post(this.baseUrl+'/realtime',{id},this.httpOptions);
+
+    this.interval = setInterval(() => {
+      return this.http.post(this.baseUrl+'/realtime',{id},this.httpOptions).subscribe(
+        data => {
+            console.log(data);
+            if(data['status']){
+              this.results = data['list'];
+              this.getNotifications();
+            }
+           
+        });
+     }, 5000);
+    
   }
 
+
+  getNotifications(){
+   
+    this.results.forEach((x:any)=>{
+      if(x.type === "messages"){
+        this.countMessage++;
+        this.messages[this.i] = x.updatedStatus;
+        this.messageDates[this.i] = x.notificationSendDate;
+        this.senders[this.i] = x.affectedUserId;
+        this.i++;
+        this.allMessage.push(this.messaget);
+      }
+      else{
+        this.countNotification++;
+        this.notifications[this.j] = x.updatedStatus;
+        this.notificationDates[this.j] = x.notificationSendDate;
+        this.releventUsers[this.j] = x.affectedUserId;
+        this.j++;
+      }
+      
+    })
+  }
+
+ /* pushMsg(id:string){
+    return this.http.post(this.baseUrl+'/realtime',{id},this.httpOptions).subscribe(
+      data=>{
+        if(data['status']){
+          this.results = data['list'];
+          if(this.results.length >= 0){
+            this.results.forEach((x:any)=>{
+              if(x.type === "messages"){
+                this.allMessage.push(this.messaget);
+              }
+            });
+          }
+        }
+      },
+      err =>{
+        console.log(err);
+        
+      }
+    );
+
+  }
+*/
  
   getTips(id:string,numberOfInstance:string){
     return this.http.post(this.baseUrl+'/getTips',{id,numberOfInstance},this.httpOptions);
@@ -124,5 +199,13 @@ export class UserService {
  
   delete_counceller(userId:string,councellerId:string){
     return this.http.post(this.baseUrl+'/user/removeCounceller',{userId,councellerId},this.httpOptions);
+  }
+
+  getTracks(id:string){
+    return this.http.post(this.baseUrl+'/user/getTracks',{id},this.httpOptions);
+  }
+
+  bookingHistory(id:string){
+    return this.http.post(this.baseUrl+'/user/getBookingHistory',{id},this.httpOptions);
   }
 }

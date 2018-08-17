@@ -91,7 +91,7 @@ export class DhomeComponent implements OnInit {
 
   }
 
-  updateImage(){
+ /* updateImage(){
     this.level = parseFloat(this.history[this.history.length-1]);
     //console.log(this.level);
     
@@ -107,7 +107,7 @@ export class DhomeComponent implements OnInit {
       
         return "'url('+../../../assets/img/level1.png+')'";
     }
-  }
+  }*/
 
   updateColor(){
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders,HttpClient } from '@angular/common/http';
 import { AllUser } from '../home/all_user';
+import { Confirm } from '../dashboard/dcbookingres/confirm';
 
 
 @Injectable({
@@ -12,6 +13,7 @@ export class CouncellerService {
     headers: new HttpHeaders().set('Content-Type','application/json').append('Authorization',localStorage.getItem("tok")).append('id',localStorage.getItem("id"))
     
   };
+
 
   constructor(private http:HttpClient) { }
 
@@ -28,8 +30,8 @@ export class CouncellerService {
     return this.http.post(this.baseUrl+'/PatientDetails',{counceller_id,patient_id},this.httpOptions);
   }
 
-  addTrack(counceller_id:string,description:string,name:string,max_stress_level:string,min_stress_level:string){
-    return this.http.post(this.baseUrl+'/addTrack',{counceller_id,description,max_stress_level,min_stress_level});
+  addTrack(counceller_id:string,name:string,description:string,max_stress_level:string,min_stress_level:string,link:string){
+    return this.http.post(this.baseUrl+'/addTrack',{counceller_id,name,description,max_stress_level,min_stress_level,link},this.httpOptions);
   }
 
   
@@ -53,4 +55,10 @@ export class CouncellerService {
   realtime(id:string){
       return this.http.post(this.baseUrl+'/realtime',{id},this.httpOptions);
   }
+
+
+  confirm(con:Confirm){
+    return this.http.post(this.baseUrl+'/counceller/Response',JSON.stringify(con),this.httpOptions);
+  }
 }
+
