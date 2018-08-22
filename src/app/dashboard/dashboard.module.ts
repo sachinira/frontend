@@ -26,7 +26,7 @@ import { InfoComponent } from './dhome/info/info.component';
 import { TipsComponent } from './dhome/tips/tips.component';
 import { UseritemComponent } from './dchat/useritem/useritem.component';
 import { DcbookingresComponent } from './dcbookingres/dcbookingres.component';
-
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 
 const childRoutes:Routes = [
@@ -51,6 +51,7 @@ const childRoutes:Routes = [
     FormsModule,
     RouterModule.forChild(childRoutes),
     NgbModule,
+    ImageCropperModule,
     AgmCoreModule.forRoot({
       apiKey:
       'AIzaSyB9qQh5Mw4MhnsSs0RCYxzPBZZrNvDhHl8'

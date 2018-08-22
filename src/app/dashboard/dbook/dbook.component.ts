@@ -36,8 +36,13 @@ export class DbookComponent implements OnInit {
   booked=false;
 
   /*This value must be the users location*/
-  lat=6.0242533;
-  lng=80.2424114;
+  //lat=6.0242533;
+  //lng=80.2424114;
+
+  lat=parseFloat(localStorage.getItem("lati"));
+  lng=parseFloat(localStorage.getItem("longi"));
+
+
 
   constructor(private service:UserService,private router:Router) { }
 

@@ -41,7 +41,7 @@ export class SidebarComponent implements OnInit {
 
     this.type=localStorage.getItem("type");
 
-    document.getElementById("mySidenav").style.width = "33px";
+    document.getElementById("mySidenav").style.width = "30px";
 
     if(this.type=="user"){
       this.menuItems = ROUTES.filter(menuItem => menuItem);

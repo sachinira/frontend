@@ -79,7 +79,32 @@
 
   <div class="col-md-4 col-lg-4 col-sm-4">
     <div class="card">
-      <img src="../../../assets/img/2.jpg" alt="John" style="width:50%;margin-left: 28%;margin-top: 10%;border-radius: 50%">
+
+      <form #imageForm="ngForm" (ngSubmit)="onImage(imageForm.value)">
+
+        <input type="file" id="imgupload" #Image accept="image/*" style="display:none" (change)="handleInput($event)"/> 
+
+        <image-cropper
+          [imageChangedEvent]="imageChangedEvent"
+          [maintainAspectRatio]="true"
+          [aspectRatio]="1 /1"
+          [resizeToWidth]="128"
+          format="jpeg"
+          (imageCroppedBase64)="imageCropped($event)"
+          (imageCroppedFile)="getFile($event)"
+          (imageLoaded)="imageLoaded()"
+          (loadImageFailed)="loadImageFailed()"
+        ></image-cropper>
+
+        <img [src] ="imageUrl" alt="John" style="width:50%;margin-left: 28%;margin-top: 10%;border-radius: 50%;cursor: pointer;" (click)="imageUpload()">
+
+
+        <div class="form-group">      
+            <button style="width: 50%;margin-left: 25%" id="myBtn" type="submit">Submit</button>
+        </div>
+
+      </form>
+
       <div class="content">
       <h1>{{user.name}}</h1>
       <p class="title"> {{user.type}}</p>

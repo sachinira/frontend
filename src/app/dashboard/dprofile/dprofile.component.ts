@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { AllUser } from '../../home/all_user';
 import { AccountUser } from '../../home/account_user';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-dprofile',
@@ -20,6 +21,11 @@ export class DprofileComponent implements OnInit {
   error:string;
 
   ok:boolean=null;
+
+  imageUrl:string = '../../../assets/img/2.jpg';
+  fileToUplaod:File= null;
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
   
 
   constructor(private service:UserService,private router:Router) { }
@@ -81,6 +87,50 @@ export class DprofileComponent implements OnInit {
     )
   }
 
+  imageUpload(){
+    document.getElementById('imgupload').click();
+  }
+  
+  handleInput(event:any){
+
+    this.imageChangedEvent = event;
+    
+  }
+
+
+  submitForm(event){
+    console.log('event');
+    
+    
+  }
+
+  onImage(event){
+
+    console.log('enter');
+  }
+
+  getFile(file:File){
+
+    console.log(file);
+    
+    
+
+  }
+
+
+  imageCropped(image: string) {
+    
+    this.imageUrl = image;
+  }
+
+  
+  imageLoaded() {  
+    // show cropper
+  }
+
+  loadImageFailed() {
+    // show message
+  }
   //the response always comes as unauthorized chek it with postman
   //image upload in profile
 
