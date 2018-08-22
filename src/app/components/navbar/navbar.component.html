@@ -3,16 +3,48 @@
 <div class="topnav" id="myTopnav">
 
   
-  <a (click)="logOut()" class="active right"><span class="glyphicon glyphicon-log-out topnavicon" ></span></a>
-  <a (click)="myPopup()" class="right"><i class="fa fa-bell fa-lg avatar"></i><span class="msgno">2</span></a>
-  <a class="right" ><i class="fa fa-envelope-open fa-lg avatar" ></i><span class="msgno">2</span></a>
-  <a  class="right" ><i class="fa fa-user-circle fa-lg avatar"></i></a>
-  <!--<div id="wave1"></div>
-  <div id="wave2"></div>
-  <a href="javascript:void(0);" class="icon" (click)="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>-->
-  <a  class="left" onclick="openNav()">
+
+
+  <li>
+
+  <div class="dropdown">
+    <a class="right dropdown-toggle" data-toggle="dropdown"  ><i class="fa fa-user-circle fa-lg avatar"></i></a>
+    <ul class="dropdown-menu menu3">
+        <li><a (click)="logOut()" >LogOut</a></li>
+        <li><a (click)="goProfile()" >Settings</a></li>
+      </ul>
+  </div>
+
+  <div class="dropdown">
+    <a class="right dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-open fa-lg avatar" (click)="clearMsg()"></i><span class="msgno">{{countMessage}}</span></a>
+    <ul class="dropdown-menu menu2">
+          <li class="dropdown-header">Messages</li> 
+          <li class="divider"></li> 
+          <li *ngFor="let message of messages" >{{message}} <button (click)="gotoChat()">Chat</button></li>
+          <li class="divider"></li>
+          <li><a href="#">See All</a></li>
+      
+    </ul>
+  </div>
+
+  <div class="dropdown"> 
+    <a class="right dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell fa-lg avatar" (click)="clearNot()" ></i><span class="msgno">{{countNotification}}</span></a>
+    <ul class="dropdown-menu menu1">
+      <li class="dropdown-header">Notifications</li> 
+      <li class="divider"></li> 
+      <li *ngFor="let notification of notifications">{{notification}}</li>
+      
+    </ul>
+  </div>
+
+  </li>
+
+
+
+
+
+
+ <a  class="left" onclick="openNav()">
       <svg width="30" height="30" >
         <path d="M0, 5 30,5" stroke="#fff" stroke-with="5"/>
         <path d="M0, 14 30,14" stroke="#fff" stroke-with="5"/>
@@ -20,28 +52,6 @@
       </svg>
   </a>
  
- <!--<ul>
-    <li>S</li>
-    <li>T</li>
-    <li>R</li>
-    <li>E</li>
-    <li>S</li>
-    <li>S</li>
-  
-      <li>C</li>
-      <li>O</li>
-      <li>N</li>
-      <li>T</li>
-      <li>R</li>
-      <li>O</li>
-      <li>L</li>
-      <li>L</li>
-      <li>E</li>
-      <li>R</li>
-    </ul>-->
-
-
-    <!--dropdown-->
 
     
 

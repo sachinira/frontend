@@ -1,0 +1,77 @@
+/*card*/
+
+.row{
+    padding: 1vh;
+    margin: 3vh;
+   
+}
+
+.card{
+    /*background:linear-gradient(rgb(165, 22, 139), rgb(12, 5, 109));*/
+    background: transparent;
+    padding: 1vmax;
+    margin: 1vmax;
+    margin-left: 1vmax;
+    margin-right: 1vmax;
+    color: rgb(238, 219, 245);
+   /* box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);*/
+    opacity: 0.9;
+;
+
+}
+
+.sm{
+    height: 65vh;
+    overflow: hidden;
+    box-shadow: wheat;
+}
+.card-title{
+    text-align: center;
+    padding: 1vh;
+}
+
+.card-content{
+    color: wheat;
+}
+.description{
+    font-family: 'Amaranth';
+    font-size: 22px;
+    
+}
+
+
+/*images*/
+.image{
+    height: 80vh;
+    width: 30vw;
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+
+/*form*/
+
+.form-control{
+    background-color: transparent;
+    color: white;
+}
+
+.btn{
+    width: 100%;
+    padding: 1.5vh;
+    margin-bottom: 1vh;
+    color: rgb(252, 248, 248);
+    background-color: rgb(18, 116, 201);
+    font-size: 3vh;
+    border: none;
+    border-radius: 0;
+}
+
+/*items in the stepper*/
+img{
+    height: 80%;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+   border-radius: 50%;
+
+}

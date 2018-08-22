@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { AllUser } from '../../home/all_user';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-dbook',
@@ -19,30 +20,54 @@ export class DbookComponent implements OnInit {
   index=0;
   reqid:string;
 
+  msuccess:boolean;
+  merror:boolean;
+
+  bsuccess:boolean;
+  berror:boolean;
+
+  success:string;
+  error:string;
+
+  nocounceller:boolean;
+  message:string;
 
   /*for hiding and showing button*/
   booked=false;
 
   /*This value must be the users location*/
-  lat=6.0242533;
-  lng=80.2424114;
+  //lat=6.0242533;
+  //lng=80.2424114;
+
+  lat=parseFloat(localStorage.getItem("lati"));
+  lng=parseFloat(localStorage.getItem("longi"));
+
+
 
   constructor(private service:UserService,private router:Router) { }
 
   ngOnInit() {
 
+    
+
     this.qid = localStorage.getItem("id");
     this.name = localStorage.getItem("name");
+
+    
+    //in real system this must be the user's latitude and logitude
+
+  /*  this.lat =parseFloat(localStorage.getItem("lati"));
+    this.lng = parseFloat(localStorage.getItem("longi"));*/
 
     this.service.get_all_councellers().subscribe(
       (data)=>{
         console.log(data);
       
         data['list'].forEach(element => {
-          console.log(element);
+         // console.log(element);
           this.councellers.push(element);
           this.councellers[this.index].lat = parseFloat(element.latitude);
-          console.log(this.clats);
+         // console.log(this.clats);
           this.councellers[this.index].lon =parseFloat(element.longitude);
           this.index++;
         });
@@ -65,9 +90,18 @@ export class DbookComponent implements OnInit {
           this.mycouncellers.push(element);
           
         });
+
+        if(this.mycouncellers.length==0){
+          this.nocounceller=true;
+          this.message='You Have no councellers mapped yet';
+        }
+
+        
       },
       (err)=>{
         console.log(err);
+        this.nocounceller = true;
+        this.message='You have no councellers mapped yet';
         
       }
     );
@@ -75,58 +109,201 @@ export class DbookComponent implements OnInit {
 
 
   onPressSelect(id:string){
-    this.service.map_counceller(this.qid,id).subscribe(
-      (res)=>{
-        console.log(res);
-        //this.onBookedCounceller();
-      },
-      (err)=>{
-        console.log(err);
-      }
-    );
+    var r = confirm("Select this counceller?");
 
+    if(r){
+      this.service.map_counceller(this.qid,id).subscribe(
+        (res)=>{
+          
+          if(res['res_status'] == "success"){
+            this.success = res['response'];
+            this.msuccess=true;
+            //document.getElementById(id+"m").style.display="block";
+            $('#'+id+"m").fadeIn('slow').delay(1000).fadeOut('slow');
+            $('#'+id+"mm").fadeIn('slow').delay(1000).fadeOut('slow');
+           // document.getElementById(id+"mm").style.display="block";
+            document.getElementById(id+"btm").style.display="none";
+            
+          }
+          else{
+            this.error = res['response'];
+            this.merror=true;
+            //document.getElementById(id+"me").style.display="block";
+            $('#'+id+"me").fadeIn('slow').delay(1000).fadeOut('slow');
+            $('#'+id+"mme").fadeIn('slow').delay(1000).fadeOut('slow');
+            //document.getElementById(id+"mme").style.display="block";
+          }
+
+          
+          //this.onBookedCounceller();
+        },
+        (err)=>{
+           
+          this.error = err['error'].response;
+          this.merror=true;
+          //document.getElementById(id+"me").style.display="block";
+          $('#'+id+"me").fadeIn('slow').delay(1000).fadeOut('slow');
+          $('#'+id+"mme").fadeIn('slow').delay(1000).fadeOut('slow');
+          //document.getElementById(id+"mme").style.display="block";
+          console.log(err);
+        }
+      );
+
+
+    }
+
+    
     //every time when this is selected the method get the current counceller must be called.
     //or show an error msg
   }
 
   onPressBook(id:string){
-    this.service.booking_request(this.qid,id).subscribe(
-      (res)=>{
-        console.log(res);
-        this.booked=true;
-      },
-      (err)=>{
-        console.log(err);
-      }
-    );
+    var r = confirm("Book this counceller?");
+
+    if(r){
+      this.service.booking_request(this.qid,id).subscribe(
+        (res)=>{
+         
+          if(res['res_status']== "success"){
+            this.success = res['response'];
+            this.bsuccess=true;
+            //document.getElementById(id+"b").style.display="block";
+            $('#'+id+"b").fadeIn('slow').delay(1000).fadeOut('slow');
+           // document.getElementById(id+"bm").style.display="block";
+            document.getElementById(id+"btb").style.display="none";
+          
+            
+          }
+          else{
+            this.error = res['response'];
+            this.berror=true;
+            //document.getElementById(id+"be").style.display="block";
+            $('#'+id+"be").fadeIn('slow').delay(1000).fadeOut('slow');
+           // document.getElementById(id+"bme").style.display="block";
+          }
+          
+        },
+        (err)=>{
+         
+          this.error = err['error'].response;
+          this.berror=true;
+          //document.getElementById(id+"be").style.display="block";
+          //document.getElementById(id+"bm").style.display="block";
+          $('#'+id+"be").fadeIn('slow').delay(1000).fadeOut('slow');
+          $('#'+id+"bm").fadeIn('slow').delay(1000).fadeOut('slow');
+          console.log(err);
+        }
+      );
+    }
+
+    
   }
 
-  onPressDelete(){
+
+  onPressBookMapped(id:string){
+    var r = confirm("Book this counceller?");
+
+    if(r){
+      this.service.booking_request(this.qid,id).subscribe(
+        (res)=>{
+         
+          if(res['res_status']== "success"){
+            this.success = res['response'];
+           //document.getElementById(id+"bm").style.display="block";
+            $('#'+id+"bm").fadeIn('slow').delay(1000).fadeOut('slow');
+       
+          
+          }
+          else{
+            this.error = res['response'];
+            //document.getElementById(id+"bme").style.display="block";
+            $('#'+id+"bme").fadeIn('slow').delay(1000).fadeOut('slow');
+           
+          }
+        },
+        (err)=>{
+         
+          this.error = err['error'].response;
+          //document.getElementById(id+"bme").style.display="block";
+          $('#'+id+"bme").fadeIn('slow').delay(1000).fadeOut('slow');
+          console.log(err);
+        }
+      );
+    }
+  }
+ /* onPressDelete(){
     //this is for deleting a request made by user;
     //get the current userid
     //get the id of the request send, this must be saved in alist of requests made by the user,
+    var r = confirm("Delete this counceller?")
 
-    this.service.delete_request(this.qid,this.reqid).subscribe(
-      (req)=>{
-        console.log(req);
-      },
-      (err)=>{
-        console.log(err);
+    if(r){
+      this.service.delete_request(this.qid,this.reqid).subscribe(
+        (res)=>{
+          this.okd=true;
+          this.success = res['response'];
+          
+          console.log(res);
+          //this.onBookedCounceller();
+        },
+        (err)=>{
+          this.okd=false;
+          this.error = err['error'].error;
+          console.log(err);
+        }
+      );
+    }
+
+  }*/
+
+  deleteCounceller(id:string){
+
+    var r = confirm("Delete this counceller?");
+    if(r){
+    this.service.delete_counceller(this.qid,id).subscribe(
+      res=>{
+        if(res['res_status']== "success"){
+          this.success = res['response'];
+          //document.getElementById(id+"ds").style.display="block";
+          $('#'+id+"ds").fadeIn('slow').delay(1000).fadeOut('slow');
+          //document.getElementById(id+"del").style.display="none";
         
+        }
+        else{
+          this.error = res['response'];
+          //document.getElementById(id+"dse").style.display="block";
+          $('#'+id+"dse").fadeIn('slow').delay(1000).fadeOut('slow');
+         
+        }
+      },
+      err=>{
+
+        this.error = err['error'].response;
+        //document.getElementById(id+"dse").style.display="block";
+        $('#'+id+"dse").fadeIn('slow').delay(1000).fadeOut('slow');
+        console.log(err);
       }
     );
 
-
   }
+
+    
+    }
 
 
 
   onPressChat(id:string){
-    localStorage.setItem("chatC","id");
-    this.router.navigate(['/chat']);
+    localStorage.setItem("chatC",id);
+    console.log(localStorage.getItem("chatC"));
+    
+    this.router.navigate(['/dashboard/dchat']);
   }
 
-  goBack(){
-    this.router.navigate(['/user']);
-  }
+
+
+  //handling problem in the for loop errors
+  //showing response in map
+  //booking history
+
+ 
 }

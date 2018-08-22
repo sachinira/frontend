@@ -22,6 +22,11 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {
 
+    
+    this.user.latitude = "5.34242552";
+    this.user.longitude="80.5353522";
+
+
     if (window.navigator && window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(
           position => {
@@ -51,6 +56,8 @@ export class SigninComponent implements OnInit {
 
 
   onSignIn(){
+    document.getElementById("load").style.display = "block";
+    document.getElementById("showweb").style.display = "none";
    
       this.homeService.get_signin(this.uname,this.pwd).subscribe(
         (req)=>{
@@ -72,20 +79,25 @@ export class SigninComponent implements OnInit {
 
     
           if(req['type']== "user"){
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/dashboard/dhome']);
           }
           if(req['type'] == "counceller"){
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/dashboard/dchome']);
           }
           if(req['type'] == "admin"){
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/admin']);
           }
+
+          document.getElementById("load").style.display = "none";
+          document.getElementById("showweb").style.display = "block";
         },
         (err)=>{
     
     
           console.log(err.error['response']);
           this.signinerrorMsg = err.error['response'];
+          document.getElementById("load").style.display = "none";
+          document.getElementById("showweb").style.display = "block";
     
         }
       );

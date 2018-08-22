@@ -1,25 +1,53 @@
 /*card*/
 
 .row{
-   padding: 2vh;
+   padding: 1vh;
+
    
+}
+
+.container{
+    position: relative;
 }
 
 .card{
     /*background:linear-gradient(rgb(165, 22, 139), rgb(12, 5, 109));*/
     background:transparent;
-    margin-bottom: 1vh;
-    margin-top: 2vh;
+    margin-bottom: 5vh;
+    height: 60vh;
     color: rgb(238, 219, 245);
-   /* box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);*/
+    box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);
     opacity: 0.9;
+    font-family: 'Amaranth';
+    padding-top: 3vh;
 
 }
 
+a{
+    cursor: pointer;
+}
+
+.card-body{
+    font-family: 'Amaranth';
+    font-size: 4vh;
+    text-align: center;
+    color: white;
+    margin-top: 1vh;
+}
+
+.level{
+    
+    padding-top: 10vh;
+}
+
 .sm{
-    height: 65vh;
-    overflow: hidden;
-    box-shadow: wheat;
+    background: url('../../../assets/img/31517_black-and-purple-wallpaper.jpg');
+    padding: 15vh;
+}
+
+.top{
+
+    background-color: rgba(61, 18, 58, 0.932);
 }
 .card-title{
     text-align: center;
@@ -164,11 +192,11 @@ input{
 /*carousal*/
 
 .carousel-inner{
-    background-image: url('../../../assets/img/human.png');
-    height: 200px;
-    background-size: cover;
+    /*background-image: url('../../../assets/img/human.png');
+    height: 200px;*/
     font-family: 'Amaranth';
     color: rgb(45, 214, 129);
+    height: 50vh;
 
 }
 

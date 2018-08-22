@@ -20,6 +20,9 @@ export class SignupComponent implements OnInit {
   forgotemail:string;
   
   siginupError:string;
+  councellerok:boolean;
+
+  type:string;
 
   user:AllUser = new AllUser();
 
@@ -28,6 +31,9 @@ export class SignupComponent implements OnInit {
    }
   
   ngOnInit() {
+
+    this.user.latitude = "5.34242552";
+    this.user.longitude="80.5353522";
     
     if (window.navigator && window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(
@@ -35,9 +41,11 @@ export class SignupComponent implements OnInit {
               //this.geolocationPosition = position,
               console.log(position.coords.latitude);
               this.user.latitude = JSON.stringify(position.coords.latitude);
+              
               //this.user.gps = "34.434220";
               console.log(position.coords.longitude);
-              this.user.longitude = JSON.stringify(position.coords.longitude);
+             this.user.longitude = JSON.stringify(position.coords.longitude);
+            
           },
           error => {
               switch (error.code) {
@@ -62,68 +70,63 @@ export class SignupComponent implements OnInit {
 
 
   onSignUp(){
+
+    document.getElementById("load").style.display = "block";
+    document.getElementById("showweb").style.display = "none";
+   
+
+    console.log(this.user.latitude);
+
     
     if(this.validate()){
 
+      
       this.homeService.get_signup(this.user).subscribe(
        (req)=>{
-         localStorage.setItem("SiginUptype",this.user.type);
+         console.log(this.user.type);
+         
+        localStorage.setItem("SignUptype",this.user.type);
+        this.type=localStorage.getItem('SignUptype');
    
         // console.log(req);
          if(req['res_status']=="success"){
            this.signupsuccessmsg="Registration Success!! Please wait for Login...";
-             if(localStorage.getItem('SiginUptype')=="user"){
+            // if(localStorage.getItem('SiginUptype')=="user"){
                
-               this.homeService.get_signin(this.user.username,this.user.password).subscribe(
-                 (req)=>{
-             
-                   localStorage.setItem("id",req['id']);
-                   localStorage.setItem("name",req['name']);
-                   localStorage.setItem("longi",this.user.longitude);
-                   localStorage.setItem("lati",this.user.latitude);
-                   localStorage.setItem("tok",req['session_token']);
-                   localStorage.setItem("type",req['type']);
-             
-             
-                   if(req['type']== "user"){
-                     this.router.navigate(['/dashboard']);
-                   }
-                   if(req['type'] == "counceller"){
-                     this.router.navigate(['']);
-                   }
-                   if(req['type'] == "admin"){
-                     this.router.navigate(['/dashboard']);
-                   }
-                 },
-                 (err)=>{
-             
-                   console.log(err.error['response']);
-                   this.signinerrorMsg = err.error['response'];
-             
-                 }
-               );
-             }else{
-              // console.log("counceller registration successs!!!");
-               this.signupsuccessmsg="Registration successs..!"
- 
-               //+++++++++POP UP MESSAGE GOES TO HERE++++++++++++++
-               //this.router.navigate(['']);
-             }
+            console.log(req);
+            
+              if(this.type== "user"){
+                this.router.navigate(['/signin']);
+              }
+              if(this.type== "counceller"){
+                this.councellerok=true;
+                document.getElementById("alert").style.display = "block";
+              }
+              if(this.type == "admin"){
+                this.router.navigate(['/admin']);
+              }
+
+              document.getElementById("load").style.display = "none";
+               document.getElementById("showweb").style.display = "block";
+   
            
          }
    
-         //this.form.reset();
-   
-       },
+         },
        (err)=>{
          console.log(err.error['response']);
          this.signuperrorMsg=err.error['response'];
+
+         document.getElementById("load").style.display = "none";
+         document.getElementById("showweb").style.display = "block";
+   
        }
         ); 
    
      }else{
        console.log("false");
-       
+       document.getElementById("load").style.display = "none";
+       document.getElementById("showweb").style.display = "block";
      }
   
   }
@@ -262,6 +265,10 @@ phoneNumberValidare(n:string):boolean{
     return false;
   }
  
+}
+
+goHome(){
+  this.router.navigate(['']);
 }
 
 }

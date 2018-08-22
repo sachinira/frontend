@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { AllUser } from '../../home/all_user';
+import { AccountUser } from '../../home/account_user';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-dprofile',
@@ -11,21 +13,48 @@ import { AllUser } from '../../home/all_user';
 export class DprofileComponent implements OnInit {
 
   user:AllUser=new AllUser();
-  nuser:AllUser = new AllUser();
+  nuser:AccountUser = new AccountUser();
   qid:string;
+  isuser:boolean;
+
+  success:string;
+  error:string;
+
+  ok:boolean=null;
+
+  imageUrl:string = '../../../assets/img/2.jpg';
+  fileToUplaod:File= null;
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+  
 
   constructor(private service:UserService,private router:Router) { }
 
   ngOnInit() {
 
+  
+    
     this.qid = localStorage.getItem("id");
     this.service.getData(this.qid).subscribe(
       (data)=>{
         this.user.name = data['name'];
-        this.user.type = data['type'];
+        this.user.type = localStorage.getItem("type");
         this.user.address=data['address'];
         this.user.birth_date=data['birth_date'];
         this.user.phone_number=data['phone_number'];
+        this.user.guadiant_phone_number=data['guadiant_phone_no'];
+        this.user.job=data['job'];
+        this.user.certificate=data['certificate'];
+        this.user.qualification=data['qualification'];
+       
+        console.log(data);
+
+        if(data['type']== "user"){
+          this.isuser = true;
+        }
+        else{
+          this.isuser=false;
+        }
         
       }
     )
@@ -33,17 +62,76 @@ export class DprofileComponent implements OnInit {
 
   changeSettings(){
     console.log(this.nuser);
+    this.nuser.id = localStorage.getItem("id");
     
     this.service.account_setting(this.nuser).subscribe(
       (data)=>{
-        console.log(data);
+        console.log(data['response']);
+        if(data['res_status'] == "success"){
+          this.ok =true;
+          this.success= data['response'];
+        }
+        else{
+          this.ok=false;
+          this.error = data['response']
+        }
+        this.ngOnInit();
         
       },
       (err)=>{
         console.log(err);
+        this.ok=false;
+        this.error=err['response'];
         
       }
     )
   }
+
+  imageUpload(){
+    document.getElementById('imgupload').click();
+  }
+  
+  handleInput(event:any){
+
+    this.imageChangedEvent = event;
+    
+  }
+
+
+  submitForm(event){
+    console.log('event');
+    
+    
+  }
+
+  onImage(event){
+
+    console.log('enter');
+  }
+
+  getFile(file:File){
+
+    console.log(file);
+    
+    
+
+  }
+
+
+  imageCropped(image: string) {
+    
+    this.imageUrl = image;
+  }
+
+  
+  imageLoaded() {  
+    // show cropper
+  }
+
+  loadImageFailed() {
+    // show message
+  }
+  //the response always comes as unauthorized chek it with postman
+  //image upload in profile
 
 }

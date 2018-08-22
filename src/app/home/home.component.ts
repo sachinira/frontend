@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../services/home.service';
+import { AllUser } from './all_user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +10,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  councellers:AllUser[]=[];
+
+  constructor(private service:HomeService,private router:Router) { }
 
   ngOnInit() {
 
+    this.service.popular_councellers().subscribe(
+      data=>{
+
+        console.log(data);
+        
+        data['data'].forEach(element => {
+         this.councellers.push(element);
+          
+        });
+      }
+    )
+
+    if(localStorage.length>0){
+      if(localStorage.getItem('type')=="user"){
+       this.router.navigate(['/dashboard/dhome']);
+      }else if(localStorage.getItem('type')=="counceller"){
+       this.router.navigate(['/dashboard/dchome']);
+      }else{
+       this.router.navigate(['/admin']);
+      }
+    
+
+    }
+    else{
+     this.router.navigate(['']);
+    }
     
   }
 
@@ -34,5 +65,7 @@ export class HomeComponent implements OnInit {
   
   
   }
+
+
 
 }

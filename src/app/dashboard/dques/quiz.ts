@@ -27,6 +27,8 @@ export class Quiz{
     for(var i=0;i<this.ques.length;i++){
       this.score = this.score+ +this.ques[i].mark;
     }
+
+    this.score = (this.score/1276)*100;
     //console.log(this.score);
   }
 

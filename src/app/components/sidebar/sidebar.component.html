@@ -1,5 +1,7 @@
 
-<div class="sidenav" id="mySidenav">
+<div class="sidenav" id="mySidenav" onmouseover="openonHover()" onmouseout="closeonHover()">
+
+    <!--<img  style="margin-left: 6vw;border-radius: 50%;height: 100px; width: 100px" src="../../../assets/img/2.jpg">-->
     <div *ngFor="let menuItem of menuItems">
         
         <a routerLink={{menuItem.path}}><span class={{menuItem.icon}}></span>{{menuItem.title}}</a>

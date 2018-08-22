@@ -1,61 +1,32 @@
-<div class="row">
+<!--<div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
-      <div class="card">
-        <div class="card-body">
-          
-
-          <!--card content-->
-         
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-              <!-- Indicators -->
-              <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-              </ol>
-          
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner">
-          
-                  <div class="item active ">
-                      <h4 style="font-size: 35px; color: #a3d8ec;text-align: center;padding: 50px;font-style: italic;padding-bottom: 0px;">"This apps are the best. I am so happy with the result!"</h4>
-                      <h4><span style="font-style:normal; font-size: 3vh;color: #a99ddf;text-align: center;padding-left: 50%;">-Charith Madusanka-</span></h4>
-                  </div>
-                  <div class="item">
-                      <h4 style="font-size: 35px; color: #a3d8ec;text-align: center;padding: 50px;font-style: italic;padding-bottom: 0px;">"This apps are the best. I am so happy with the result!"</h4>
-                      <h4><span style="font-style:normal; font-size: 3vh;color: #a99ddf;text-align: center;padding-left: 50%;">-Charith Madusanka-</span></h4>
-                  </div>
-              
-                  <div class="item">
-                      <h4 style="font-size: 35px; color: #a3d8ec;text-align: center;padding: 50px;font-style: italic;padding-bottom: 0px;">"This apps are the best. I am so happy with the result!"</h4>
-                      <h4><span style="font-style:normal; font-size: 3vh;color: #a99ddf;text-align: center;padding-left: 50%;">-Charith Madusanka-</span></h4>
-                  </div>
-            
-              </div>
-          
-              <!-- Left and right controls -->
-              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-              </a>
-          </div>
-         </div>
-         </div>
-         </div>
+      
 
 </div>
 
-<div class="row">
+<div class="row" *ngIf="newuser">
+
+  <div class="col-md-12 col-lg-12 col-sm-12">
+      <div class="card">
+        <div class="card-body sm">
+          Hello {{myname}} . Welocome to Stress Detection and controling System. Thank You for selecting us as your stress handling companion.
+          For getting the stress controlling services you must first detect how much stress you have.
+          <br> Please visit <a (click)="gotoQues()">Stress Questionnaire</a> 
+          to detect your stress.
+        </div>
+      </div>
+    </div>
+
+</div>-->
+
+<!--<div class="row" *ngIf="newuser == false">
 
     <div class="col-md-6 col-lg-6 col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <img src="../../../assets/img/onboarding-sleep_741af7f30939cae0bd3067b68af661a3.gif" style="width: 35vw;height: 60vh;">
-            <p></p>
+        <div [style.background]="updateColor()" >
+          <div class="card-body level">
+            <img src={{myimage}} style="width: 100px;height: 100px;">
+            <br>
+            {{text}}
           </div>
         </div>
       </div>
@@ -63,7 +34,6 @@
     <div class="col-md-6 col-lg-6 col-sm-6">
       <div class="card">
         <div class="card-body">
-         <p>Your Stress History</p>
           <app-chart></app-chart>
         </div>
       </div>
@@ -71,176 +41,91 @@
   
 
 
-</div>
-<div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
-      <div class="card">
-          <div class="card-block">
-              
+</div>-->
 
-
-              <!--tabs-->
-
-              <!--tabheader-->
-              <div id="London" class="tabcontent">
-                <h3 class="head">Holms and Rahe Life Stress Inventory</h3>
-                <p class="content">Known as Social Readjustment Rating Scale (SRRS) and commonly known as Holms and Rahe stress scale. This tool helps you to measure the stress
-                  load you carry, and think about what you should do about it. The answers should be from the life events from the previous two years</p>
-              </div>
-              
-              <div id="Paris" class="tabcontent">
-                <h3 class="head">Perceived Stress Scale</h3>
-                <p class="content">The Perceived Stress Scale (PSS) is the most widely used psychological instrument for measuring the perception of
-                  stress.It concerns of the feelings and thoughts during the last month.Give us how often you felt in one of the ways. Your immidiate response will give you the best result.</p>
-              </div>
-              
-              
-              <div id="Oslo" class="tabcontent">
-                <h3 class="head">Hospital Anxiety and Depression Scale (HADS)</h3>
-                <p class="content">This questionnaire is designed to measure imotions, know how you feel.
-                  each item and select the reply which comes closest to how you have been feeling in the past week. Don’t take too long over
-                  your replies. your immediate reaction to each item will probably be more accurate than a long thought out response.</p>
-              </div>
-
-
-              <!--tabcontent--> <!--where to put the result-->
-              <ul class="nav nav-tabs">
-                <li class="active" ><a id="defaultOpen" data-toggle="tab" href="#home" (click)="openCity('London', this, 'red')">H&R</a></li>
-                <li><a data-toggle="tab" href="#menu1" (click)="openCity('Paris', this, 'red')">PSS</a></li>
-                <li><a data-toggle="tab" href="#menu2"(click)="openCity('Oslo', this, 'red')" >HADS</a></li>
-              </ul>
-              
-              <div class="tab-content">
-                <div id="home" class="tab-pane fade-in active">
-                  <ol class="list">
-                    <form #myForm="ngForm" (submit)="calHR(); myForm.reset()">
-                    <div *ngFor="let question of hrquestions">
-                    <li class="qitem">{{question.question}} 
-                        <div class="answers">
-                            <input id = "yes" type = "radio" [(ngModel)]=question.mark name="hr{{question.index}}" value="{{question.marks}}"/>
-                            <label for = "yes"><h5 class="black" style="font-size: 15px;">Yes</h5></label>
-                          
-                              <input id = "no" type = "radio" [(ngModel)]=question.mark  name="hr{{question.index}}" value="0" />
-                              <label for = "no"><h5 class="black" style="font-size: 15px;">No</h5></label>
-                        </div>
-                    </li>
-                    <hr>
-                    </div>
-                    <button type="submit" class="cal"  data-toggle="modal" data-target="#myModal">calculate</button>
-
-                                                                                                                     
-
-
-                    </form>
-                  </ol> 
-                </div>
-                <div id="menu1" class="tab-pane fade">
-                  <ol class="list">
-                    <form #myFormP="ngForm" (submit)="calPSS(); myFormP.reset()">
-                     <div *ngFor="let question of pssquestions">
-                          <li class="qitem">{{question.question}} <br/>
-                                <input id = "never" type = "radio" [(ngModel)]="question.mark"  name="pss{{question.index}}" value="{{question.ans1m}}"/>
-                                <label for = "never"><h5 class="black" style="font-size: 15px;">Never</h5></label>
-                            
-                                <input id = "alnever" type = "radio" [(ngModel)]="question.mark" name="pss{{question.index}}" value="{{question.ans2m}}"  />
-                                <label for = "alnever"><h5 class="black" style="font-size: 15px;">Almost Never</h5></label>
-
-                                <input id = "sometimes" type = "radio" [(ngModel)]="question.mark" name="pss{{question.index}}" value="{{question.ans3m}}"  />
-                                <label for = "sometimes"><h5 class="black" style="font-size: 15px;">Sometimes</h5></label>
-
-                                <input id = "foften" type = "radio" [(ngModel)]="question.mark" name="pss{{question.index}}" value="{{question.ans4m}}"  />
-                                <label for = "foften"><h5 class="black" style="font-size: 15px;">Fairly Often</h5></label>
-
-                                <input id = "voften" type = "radio" [(ngModel)]="question.mark" name="pss{{question.index}}" value="{{question.ans5m}}"/>
-                                <label for = "voften"><h5 class="black" style="font-size: 15px;">Very Often</h5></label>
-                          </li>
-                          <hr>
-                      </div>
-                      
-
-                      <button type="submit" class="cal" data-toggle="modal" data-target="#myModal">calculate</button>
-
-                    
-                                                                                                                     
-                    
-                    </form>
-                  
-
-                  </ol> 
-
-                 
-
-                </div>
-                <div id="menu2" class="tab-pane fade">
-                  <ol class="list">
-                    <form #myFormH="ngForm" (submit)="calHads(); myFormH.reset()">
-                      <div *ngFor="let question of hdssquestions">
-                          <li class="qitem">{{question.question}}<br>
-
-                             <input id = "ans1" type = "radio" name ="hads{{question.index}}" value ="{{question.ans1m}}"/>
-                              <label for = "ans1"><h5 class="black" style="font-size: 15px;">{{question.ans1}}</h5></label>
-                          
-                              <input id = "ans2" type = "radio" name ="hads{{question.index}}" value ="{{question.ans2m}}"/>
-                              <label for = "ans2"><h5 class="black" style="font-size: 15px;">{{question.ans2}}</h5></label>
-
-                              <input id = "ans3" type = "radio" name ="hads{{question.index}}" value ="{{question.ans3m}}"/>
-                              <label for = "ans3"><h5 class="black" style="font-size: 15px;">{{question.ans3}}</h5></label>
-
-                              <input id = "ans4" type = "radio" name ="hads{{question.index}}" value ="{{question.ans4m}}"/>
-                              <label for = "ans4"><h5 class="black" style="font-size: 15px;">{{question.ans4}}</h5></label> 
-
-                          </li>
-                          <hr>
-                      </div>
-
-                      <button type="submit" class="cal"  data-toggle="modal" data-target="#myModal">calculate</button>
-
-                                                                                                                        
-
-                      </form>
-                  </ol> 
-                </div>
-              </div>
-
-
-          </div>
-      </div>
-  </div>
-
-  </div>
-
-  <div class="row">
-
-
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Your Stress Level and suggestions</h4>
-        <hr>
-        <div class="gauge">
-          <canvas width="150" height="150" id="canvas-preview"></canvas>
-          <div id="preview-textfield" style="font-size: 15px;">0%</div>
-        </div>
-
-        <div class="modal-body">
-            <p style="font-size: 30px">Some text in the Modal Body</p>
-            
-        </div>
-      </div>
-      <div class="modal-footer">
-        <p *ngIf ="show && hr" class="result" >Your Score is {{hrquiz.score}} </p>  
-        <p *ngIf ="show && pss" class="result" >Your Score is {{pssquiz.score}} </p> 
-        <p *ngIf ="show && hads" class="result" >Your Score is {{hdssquiz.score}} </p> 
-     
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+<div class="container">
+<div class="row"  *ngIf="newuser == false" >
+  <div class="col-md-12 col-lg-12 col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <app-guage style="margin-left: 10vw;"></app-guage>
       </div>
     </div>
-
   </div>
-</div>
-</div>
+ </div>
+
+ <div class="row" style="position: absolute;top: 50vh;left: 0;">
+
+    <div class="col-md-4 col-lg-4 col-sm-4">
+
+
+        <div class="card top">
+            <div class="card-body">
+              
+            
+              <!--card content-->
+             
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                  </ol>
+                
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+           
+                      <div class="item active ">
+                          <h4 style="font-size: 35px; color: #bd2db6;text-align: center;padding: 50px;font-family: 'Amaranth';padding-bottom: 0px;">"Daily tips!"</h4>
+                          <h4><span style="font-family: 'Amaranth'; font-size: 3vh;color: #a99ddf;text-align: center;padding-left: 50%;">-Stress Controller-</span></h4>
+                      </div>
+    
+                     
+                      <div class="item" *ngFor="let tip of tips" >
+                          <h4 style="font-size: 35px; color: #bd2db6;;text-align: center;padding: 50px;font-family: 'Amaranth';padding-bottom: 0px;">{{tip}}</h4>
+                          <h4><span style="font-style:normal; font-size: 3vh;color: #a99ddf;text-align: center;padding-left: 50%;"></span></h4>
+                      </div>   
+                
+                  </div>
+              
+                  <!-- Left and right controls -->
+                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+              </div>
+             </div>
+             </div>
+             </div>
+
+
+  
+
+    <div class="col-md-4 col-lg-4 col-sm-4">
+      <div class="card top">
+          <div class="card-body">
+            <app-chart></app-chart>  
+          </div>  
+      </div>
+    </div>  
+
+
+    <div class="col-md-4 col-lg-4 col-sm-4">
+      <div class="card top">
+        <div>
+          <div class="card-body">
+              <img src={{myimage}} style="width: 100px;height: 100px;">
+              <br>
+              {{text}}
+          </div>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+  </div>

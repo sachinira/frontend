@@ -1,0 +1,200 @@
+/*card*/
+
+.row{
+    padding: 2vh;
+    
+ }
+ 
+ .card{
+     /*background:linear-gradient(rgb(165, 22, 139), rgb(12, 5, 109));*/
+     background:transparent;
+     margin-bottom: 1vh;
+     margin-top: 2vh;
+     color: rgb(238, 219, 245);
+    /* box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);*/
+     opacity: 0.9;
+ 
+ }
+ 
+ .sm{
+     height: 65vh;
+     overflow: hidden;
+     box-shadow: wheat;
+ }
+ .card-title{
+     text-align: center;
+     padding: 1vh;
+ }
+ 
+ /*tabs*/
+ .nav {
+     overflow: hidden;
+    /* border: 1px solid #ccc;*/
+     border: none;
+     background-color: rgba(0,0,0,0.1);}
+ 
+ /* Style the buttons that are used to open the tab content */
+ .nav button {
+     /*background-color: inherit;*/
+     float: left;
+     border: none;
+     outline: none;
+     cursor: pointer;
+     padding: 14px 16px;
+     transition: 0.3s;
+     background-color: rgba(0,0,0,0.1);
+ 
+ }
+ 
+ /* Change background color of buttons on hover */
+ .nav button:hover {
+     background-color: rgba(0,0,0,0.1);
+ }
+ 
+ /* Create an active/current tablink class */
+ .nav button.active {
+     background-color: rgba(0,0,0,0.1);
+ }
+ 
+ 
+ /*.tablink {
+     background-color: rgb(19, 10, 104);
+     color: white;
+     float: left;
+     border: none;
+     outline: none;
+     cursor: pointer;
+ }
+ 
+ .tablink:hover{
+     background-color: aqua;
+ }*/
+ 
+ /* Set default styles for tab content */
+ .tabcontent {
+     color: white;
+     display: none;
+     padding: 5%;
+     text-align: center;
+     background-size: 100% 100%;
+     background-repeat: no-repeat;
+     
+ }
+ .head{
+     font-family: 'Amaranth';
+     font-size: 5vh;
+ }
+ 
+ .content{
+     font-family: 'Amaranth';
+     font-size: 4vh;
+ }
+ 
+ .list{
+ 
+     font-family: 'Amaranth';
+ 
+ }
+ /* Style each tab content individually */
+ #London {
+     background-image: url('../../../assets/img/cardb.jpeg');
+     
+ }
+ 
+ #Paris {
+     background-image: url('../../../assets/img/card.jpg');
+ 
+ }
+ 
+ #Oslo {
+     background-image: url('../../../assets/img/ceaser.jpeg');
+ 
+ }
+ 
+ 
+ /*tab questions*/
+ 
+ .radiob{
+     float: right;
+ }
+ 
+ .list{
+     padding: 50px;
+ }
+ 
+ .answers{
+     float: right;
+     
+ }
+ 
+ h5{
+     color: rgb(153, 241, 241);
+ }
+ 
+ p{
+     font-family: 'Amaranth';
+     font-size: 35px;
+ }
+ 
+ input{
+     margin: 10px;
+     padding: 10px;
+     
+ }
+ 
+ .qitem{
+     padding: 5px;
+     font-size: 3vh;
+ 
+ }
+ 
+ .cal{
+     width: 100%;
+     padding: 3vh;
+     color: rgb(252, 248, 248);
+     background-color: rgb(18, 116, 201);
+     font-size: 3vh;
+     border: none;
+ }
+ 
+ .result{
+     color: aliceblue;
+ }
+ 
+ /*carousal*/
+ 
+ .carousel-inner{
+     background-image: url('../../../assets/img/human.png');
+     height: 200px;
+     background-size: cover;
+     font-family: 'Amaranth';
+     color: rgb(45, 214, 129);
+ 
+ }
+ 
+
+ /*modal*/
+ 
+ .btn{
+     margin: 1vw;
+     background: rgba(16, 89, 148, 0.884);
+     border: none;
+ }
+ 
+ .modal-title{
+     font-family: 'Amaranth';
+     font-size: 30px;
+     text-align: center;
+     color: aliceblue;
+ }
+ 
+ .modal-body{
+ position: static;
+ }
+ 
+ .modal-footer{
+     text-align: center;
+ 
+ }
+ 
+ 

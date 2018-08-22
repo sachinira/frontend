@@ -1,0 +1,201 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
+    <div class="card">
+        <div class="card-block">
+            
+
+
+            <!--tabs-->
+
+            <!--tabheader-->
+            <div id="London" class="tabcontent">
+              <h3 class="head">Holms and Rahe Life Stress Inventory</h3>
+              <p class="content">Known as Social Readjustment Rating Scale (SRRS) and commonly known as Holms and Rahe stress scale. This tool helps you to measure the stress
+                load you carry, and think about what you should do about it. The answers should be from the life events from the previous two years</p>
+            </div>
+            
+            <div id="Paris" class="tabcontent">
+              <h3 class="head">Perceived Stress Scale</h3>
+              <p class="content">The Perceived Stress Scale (PSS) is the most widely used psychological instrument for measuring the perception of
+                stress.It concerns of the feelings and thoughts during the last month.Give us how often you felt in one of the ways. Your immidiate response will give you the best result.</p>
+            </div>
+            
+            
+            <div id="Oslo" class="tabcontent">
+              <h3 class="head">Hospital Anxiety and Depression Scale (HADS)</h3>
+              <p class="content">This questionnaire is designed to measure imotions, know how you feel.
+                each item and select the reply which comes closest to how you have been feeling in the past week. Don’t take too long over
+                your replies. your immediate reaction to each item will probably be more accurate than a long thought out response.</p>
+            </div>
+
+
+            <!--tabcontent--> <!--where to put the result-->
+            <ul class="nav nav-tabs">
+              <li class="active" ><a id="defaultOpen" data-toggle="tab" href="#home" (click)="openCity('London', this, 'red')">H&R</a></li>
+              <li><a data-toggle="tab" href="#menu1" (click)="openCity('Paris', this, 'red')">PSS</a></li>
+             <!-- <li><a data-toggle="tab" href="#menu2"(click)="openCity('Oslo', this, 'red')" >HADS</a></li>-->
+            </ul>
+            
+            <div class="tab-content">
+              <div id="home" class="tab-pane fade-in active">
+                <ol class="list">
+                  <form #myForm="ngForm" (submit)="calHR(); myForm.reset()">
+                  <div *ngFor="let question of hrquestions">
+                  <li class="qitem">{{question.question}} 
+                      <div class="answers">
+                          <input id = "yes" type = "radio" [(ngModel)]=question.mark name="hr{{question.index}}" value="{{question.marks}}"/>
+                          <label for = "yes"><h5 class="black" style="font-size: 15px;">Yes</h5></label>
+                        
+                            <input id = "no" type = "radio" [(ngModel)]=question.mark  name="hr{{question.index}}" value="0" />
+                            <label for = "no"><h5 class="black" style="font-size: 15px;">No</h5></label>
+                      </div>
+                  </li>
+                  <hr>
+                  </div>
+                  <button type="submit" class="cal"  data-toggle="modal" data-target="#myModal">calculate</button>
+
+                                                                                                                   
+
+
+                  </form>
+                </ol> 
+              </div>
+              <div id="menu1" class="tab-pane fade">
+                <ol class="list">
+                  <form #myFormP="ngForm" (submit)="calPSS(); myFormP.reset()">
+                   <div *ngFor="let question of pssquestions">
+                        <li class="qitem">{{question.question}} <br/>
+                              <input id = "never" type = "radio" [(ngModel)]="question.mark"  name="pss{{question.index}}" value="{{question.ans1m}}"/>
+                              <label for = "never"><h5 class="black" style="font-size: 15px;">Never</h5></label>
+                          
+                              <input id = "alnever" type = "radio" [(ngModel)]="question.mark" name="pss{{question.index}}" value="{{question.ans2m}}"  />
+                              <label for = "alnever"><h5 class="black" style="font-size: 15px;">Almost Never</h5></label>
+
+                              <input id = "sometimes" type = "radio" [(ngModel)]="question.mark" name="pss{{question.index}}" value="{{question.ans3m}}"  />
+                              <label for = "sometimes"><h5 class="black" style="font-size: 15px;">Sometimes</h5></label>
+
+                              <input id = "foften" type = "radio" [(ngModel)]="question.mark" name="pss{{question.index}}" value="{{question.ans4m}}"  />
+                              <label for = "foften"><h5 class="black" style="font-size: 15px;">Fairly Often</h5></label>
+
+                              <input id = "voften" type = "radio" [(ngModel)]="question.mark" name="pss{{question.index}}" value="{{question.ans5m}}"/>
+                              <label for = "voften"><h5 class="black" style="font-size: 15px;">Very Often</h5></label>
+                        </li>
+                        <hr>
+                    </div>
+                    
+
+                    <button type="submit" class="cal" data-toggle="modal" data-target="#myModal">calculate</button>
+
+                  
+                                                                                                                   
+                  
+                  </form>
+                
+
+                </ol> 
+
+               
+
+              </div>
+              <div id="menu2" class="tab-pane fade">
+                <ol class="list">
+                  <form #myFormH="ngForm" (submit)="calHads(); myFormH.reset()">
+                    <div *ngFor="let question of hdssquestions">
+                        <li class="qitem">{{question.question}}<br>
+
+                           <input id = "ans1" type = "radio" name ="hads{{question.index}}" value ="{{question.ans1m}}"/>
+                            <label for = "ans1"><h5 class="black" style="font-size: 15px;">{{question.ans1}}</h5></label>
+                        
+                            <input id = "ans2" type = "radio" name ="hads{{question.index}}" value ="{{question.ans2m}}"/>
+                            <label for = "ans2"><h5 class="black" style="font-size: 15px;">{{question.ans2}}</h5></label>
+
+                            <input id = "ans3" type = "radio" name ="hads{{question.index}}" value ="{{question.ans3m}}"/>
+                            <label for = "ans3"><h5 class="black" style="font-size: 15px;">{{question.ans3}}</h5></label>
+
+                            <input id = "ans4" type = "radio" name ="hads{{question.index}}" value ="{{question.ans4m}}"/>
+                            <label for = "ans4"><h5 class="black" style="font-size: 15px;">{{question.ans4}}</h5></label> 
+
+                        </li>
+                        <hr>
+                    </div>
+
+                    <button type="submit" class="cal"  data-toggle="modal" data-target="#myModal">calculate</button>
+
+                                                                                                                      
+
+                    </form>
+                </ol> 
+              </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="row">
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+  <!-- Modal content-->
+  <div  [style.background]="colourModel()">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Your Stress Level and suggestions</h4>
+      <hr>
+      <div class="gauge" style="float: left;margin: 1vw">
+        <canvas width="150" height="150" id="canvas-preview"></canvas>
+        <div id="preview-textfield" style="font-size: 15px;">0%</div>
+      </div>
+
+      <div class="modal-body">
+          <p style="font-size: 30px;display: inline;">{{text}}</p>
+          <br>
+          
+           <div style="display: inline-block;">
+              <button class="btn" data-dismiss="modal" (click)="gotoMusic()">Music Thropy</button>
+              <button class="btn" data-dismiss="modal" (click)="gotoBook()">Book Counceller</button>
+            </div>
+           
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p *ngIf ="show && hr" class="result" >Your Score is {{hrquiz.score}} </p>  
+      <div class="alert alert-success" *ngIf = "ok && hr">
+        <strong>Success!</strong> {{success}}
+      </div>
+
+      <div class="alert alert-danger" *ngIf = "!ok && hr" >
+        <strong>Danger!</strong> {{error}}
+      </div>
+      <p *ngIf ="show && pss" class="result" >Your Score is {{pssquiz.score}} </p> 
+      <div class="alert alert-success" *ngIf = "ok && pss">
+        <strong>Success!</strong> {{success}}
+      </div>
+
+      <div class="alert alert-danger" *ngIf = "!ok && pss" >
+        <strong>Danger!</strong> {{error}}
+      </div>
+      <p *ngIf ="show && hads" class="result" >Your  Anxiety Score is {{hdssquiz.scorea}} </p> 
+      <p *ngIf ="show && hads" class="result" >Your  Depression Score is {{hdssquiz.scored}} </p> 
+      <p *ngIf ="show && hads" class="result" >Your Score is {{hdssquiz.score}} </p> 
+      <div class="alert alert-success" *ngIf = "ok && hads">
+        <strong>Success!</strong> {{success}}
+      </div>
+
+      <div class="alert alert-danger" *ngIf = "!ok && hads" >
+        <strong>Danger!</strong> {{error}}
+      </div>
+     
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>

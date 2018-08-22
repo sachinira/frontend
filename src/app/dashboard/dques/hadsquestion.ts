@@ -2,7 +2,7 @@ export class HadsQuestion{
 
     constructor(
         private question:string='',
-        private index:string='',
+        public index:string='',
         private ans1:string='',
         private ans2:string='',
         private ans3:string='',

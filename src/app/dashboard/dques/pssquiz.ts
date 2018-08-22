@@ -28,5 +28,7 @@ export class PssQuiz{
       for(var i=0;i<this.ques.length;i++){
         this.score = this.score+ +this.ques[i].mark;
       }
+
+      this.score = (this.score/40)*100
     }
 }

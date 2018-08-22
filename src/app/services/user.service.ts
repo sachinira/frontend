@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders,HttpClient } from '@angular/common/http';
-import { AllUser } from '../home/all_user';
+import { AccountUser } from '../home/account_user';
+import { EnterMsg } from '../dashboard/dchat/enterChat';
+import { ChatMessage } from '../dashboard/dchat/chat';
 
 
 @Injectable({
@@ -18,8 +20,28 @@ export class UserService {
   
 
   second:any;
- /* allMessage:EnterMsg[] = [];
-  newMsg:EnterMsg = new EnterMsg();*/
+  allMessage:EnterMsg[] = [];
+
+  results:any;
+  messaget:EnterMsg=new EnterMsg("2019-08-07",30,3,30,"Helloooo world")
+
+  interval:any;
+
+  countNotification:number=0;
+  countMessage:number=0;
+  otherMsg:number=0;
+
+  notifications:string[]=[];
+  notificationDates:string[]=[];
+  releventUsers:string[]=[];
+  i:number=0;
+  j:number=0;
+
+  messages:string[]=[];
+  messageDates:string[]=[];
+  senders:string[]=[];
+
+  newMsg:EnterMsg = new EnterMsg();
 
   constructor(private http:HttpClient) { }
 
@@ -54,15 +76,22 @@ export class UserService {
     
   }
 
-  /*getMsg(id1:string,id2:string,numberOfInstance:string){
+  getMsg(id1:string,id2:string,numberOfInstance:string){
+    this.allMessage = [];
+
     return this.http.post(this.baseUrl+'/getOneChat',{id1,id2,numberOfInstance},this.httpOptions).subscribe(
       (data)=>{
         data['list'].forEach(element => {
           this.allMessage.push(element);
          }
-
         )
-      });
+      },
+      (err)=>{
+        console.log(err);
+        
+      }
+    
+    );
   }
 
   chat(chat:ChatMessage){
@@ -76,14 +105,16 @@ export class UserService {
     
 
     return this.http.post(this.baseUrl+'/chat',JSON.stringify(chat),this.httpOptions);
-  }*/
+
+    
+  }
 
 
   get_history(id:string){
     return this.http.post(this.baseUrl+'/user/LevelHistory',{id},this.httpOptions);
   }
 
-  account_setting(user:AllUser){
+  account_setting(user:AccountUser){
     console.log(JSON.stringify(user));
     return this.http.post(this.baseUrl+'/accountSetting',JSON.stringify(user),this.httpOptions);
   }
@@ -101,11 +132,81 @@ export class UserService {
   }
 
   realtime(id:string){
-    return this.http.post(this.baseUrl+'/realtime',{id},this.httpOptions);
+
+    this.interval = setInterval(() => {
+      return this.http.post(this.baseUrl+'/realtime',{id},this.httpOptions).subscribe(
+        data => {
+            console.log(data);
+            if(data['status']){
+              this.results = data['list'];
+              this.getNotifications();
+            }
+           
+        });
+     }, 5000);
+    
+  }
+
+
+  getNotifications(){
+   
+    this.results.forEach((x:any)=>{
+      if(x.type === "messages"){
+        this.countMessage++;
+        this.messages[this.i] = x.updatedStatus;
+        this.messageDates[this.i] = x.notificationSendDate;
+        this.senders[this.i] = x.affectedUserId;
+        this.i++;
+        this.allMessage.push(this.messaget);
+      }
+      else{
+        this.countNotification++;
+        this.notifications[this.j] = x.updatedStatus;
+        this.notificationDates[this.j] = x.notificationSendDate;
+        this.releventUsers[this.j] = x.affectedUserId;
+        this.j++;
+      }
+      
+    })
+  }
+
+ /* pushMsg(id:string){
+    return this.http.post(this.baseUrl+'/realtime',{id},this.httpOptions).subscribe(
+      data=>{
+        if(data['status']){
+          this.results = data['list'];
+          if(this.results.length >= 0){
+            this.results.forEach((x:any)=>{
+              if(x.type === "messages"){
+                this.allMessage.push(this.messaget);
+              }
+            });
+          }
+        }
+      },
+      err =>{
+        console.log(err);
+        
+      }
+    );
+
+  }
+*/
+ 
+  getTips(id:string,numberOfInstance:string){
+    return this.http.post(this.baseUrl+'/getTips',{id,numberOfInstance},this.httpOptions);
   }
 
  
-  getTips(){
-    return this.http.post(this.baseUrl+'/getTips',{},this.httpOptions);
+  delete_counceller(userId:string,councellerId:string){
+    return this.http.post(this.baseUrl+'/user/removeCounceller',{userId,councellerId},this.httpOptions);
+  }
+
+  getTracks(id:string){
+    return this.http.post(this.baseUrl+'/user/getTracks',{id},this.httpOptions);
+  }
+
+  bookingHistory(id:string){
+    return this.http.post(this.baseUrl+'/user/getBookingHistory',{id},this.httpOptions);
   }
 }

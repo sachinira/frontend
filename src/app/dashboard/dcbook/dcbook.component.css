@@ -1,0 +1,60 @@
+.row{
+    padding: 1vh;
+}
+
+.card{
+    /*background:linear-gradient(rgb(165, 22, 139), rgb(12, 5, 109));*/
+    background: transparent;
+    padding: 1vmax;
+    color: rgb(248, 248, 248);
+    /*box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);*/
+    max-height: 50%;
+    opacity: 0.9;
+}
+.card-title{
+    text-align: center;
+    padding: 1vh;
+}
+
+.card-header{
+    height: 300px;
+    width: 300px;
+    background:url(../../../assets/img/map.jpg);
+    clip-path:polygon(59% 33%,100% 50%,50% 100%, 0% 50%);
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.card-text{
+    font-size: 2vmax;
+    color: rgb(224, 203, 241);
+    text-align: center;
+    line-height: 7vh;
+    font-family: 'Amaranth';
+    font-size: 5vh;
+
+}
+
+.alert{
+    width: 30%;
+}
+
+.strong{
+    margin: 1vh;
+}
+
+.bookbtn{
+    color: rgb(216, 179, 228);
+    float: right;
+    border: none;
+    background-color: blueviolet;
+    padding: 1.2vh 1vw;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 1vw;
+    border-radius: 10%;
+
+}
+

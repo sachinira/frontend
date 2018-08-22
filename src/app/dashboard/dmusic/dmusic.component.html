@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4 col-lg-4 col-sm-4"></div>
     <div class="col-md-4 col-lg-4 col-sm-4">
-      <img src="../../../assets/img/onboarding-brain_9b609b84a83a982727e9cebd183ad478.gif" style="height: 300px;width: 300px;">
+      <img src="../../../assets/img/onboarding-brain_9b609b84a83a982727e9cebd183ad478.gif" style="height: 200px;width: 200px;">
     </div>
     <div class="col-md-4 col-lg-4 col-sm-4"></div>
 
@@ -12,16 +12,19 @@
 
 <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12">
-          <div class="card">
+          <div  [style.background]="colourModel()" *ngIf="high">
             <div class="card-body">
               <h2 class="card-title">Music for highly stressed peple</h2>
     
-              <!--card content-->
+              <!--card content
              
                 <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                 <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/GgqkWqxT5OA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/cGaONfPbf_g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/AmqDOA-JALg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/AmqDOA-JALg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+                <div *ngFor="let maxtrack of maxtracks">
+                  <iframe width="250" height="160" class="vedio" [src]='hightrack' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
             </div>
           </div>
         </div>
@@ -29,16 +32,20 @@
 
     <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12">
-              <div class="card">
+              <div [style.background]="colourModel()" *ngIf="mid">
                 <div class="card-body">
                   <h2 class="card-title">Music for people with mild stress</h2>
         
-                  <!--card content-->
+                  <!--card content
                  
                   <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                   <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/GgqkWqxT5OA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                   <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/cGaONfPbf_g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                  <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/AmqDOA-JALg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/AmqDOA-JALg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+                  <div *ngFor="let midtrack of midtracks">
+                    <iframe width="250" height="160" class="vedio" [src]='midtrack' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -47,15 +54,18 @@
 
         <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12">
-                  <div class="card">
+                  <div [style.background]="colourModel()" *ngIf="low" >
                     <div class="card-body">
                       <h2 class="card-title">Music for people with a bit of stress</h2>
             
-                      <!--card content-->
+                      <!--card content
                       <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/GgqkWqxT5OA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/cGaONfPbf_g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/AmqDOA-JALg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                      <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/GgqkWqxT5OA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                      <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/cGaONfPbf_g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                      <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/AmqDOA-JALg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+                      <div *ngFor="let mintrack of mintracks">
+                        <iframe width="250" height="160" class="vedio" [src]='mintrack' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                      </div>
                     </div>
                 </div>
               </div>
@@ -63,4 +73,11 @@
             
         </div>
 
+        <div class="row">
+          <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="alert alert-info" *ngIf="nohistory==true">
+                  <strong>You haven't measured your stress level Yet!</strong>
+              </div>
+          </div>
+        </div>
 
