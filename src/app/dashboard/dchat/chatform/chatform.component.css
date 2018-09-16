@@ -31,3 +31,30 @@
 .chatButton:hover{
     background-color: #444;
 } */
+
+.chatin{
+    width:90%;
+    height: 7vh;
+    border-radius: 0%;
+    background-color: rgba(112, 110, 223, 0.678);
+    border: none;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    font-size: 1.3em;
+    bottom: 0;
+
+}
+
+
+.chatbtn{
+    width:10%;
+    height: 7vh;
+    border-radius: 0%;
+    background-color: rgb(126, 35, 121);
+    color: white;
+    border: none;
+    margin-top: 3vh;
+    font-size: 1.3em;
+    margin-bottom: 2vh;
+    bottom: 0;
+}

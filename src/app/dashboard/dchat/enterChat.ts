@@ -4,6 +4,7 @@ export class EnterMsg{
         public id:number=0,
         public receiver:number=0,
         public sender:number=0,
-        public msg:string=''
+        public msg:string='',
+        
     ){};
 }

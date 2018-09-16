@@ -5,6 +5,16 @@ import { EnterMsg } from '../dashboard/dchat/enterChat';
 import { ChatMessage } from '../dashboard/dchat/chat';
 
 
+/*import ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+
+var toneAnalyzer = new ToneAnalyzerV3({
+    version: '2017-09-21',
+    username: '6b4b5775-768f-40e8-9e32-91f152d91a3c',
+    password: 'kM1SOGSEcQCo',
+    url: 'https://gateway.watsonplatform.net/tone-analyzer/api'
+  });
+*/
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,9 +31,8 @@ export class UserService {
 
   second:any;
   allMessage:EnterMsg[] = [];
-
   results:any;
-  messaget:EnterMsg=new EnterMsg("2019-08-07",30,3,30,"Helloooo world")
+  messaget:EnterMsg;
 
   interval:any;
 
@@ -100,6 +109,19 @@ export class UserService {
     this.newMsg.msg = chat.msg;
     this.newMsg.date_time = chat.date_time;
 
+   /* var toneParams = {
+      'tone_input': { 'text': this.newMsg.msg },
+      'content_type': 'application/json'
+    };
+
+    toneAnalyzer.tone(toneParams, function (error, toneAnalysis) {
+      if (error) {
+        console.log(error);
+      } else { 
+        console.log(JSON.stringify(toneAnalysis, null, 2));
+      }
+    });*/
+
     this.allMessage.push(this.newMsg);
     
 
@@ -155,6 +177,9 @@ export class UserService {
         this.messages[this.i] = x.updatedStatus;
         this.messageDates[this.i] = x.notificationSendDate;
         this.senders[this.i] = x.affectedUserId;
+
+        this.messaget = new EnterMsg(x.notificationSendDate,0,x.fromId,x.affectedUserId,x.data);
+        
         this.i++;
         this.allMessage.push(this.messaget);
       }
@@ -207,5 +232,9 @@ export class UserService {
 
   bookingHistory(id:string){
     return this.http.post(this.baseUrl+'/user/getBookingHistory',{id},this.httpOptions);
+  }
+
+  imageUpload(file:File){
+    return this.http.post(this.baseUrl+'/imageupload',{},this.httpOptions);
   }
 }

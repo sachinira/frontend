@@ -106,12 +106,14 @@ export class DprofileComponent implements OnInit {
 
   onImage(event){
 
+    
     console.log('enter');
   }
 
   getFile(file:File){
 
     console.log(file);
+    this.fileToUplaod = file;
     
     
 

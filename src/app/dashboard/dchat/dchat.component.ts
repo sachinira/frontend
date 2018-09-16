@@ -9,9 +9,18 @@ export class DchatComponent implements OnInit,AfterViewChecked {
 
   @ViewChild('scroller') private feedContainer:ElementRef; 
 
+  newchat:boolean = true;
+
   constructor() { }
 
   ngOnInit() {
+
+    if(localStorage.getItem("chatC") == null ){
+      this.newchat = true;
+    }
+    else{
+      this.newchat = false;
+    }
   }
 
   scrollBottom():void{

@@ -4,9 +4,10 @@
 
 .card{
     /*background:linear-gradient(rgb(165, 22, 139), rgb(12, 5, 109));*/
-    background: transparent;
-    padding: 1vmax;
-    color: rgb(248, 248, 248);
+    padding: 1vmax;    
+    background-color: rgba(34, 27, 134, 0.562);
+    color: rgb(255, 250, 250);
+    box-shadow: 0px 0px 2px 	rgb(102, 99, 102),0px 0px 6px  rgb(95, 93, 93);
     /*box-shadow: 0px 0px 6px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);*/
     max-height: 50%;
     opacity: 0.9;
@@ -28,7 +29,7 @@
 
 .card-text{
     font-size: 2vmax;
-    color: rgb(224, 203, 241);
+    color: rgb(228, 221, 233);
     text-align: center;
     line-height: 7vh;
     font-family: 'Amaranth';
@@ -81,7 +82,7 @@ agm-map{
     color: rgb(216, 179, 228);
     float: right;
     border: none;
-    background-color: blueviolet;
+    background-color: rgb(126, 35, 121);
     padding: 1.2vh 1vw;
     text-align: center;
     text-decoration: none;
@@ -99,12 +100,12 @@ agm-map{
 /*tab*/
 
 .nav{
-    background-color: rgba(2, 2, 2,0.5);
+    background-color: rgba(109, 23, 126, 0.5);
 }
 
 .nav-tabs > li > a {
     border: none;
-    color: rgb(25, 92, 180);
+    color: rgb(15, 56, 97);
 }
 
 

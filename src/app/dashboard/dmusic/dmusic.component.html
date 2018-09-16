@@ -23,7 +23,7 @@
                 <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/cGaONfPbf_g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/AmqDOA-JALg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
                 <div *ngFor="let maxtrack of maxtracks">
-                  <iframe width="250" height="160" class="vedio" [src]='hightrack' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  <iframe width="250" height="160" class="vedio" src={{maxtrack}} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
             </div>
           </div>
@@ -36,14 +36,14 @@
                 <div class="card-body">
                   <h2 class="card-title">Music for people with mild stress</h2>
         
-                  <!--card content
+                  
                  
-                  <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                  <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/GgqkWqxT5OA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  <!--<iframe width="250" height="160" class="vedio" src=""></iframe>-->
+               <!--   <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/GgqkWqxT5OA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                   <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/cGaONfPbf_g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                   <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/AmqDOA-JALg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
                   <div *ngFor="let midtrack of midtracks">
-                    <iframe width="250" height="160" class="vedio" [src]='midtrack' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe width="250" height="160" class="vedio" src={{midtrack}} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                   </div>
 
                 </div>
@@ -64,7 +64,7 @@
                       <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/cGaONfPbf_g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                       <iframe width="250" height="160" class="vedio" src="https://www.youtube.com/embed/AmqDOA-JALg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
                       <div *ngFor="let mintrack of mintracks">
-                        <iframe width="250" height="160" class="vedio" [src]='mintrack' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe width="250" height="160" class="vedio" src = {{mintrack}} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                       </div>
                     </div>
                 </div>
