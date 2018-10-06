@@ -14,9 +14,9 @@ export class DmusicComponent implements OnInit {
 
   level:number;
 
-  mintracks:string[]=[];
-  midtracks:string[]=[];
-  maxtracks:string[]=[];
+  mintracks:any[]=[];
+  midtracks:any[]=[];
+  maxtracks:any[]=[];
 
 
   high:boolean;

@@ -51,7 +51,12 @@ const childRoutes:Routes = [
     FormsModule,
     RouterModule.forChild(childRoutes),
     NgbModule,
-    ImageCropperModule
+    ImageCropperModule,
+    AgmCoreModule.forRoot({
+      apiKey:
+      'AIzaSyB9qQh5Mw4MhnsSs0RCYxzPBZZrNvDhHl8'
+      
+    })
     
   ],
   declarations: [

@@ -115,16 +115,16 @@ export class DhomeComponent implements OnInit {
     //console.log(this.level);
     
     if(this.level <=30){
-      this.myimage="../../../assets/img/thumb-up.png";
-        return 'rgba(108, 191, 70,0.8)';
+      return this.myimage="../../../assets/img/thumb-up.png";
+        
     }
     else if(this.level<=50){
-      this.myimage="../../../assets/img/doubt.png";
-        return 'rgba(218, 125, 24,0.8)'
+      return this.myimage="../../../assets/img/doubt.png";
+       
     }
     else if(this.level<=100){
-      this.myimage="../../../assets/img/crying.png";
-        return 'rgba(221, 22, 18,0.8)';
+      return this.myimage="../../../assets/img/crying.png";
+       
     }
   }
 

@@ -5,16 +5,16 @@
 }
 
 .card{
-    background: transparent;
+    background-color: rgba(34, 27, 134, 0.562);
     padding: 1vmax;
     margin: 1vmax;
     margin-left: 1vmax;
     margin-right: 1vmax;
-    box-shadow: 0px 0px 2px 	rgb(15, 14, 15),0px 0px 6px  rgb(29, 28, 28);
+    box-shadow: 0px 0px 2px 	rgb(102, 99, 102),0px 0px 6px  rgb(95, 93, 93);
     max-height: 50%;
     overflow: hidden;
     opacity: 0.9;
-    color: rgb(255, 255, 255);
+    color: rgb(250, 246, 246);
 }
 .card-title{
     text-align: center;
@@ -34,7 +34,7 @@
 }
 
 .title {
-    color: rgb(252, 249, 249);
+    color: rgb(205, 215, 247);
     font-size: 18px;
 }
 
@@ -44,7 +44,7 @@ button {
     display: inline-block;
     padding: 8px;
     color: white;
-    background-color: rgb(190, 81, 185);
+    background-color: rgb(126, 35, 121);
     text-align: center;
     cursor: pointer;
     width:100%;
@@ -65,7 +65,7 @@ button:hover, a:hover {
 .input{
     transition: 0.8s;
     background-color: rgba(241, 238, 238, 0.5);
-    color: rgb(255, 255, 255); 
+    color: rgb(17, 16, 16); 
     border: none;
 }
 

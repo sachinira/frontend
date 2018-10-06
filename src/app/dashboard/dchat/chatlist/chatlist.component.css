@@ -1,0 +1,39 @@
+.card{
+    
+    background-color: rgba(34, 27, 134, 0.562);
+    margin-bottom: 5vh;
+    height: 100%;
+    color: rgb(238, 219, 245);
+    box-shadow: 0px 0px 2px 	rgb(102, 99, 102),0px 0px 6px  rgb(95, 93, 93);
+    opacity: 0.9;
+    font-family: 'Amaranth';
+    cursor: pointer;
+
+}
+
+.dot {
+    height: 5px;
+    width: 5px;
+    background-color: rgb(73, 4, 73);
+    border-radius: 50%;
+    margin-left: 10vw;
+    display: inline-table;
+
+}
+
+.one{
+    padding: 2vh;
+}
+
+img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: black;
+}
+
+.one:hover{
+    
+    background-color: rgba(58, 54, 117, 0.562);
+}
+

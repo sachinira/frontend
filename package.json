@@ -23,6 +23,7 @@
     "@angular/router": "^6.0.3",
     "@ng-bootstrap/ng-bootstrap": "^2.2.0",
     "bootstrap": "^4.1.1",
+    "browserify": "^16.2.2",
     "chart.js": "^2.7.2",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
@@ -30,6 +31,7 @@
     "ngx-image-cropper": "^1.0.1",
     "popper.js": "^1.14.3",
     "rxjs": "^6.0.0",
+    "watson-developer-cloud": "^3.9.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
