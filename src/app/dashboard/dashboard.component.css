@@ -1,7 +1,7 @@
 .main{
-   background: url('./../../assets/img/background.png');
-   /* background-color: rgba(221, 226, 226, 0.849);
-    width: 100%;*/
+    background: url("../../assets/img/Imposing-Purple-Wallpaper2.png");
+    /*background: linear-gradient(135deg, #0d2063 0%,#4c4366 17%,#5c438e 33%,#008a00 67%,#1f9100 83%,#007c21 100%);*/
+    /*width: 100%;*/
     height: 100%;
     background-position: center;
     background-repeat: repeat-y;
